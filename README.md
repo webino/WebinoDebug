@@ -1,4 +1,4 @@
-# Web debugger for Zend Framework 2
+# Web debugger <br /> for Zend Framework 2
 
 
 More than just user friendly error and exception handling.
@@ -12,6 +12,11 @@ More than just user friendly error and exception handling.
 - Can notify by email
 - Discrete production server error page
 - Optional Tracy debugger bar
+
+## Requirements
+
+- PHP 5.4
+- ZendFramework 2
 
 ## Setup
 
