@@ -1,0 +1,32 @@
+{
+    "name":        "webino/webino-debug",
+    "description": "Debugging module for Webino™",
+    "type":        "library",
+    "license":     "proprietary",
+    "keywords":    ["webino", "debug", "zf2"],
+    "homepage":    "http://bitbucket.org/webino/webinodebug",
+    "authors": [
+        {
+            "name":     "Webino, s. r. o.",
+            "email":    "info@webino.sk",
+            "homepage": "http://webino.sk",
+            "role":     "Developer"
+        },
+        {
+            "name":     "Peter Bacinsky",
+            "email":    "peter@bacinsky.sk",
+            "homepage": "http://bacinsky.sk",
+            "role":     "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.5.1",
+        "zendframework/zendframework": "2.*",
+        "tracy/tracy": "2.*"
+    },
+    "require-dev": {
+        "webino/webino-dev": "dev-develop"
+    },
+    "autoload": {"psr-0": {"WebinoDebug": "src/"}}
+}
