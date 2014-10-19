@@ -26,7 +26,8 @@
         "tracy/tracy": "2.*"
     },
     "require-dev": {
-        "webino/webino-dev": "dev-develop"
+        "webino/webino-dev": "dev-develop",
+        "allure-framework/allure-phpunit": "~1.1.0"
     },
     "autoload": {"psr-0": {"WebinoDebug": "src/"}}
 }
