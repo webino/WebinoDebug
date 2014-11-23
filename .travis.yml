@@ -5,6 +5,7 @@ php:
   - 5.5
 
 install:
+  - sudo apt-get install npm -y
   - sudo npm install webino-devkit -g --unsafe-perm
 
 script:
