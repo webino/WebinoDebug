@@ -1,0 +1,11 @@
+language: php
+
+php:
+  - 5.4
+  - 5.5
+
+install:
+  - sudo npm install webino-devkit -g --unsafe-perm
+
+script:
+  - webino test

@@ -15,10 +15,11 @@ return array (
     array (
     ),
   ),
-  'WebinoDebug\\Tracy\\Workaround\\DisabledBar' => 
+  'WebinoDebug\\Factory\\ModuleOptionsFactory' => 
   array (
     'supertypes' => 
     array (
+      0 => 'Zend\\ServiceManager\\FactoryInterface',
     ),
     'instantiator' => '__construct',
     'methods' => 
@@ -165,11 +166,10 @@ return array (
       ),
     ),
   ),
-  'WebinoDebug\\Factory\\ModuleOptionsFactory' => 
+  'WebinoDebug\\Tracy\\Workaround\\DisabledBar' => 
   array (
     'supertypes' => 
     array (
-      0 => 'Zend\\ServiceManager\\FactoryInterface',
     ),
     'instantiator' => '__construct',
     'methods' => 
