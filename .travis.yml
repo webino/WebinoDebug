@@ -8,7 +8,7 @@ install:
   - curl -sL https://deb.nodesource.com/setup | sudo bash -
   - sudo apt-get install -y nodejs
   - sudo npm install webino-devkit -g --unsafe-perm
-  - NODE_PATH=$(sudo npm -g root) webino init
+  - webino init
 
 script:
   - webino test
