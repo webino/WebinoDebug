@@ -5,6 +5,7 @@ nbproject/private
 .buildpath
 .DS_Store
 .idea
+.grunt
 .project
 .settings
 composer.lock
