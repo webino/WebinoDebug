@@ -7,9 +7,8 @@ php:
 install:
   - curl -sL https://deb.nodesource.com/setup | sudo bash -
   - sudo apt-get install -y nodejs
-  - export NODE_PATH=$(sudo npm -g root)
   - sudo npm install webino-devkit -g --unsafe-perm
-  - webino init
+  - NODE_PATH=$(sudo npm -g root) webino init
 
 script:
   - webino test
