@@ -6,6 +6,7 @@ php:
 
 install:
   - sudo apt-get install npm -y
+  - sudo npm config set registry https://registry.npmjs.org/
   - sudo npm install webino-devkit -g --unsafe-perm
 
 script:
