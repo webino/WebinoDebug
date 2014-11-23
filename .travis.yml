@@ -8,8 +8,12 @@ install:
   - curl -sL https://deb.nodesource.com/setup | sudo bash -
   - sudo apt-get install -y nodejs
   - sudo npm install webino-devkit -g --unsafe-perm
-  - sudo chmod o+w /home/travis -R
+  - chmod o+w /home/travis -R
   - webino init
+  - composer require satooshi/php-coveralls:0.*
 
 script:
   - webino test
+
+after_script:
+  - vendor/bin/coveralls -v
