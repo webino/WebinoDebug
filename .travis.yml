@@ -5,7 +5,10 @@ php:
   - 5.5
 
 install:
-  - echo $(pwd)
+  - curl -sL https://deb.nodesource.com/setup | sudo bash -
+  - sudo apt-get install -y nodejs
+  - sudo npm -g root
+  - webino
 
 script:
-  - grunt test
+  - webino test
