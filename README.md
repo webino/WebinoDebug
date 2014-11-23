@@ -28,8 +28,8 @@ Open terminal and go to your application directory
 
 ## Showcase
 
-![local error](https://github.com/webino/WebinoDebug/blob/develop/doc/showcase/dev-error.png "Errors & Exceptions")
-![public error](https://github.com/webino/WebinoDebug/blob/develop/doc/showcase/public-error.png "Title")
+![local error](https://raw.githubusercontent.com/webino/WebinoDebug/develop/doc/showcase/dev-error.png "Errors & Exceptions")
+![public error](https://raw.githubusercontent.com/webino/WebinoDebug/develop/doc/showcase/public-error.png "Title")
 
 ## Development
 
