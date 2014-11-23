@@ -8,7 +8,8 @@ install:
   - curl -sL https://deb.nodesource.com/setup | sudo bash -
   - sudo apt-get install -y nodejs
   - sudo npm install webino-devkit -g --unsafe-perm
-  - sudo webino init
+  - sudo chmod o+w /home/travis -R
+  - webino init
 
 script:
   - webino test
