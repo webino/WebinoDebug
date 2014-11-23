@@ -1,6 +1,5 @@
 # Web debugger <br /> for Zend Framework 2
 
-
 More than just user friendly error and exception handling.
 
   Powered by [Tracy](https://github.com/nette/tracy)
