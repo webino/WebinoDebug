@@ -2,20 +2,20 @@ language: php
 php:
 - 5.4
 - 5.5
-install:
+before_install:
 - curl -sL https://deb.nodesource.com/setup | sudo bash -
 - sudo apt-get install -y nodejs
 - sudo npm install webino-devkit -g --unsafe-perm
 - sudo chmod o+w /home/travis -R
+install:
 - webino init
 - composer require satooshi/php-coveralls:0.*
 script:
 - webino test
 - webino analyze
-after_script:
-- webino api
 after_success:
 - vendor/bin/coveralls -v
+- webino api
 - webino publish-gh-pages
 env:
   global:
