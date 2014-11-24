@@ -1,5 +1,12 @@
 # Web debugger <br /> for Zend Framework 2
 
+[![Build Status](https://secure.travis-ci.org/webino/WebinoDebug.png?branch=develop)](http://travis-ci.org/webino/WebinoDebug "Develop Build Status")
+[![Coverage Status](https://coveralls.io/repos/webino/WebinoDebug/badge.png?branch=develop)](https://coveralls.io/r/webino/WebinoDebug?branch=develop "Develop Coverage Status")
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/webino/WebinoDebug/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/webino/WebinoDebug/?branch=develop "Develop Quality Score")
+[![Dependency Status](https://www.versioneye.com/user/projects/54731cd881010688ca0009ae/badge.svg)](https://www.versioneye.com/user/projects/54731cd881010688ca0009ae "Develop Dependency Status")
+<br />
+[![Latest Stable Version](https://poser.pugx.org/webino/webino-debug/v/stable.svg)](https://packagist.org/packages/webino/webino-debug) [![Total Downloads](https://poser.pugx.org/webino/webino-debug/downloads.svg)](https://packagist.org/packages/webino/webino-debug) [![Latest Unstable Version](https://poser.pugx.org/webino/webino-debug/v/unstable.svg)](https://packagist.org/packages/webino/webino-debug) [![License](https://poser.pugx.org/webino/webino-debug/license.svg)](https://packagist.org/packages/webino/webino-debug)
+
 More than just user friendly error and exception handling.
 
   Powered by [Tracy](https://github.com/nette/tracy)
@@ -32,6 +39,8 @@ Open terminal and go to your application directory
 ![public error](https://raw.githubusercontent.com/webino/WebinoDebug/develop/doc/showcase/public-error.png "Title")
 
 ## Development
+
+[![Dependency Status](https://www.versioneye.com/user/projects/54731cda81010688ca0009b4/badge.svg)](https://www.versioneye.com/user/projects/54731cda81010688ca0009b4)
 
 We will appreciate any contributions on development of this module.
 
