@@ -55,9 +55,7 @@ class Module implements
                 Debugger::$maxLen = $options->getMaxLen();
 
                 $templateMap = $options->getTemplateMap();
-                if (!empty($templateMap)) {
-                    $services->get('ViewTemplateMapResolver')->merge($templateMap);
-                }
+                empty($templateMap) or $services->get('ViewTemplateMapResolver')->merge($templateMap);
             }
         );
     }
