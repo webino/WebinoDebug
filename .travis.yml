@@ -4,7 +4,7 @@ php:
 - 5.5
 before_install:
 - curl -sL https://deb.nodesource.com/setup | sudo bash -
-- sudo apt-get install -y nodejs
+- sudo apt-get install -y nodejs graphviz
 - sudo npm install webino-devkit -g --unsafe-perm
 - sudo chmod o+w /home/travis -R
 install:
