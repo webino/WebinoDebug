@@ -19,5 +19,5 @@ after_success:
 - webino publish-gh-pages -gh-ref $GH_REF -gh-token $GH_TOKEN
 env:
   global:
-    GH_REF: github.com/webino/WebinoDebug
-    secure: S3N4n+pGEnnwMEOndPa8XRMELfNhj61QS1xdaDg89ZIWzXxixW0HHKkbRuNRIGh8kfjxfUT5zTh3zRyFY9ys9wsfwDA5F4y/r/+NkdkKCEflBpprc9KOo4mtfv/XIp/qHQcRKCL18S3GpDpyEFwNoTqTFgmuUOL6DxJ6yUFFEzo=
+    - GH_REF=github.com/webino/WebinoDebug
+    - secure: S3N4n+pGEnnwMEOndPa8XRMELfNhj61QS1xdaDg89ZIWzXxixW0HHKkbRuNRIGh8kfjxfUT5zTh3zRyFY9ys9wsfwDA5F4y/r/+NkdkKCEflBpprc9KOo4mtfv/XIp/qHQcRKCL18S3GpDpyEFwNoTqTFgmuUOL6DxJ6yUFFEzo=
