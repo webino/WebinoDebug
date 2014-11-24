@@ -16,7 +16,7 @@ script:
 after_success:
 - vendor/bin/coveralls -v
 - webino api
-- webino publish-gh-pages -gh-ref $GH_REF -gh-token $GH_TOKEN
+- webino publish-gh-pages
 env:
   global:
     - GH_REF=github.com/webino/WebinoDebug
