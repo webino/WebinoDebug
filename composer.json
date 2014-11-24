@@ -27,7 +27,7 @@
     },
     "require-dev": {
         "webino/webino-dev": "dev-develop",
-        "allure-framework/allure-phpunit": "~1.1.0"
+        "allure-framework/allure-phpunit": "1.*"
     },
     "autoload": {"psr-0": {"WebinoDebug": "src/"}}
 }
