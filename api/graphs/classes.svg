@@ -86,12 +86,12 @@
 <text text-anchor="middle" x="708" y="-205.1" font-family="Courier,monospace" font-size="11.00">ModuleOptions</text>
 </g>
 <!-- \\Zend\\Stdlib\\AbstractOptions -->
-<g id="node12" class="node"><title>\\Zend\\Stdlib\\AbstractOptions</title>
+<g id="node16" class="node"><title>\\Zend\\Stdlib\\AbstractOptions</title>
 <ellipse fill="none" stroke="black" cx="280" cy="-208" rx="152.028" ry="18.3848"/>
 <text text-anchor="middle" x="280" y="-204.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\Zend\Stdlib\AbstractOptions</text>
 </g>
 <!-- \\WebinoDebug\\Options\\ModuleOptions&#45;&gt;\\Zend\\Stdlib\\AbstractOptions -->
-<g id="edge8" class="edge"><title>\\WebinoDebug\\Options\\ModuleOptions&#45;&gt;\\Zend\\Stdlib\\AbstractOptions</title>
+<g id="edge12" class="edge"><title>\\WebinoDebug\\Options\\ModuleOptions&#45;&gt;\\Zend\\Stdlib\\AbstractOptions</title>
 <path fill="none" stroke="black" d="M655.947,-208C602.965,-208 518.09,-208 442.381,-208"/>
 <polygon fill="none" stroke="black" points="442.243,-204.5 432.243,-208 442.243,-211.5 442.243,-204.5"/>
 </g>
@@ -116,22 +116,22 @@
 <text text-anchor="middle" x="708" y="-69.1" font-family="Courier,monospace" font-size="11.00">Module</text>
 </g>
 <!-- \\Zend\\ModuleManager\\Feature\\InitProviderInterface -->
-<g id="node14" class="node"><title>\\Zend\\ModuleManager\\Feature\\InitProviderInterface</title>
+<g id="node12" class="node"><title>\\Zend\\ModuleManager\\Feature\\InitProviderInterface</title>
 <ellipse fill="none" stroke="black" cx="280" cy="-72" rx="265.165" ry="18.3848"/>
 <text text-anchor="middle" x="280" y="-68.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\Zend\ModuleManager\Feature\InitProviderInterface</text>
 </g>
 <!-- \\WebinoDebug\\Module&#45;&gt;\\Zend\\ModuleManager\\Feature\\InitProviderInterface -->
-<g id="edge10" class="edge"><title>\\WebinoDebug\\Module&#45;&gt;\\Zend\\ModuleManager\\Feature\\InitProviderInterface</title>
+<g id="edge8" class="edge"><title>\\WebinoDebug\\Module&#45;&gt;\\Zend\\ModuleManager\\Feature\\InitProviderInterface</title>
 <path fill="none" stroke="black" stroke-dasharray="1,5" d="M679.253,-72C651.315,-72 605.803,-72 555.319,-72"/>
 <polygon fill="none" stroke="black" points="555.159,-68.5001 545.159,-72 555.159,-75.5001 555.159,-68.5001"/>
 </g>
 <!-- \\Zend\\ModuleManager\\Feature\\ConfigProviderInterface -->
-<g id="node16" class="node"><title>\\Zend\\ModuleManager\\Feature\\ConfigProviderInterface</title>
+<g id="node14" class="node"><title>\\Zend\\ModuleManager\\Feature\\ConfigProviderInterface</title>
 <ellipse fill="none" stroke="black" cx="280" cy="-18" rx="278.808" ry="18.3848"/>
 <text text-anchor="middle" x="280" y="-14.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\Zend\ModuleManager\Feature\ConfigProviderInterface</text>
 </g>
 <!-- \\WebinoDebug\\Module&#45;&gt;\\Zend\\ModuleManager\\Feature\\ConfigProviderInterface -->
-<g id="edge12" class="edge"><title>\\WebinoDebug\\Module&#45;&gt;\\Zend\\ModuleManager\\Feature\\ConfigProviderInterface</title>
+<g id="edge10" class="edge"><title>\\WebinoDebug\\Module&#45;&gt;\\Zend\\ModuleManager\\Feature\\ConfigProviderInterface</title>
 <path fill="none" stroke="black" stroke-dasharray="1,5" d="M679.466,-66.0558C649.746,-60.0384 601.779,-50.8147 560,-45 528.329,-40.5921 494.542,-36.6727 461.793,-33.2803"/>
 <polygon fill="none" stroke="black" points="461.971,-29.7803 451.666,-32.2444 461.258,-36.7439 461.971,-29.7803"/>
 </g>
