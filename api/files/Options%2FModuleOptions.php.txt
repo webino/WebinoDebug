@@ -146,7 +146,7 @@ class ModuleOptions extends AbstractOptions
     public function getTemplateMap()
     {
         if (null === $this->templateMap) {
-            $this->setTemplateMap(['error/index' => __DIR__ . '/../view/error/index.phtml']);
+            $this->setTemplateMap(['error/index' => __DIR__ . '/../../../view/error/index.phtml']);
         }
         return $this->templateMap;
     }
