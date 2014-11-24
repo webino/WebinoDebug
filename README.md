@@ -44,7 +44,7 @@ Open terminal and go to your application directory
 
 We will appreciate any contributions on development of this module.
 
-Learn [How to develop Webino modules](https://github.com/webino/Webino/wiki/How-to-develop-Webino-modules)
+Learn [How to develop Webino modules](https://github.com/webino/Webino/wiki/How-to-develop-Webino-module)
 
 ## Addendum
 
