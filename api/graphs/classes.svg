@@ -31,38 +31,38 @@
 <path fill="none" stroke="gray" d="M616,-58C616,-52 622,-46 628,-46"/>
 <text text-anchor="middle" x="708" y="-392.1" font-family="Times Roman,serif" font-size="11.00" fill="gray">WebinoDebug</text>
 </g>
-<g id="graph4" class="cluster"><title>cluster_\WebinoDebug\Tracy</title>
-<polyline fill="none" stroke="gray" points="658,-264 758,-264 "/>
-<path fill="none" stroke="gray" d="M758,-264C764,-264 770,-270 770,-276"/>
-<polyline fill="none" stroke="gray" points="770,-276 770,-364 "/>
-<path fill="none" stroke="gray" d="M770,-364C770,-370 764,-376 758,-376"/>
-<polyline fill="none" stroke="gray" points="758,-376 658,-376 "/>
-<path fill="none" stroke="gray" d="M658,-376C652,-376 646,-370 646,-364"/>
-<polyline fill="none" stroke="gray" points="646,-364 646,-276 "/>
-<path fill="none" stroke="gray" d="M646,-276C646,-270 652,-264 658,-264"/>
-<text text-anchor="middle" x="708" y="-362.1" font-family="Times Roman,serif" font-size="11.00" fill="gray">Tracy</text>
+<g id="graph4" class="cluster"><title>cluster_\WebinoDebug\Options</title>
+<polyline fill="none" stroke="gray" points="660,-302 756,-302 "/>
+<path fill="none" stroke="gray" d="M756,-302C762,-302 768,-308 768,-314"/>
+<polyline fill="none" stroke="gray" points="768,-314 768,-364 "/>
+<path fill="none" stroke="gray" d="M768,-364C768,-370 762,-376 756,-376"/>
+<polyline fill="none" stroke="gray" points="756,-376 660,-376 "/>
+<path fill="none" stroke="gray" d="M660,-376C654,-376 648,-370 648,-364"/>
+<polyline fill="none" stroke="gray" points="648,-364 648,-314 "/>
+<path fill="none" stroke="gray" d="M648,-314C648,-308 654,-302 660,-302"/>
+<text text-anchor="middle" x="708" y="-362.1" font-family="Times Roman,serif" font-size="11.00" fill="gray">Options</text>
 </g>
-<g id="graph5" class="cluster"><title>cluster_\WebinoDebug\Tracy\Workaround</title>
-<polyline fill="none" stroke="gray" points="666,-272 750,-272 "/>
-<path fill="none" stroke="gray" d="M750,-272C756,-272 762,-278 762,-284"/>
-<polyline fill="none" stroke="gray" points="762,-284 762,-334 "/>
-<path fill="none" stroke="gray" d="M762,-334C762,-340 756,-346 750,-346"/>
-<polyline fill="none" stroke="gray" points="750,-346 666,-346 "/>
-<path fill="none" stroke="gray" d="M666,-346C660,-346 654,-340 654,-334"/>
-<polyline fill="none" stroke="gray" points="654,-334 654,-284 "/>
-<path fill="none" stroke="gray" d="M654,-284C654,-278 660,-272 666,-272"/>
-<text text-anchor="middle" x="708" y="-332.1" font-family="Times Roman,serif" font-size="11.00" fill="gray">Workaround</text>
+<g id="graph5" class="cluster"><title>cluster_\WebinoDebug\Tracy</title>
+<polyline fill="none" stroke="gray" points="658,-182 758,-182 "/>
+<path fill="none" stroke="gray" d="M758,-182C764,-182 770,-188 770,-194"/>
+<polyline fill="none" stroke="gray" points="770,-194 770,-282 "/>
+<path fill="none" stroke="gray" d="M770,-282C770,-288 764,-294 758,-294"/>
+<polyline fill="none" stroke="gray" points="758,-294 658,-294 "/>
+<path fill="none" stroke="gray" d="M658,-294C652,-294 646,-288 646,-282"/>
+<polyline fill="none" stroke="gray" points="646,-282 646,-194 "/>
+<path fill="none" stroke="gray" d="M646,-194C646,-188 652,-182 658,-182"/>
+<text text-anchor="middle" x="708" y="-280.1" font-family="Times Roman,serif" font-size="11.00" fill="gray">Tracy</text>
 </g>
-<g id="graph6" class="cluster"><title>cluster_\WebinoDebug\Options</title>
-<polyline fill="none" stroke="gray" points="660,-182 756,-182 "/>
-<path fill="none" stroke="gray" d="M756,-182C762,-182 768,-188 768,-194"/>
-<polyline fill="none" stroke="gray" points="768,-194 768,-244 "/>
-<path fill="none" stroke="gray" d="M768,-244C768,-250 762,-256 756,-256"/>
-<polyline fill="none" stroke="gray" points="756,-256 660,-256 "/>
-<path fill="none" stroke="gray" d="M660,-256C654,-256 648,-250 648,-244"/>
-<polyline fill="none" stroke="gray" points="648,-244 648,-194 "/>
-<path fill="none" stroke="gray" d="M648,-194C648,-188 654,-182 660,-182"/>
-<text text-anchor="middle" x="708" y="-242.1" font-family="Times Roman,serif" font-size="11.00" fill="gray">Options</text>
+<g id="graph6" class="cluster"><title>cluster_\WebinoDebug\Tracy\Workaround</title>
+<polyline fill="none" stroke="gray" points="666,-190 750,-190 "/>
+<path fill="none" stroke="gray" d="M750,-190C756,-190 762,-196 762,-202"/>
+<polyline fill="none" stroke="gray" points="762,-202 762,-252 "/>
+<path fill="none" stroke="gray" d="M762,-252C762,-258 756,-264 750,-264"/>
+<polyline fill="none" stroke="gray" points="750,-264 666,-264 "/>
+<path fill="none" stroke="gray" d="M666,-264C660,-264 654,-258 654,-252"/>
+<polyline fill="none" stroke="gray" points="654,-252 654,-202 "/>
+<path fill="none" stroke="gray" d="M654,-202C654,-196 660,-190 666,-190"/>
+<text text-anchor="middle" x="708" y="-250.1" font-family="Times Roman,serif" font-size="11.00" fill="gray">Workaround</text>
 </g>
 <g id="graph7" class="cluster"><title>cluster_\WebinoDebug\Factory</title>
 <polyline fill="none" stroke="gray" points="636,-100 780,-100 "/>
@@ -75,25 +75,25 @@
 <path fill="none" stroke="gray" d="M624,-112C624,-106 630,-100 636,-100"/>
 <text text-anchor="middle" x="708" y="-160.1" font-family="Times Roman,serif" font-size="11.00" fill="gray">Factory</text>
 </g>
-<!-- \\WebinoDebug\\Tracy\\Workaround\\DisabledBar -->
-<g id="node5" class="node"><title>\\WebinoDebug\\Tracy\\Workaround\\DisabledBar</title>
-<polygon fill="none" stroke="black" points="753,-316 663,-316 663,-280 753,-280 753,-316"/>
-<text text-anchor="middle" x="708" y="-295.1" font-family="Courier,monospace" font-size="11.00">DisabledBar</text>
-</g>
 <!-- \\WebinoDebug\\Options\\ModuleOptions -->
-<g id="node7" class="node"><title>\\WebinoDebug\\Options\\ModuleOptions</title>
-<polygon fill="none" stroke="black" points="760,-226 656,-226 656,-190 760,-190 760,-226"/>
-<text text-anchor="middle" x="708" y="-205.1" font-family="Courier,monospace" font-size="11.00">ModuleOptions</text>
+<g id="node4" class="node"><title>\\WebinoDebug\\Options\\ModuleOptions</title>
+<polygon fill="none" stroke="black" points="760,-346 656,-346 656,-310 760,-310 760,-346"/>
+<text text-anchor="middle" x="708" y="-325.1" font-family="Courier,monospace" font-size="11.00">ModuleOptions</text>
 </g>
 <!-- \\Zend\\Stdlib\\AbstractOptions -->
-<g id="node16" class="node"><title>\\Zend\\Stdlib\\AbstractOptions</title>
-<ellipse fill="none" stroke="black" cx="280" cy="-208" rx="152.028" ry="18.3848"/>
-<text text-anchor="middle" x="280" y="-204.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\Zend\Stdlib\AbstractOptions</text>
+<g id="node12" class="node"><title>\\Zend\\Stdlib\\AbstractOptions</title>
+<ellipse fill="none" stroke="black" cx="280" cy="-328" rx="152.028" ry="18.3848"/>
+<text text-anchor="middle" x="280" y="-324.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\Zend\Stdlib\AbstractOptions</text>
 </g>
 <!-- \\WebinoDebug\\Options\\ModuleOptions&#45;&gt;\\Zend\\Stdlib\\AbstractOptions -->
-<g id="edge12" class="edge"><title>\\WebinoDebug\\Options\\ModuleOptions&#45;&gt;\\Zend\\Stdlib\\AbstractOptions</title>
-<path fill="none" stroke="black" d="M655.947,-208C602.965,-208 518.09,-208 442.381,-208"/>
-<polygon fill="none" stroke="black" points="442.243,-204.5 432.243,-208 442.243,-211.5 442.243,-204.5"/>
+<g id="edge8" class="edge"><title>\\WebinoDebug\\Options\\ModuleOptions&#45;&gt;\\Zend\\Stdlib\\AbstractOptions</title>
+<path fill="none" stroke="black" d="M655.947,-328C602.965,-328 518.09,-328 442.381,-328"/>
+<polygon fill="none" stroke="black" points="442.243,-324.5 432.243,-328 442.243,-331.5 442.243,-324.5"/>
+</g>
+<!-- \\WebinoDebug\\Tracy\\Workaround\\DisabledBar -->
+<g id="node7" class="node"><title>\\WebinoDebug\\Tracy\\Workaround\\DisabledBar</title>
+<polygon fill="none" stroke="black" points="753,-234 663,-234 663,-198 753,-198 753,-234"/>
+<text text-anchor="middle" x="708" y="-213.1" font-family="Courier,monospace" font-size="11.00">DisabledBar</text>
 </g>
 <!-- \\WebinoDebug\\Factory\\ModuleOptionsFactory -->
 <g id="node9" class="node"><title>\\WebinoDebug\\Factory\\ModuleOptionsFactory</title>
@@ -116,22 +116,22 @@
 <text text-anchor="middle" x="708" y="-69.1" font-family="Courier,monospace" font-size="11.00">Module</text>
 </g>
 <!-- \\Zend\\ModuleManager\\Feature\\InitProviderInterface -->
-<g id="node12" class="node"><title>\\Zend\\ModuleManager\\Feature\\InitProviderInterface</title>
+<g id="node14" class="node"><title>\\Zend\\ModuleManager\\Feature\\InitProviderInterface</title>
 <ellipse fill="none" stroke="black" cx="280" cy="-72" rx="265.165" ry="18.3848"/>
 <text text-anchor="middle" x="280" y="-68.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\Zend\ModuleManager\Feature\InitProviderInterface</text>
 </g>
 <!-- \\WebinoDebug\\Module&#45;&gt;\\Zend\\ModuleManager\\Feature\\InitProviderInterface -->
-<g id="edge8" class="edge"><title>\\WebinoDebug\\Module&#45;&gt;\\Zend\\ModuleManager\\Feature\\InitProviderInterface</title>
+<g id="edge10" class="edge"><title>\\WebinoDebug\\Module&#45;&gt;\\Zend\\ModuleManager\\Feature\\InitProviderInterface</title>
 <path fill="none" stroke="black" stroke-dasharray="1,5" d="M679.253,-72C651.315,-72 605.803,-72 555.319,-72"/>
 <polygon fill="none" stroke="black" points="555.159,-68.5001 545.159,-72 555.159,-75.5001 555.159,-68.5001"/>
 </g>
 <!-- \\Zend\\ModuleManager\\Feature\\ConfigProviderInterface -->
-<g id="node14" class="node"><title>\\Zend\\ModuleManager\\Feature\\ConfigProviderInterface</title>
+<g id="node16" class="node"><title>\\Zend\\ModuleManager\\Feature\\ConfigProviderInterface</title>
 <ellipse fill="none" stroke="black" cx="280" cy="-18" rx="278.808" ry="18.3848"/>
 <text text-anchor="middle" x="280" y="-14.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\Zend\ModuleManager\Feature\ConfigProviderInterface</text>
 </g>
 <!-- \\WebinoDebug\\Module&#45;&gt;\\Zend\\ModuleManager\\Feature\\ConfigProviderInterface -->
-<g id="edge10" class="edge"><title>\\WebinoDebug\\Module&#45;&gt;\\Zend\\ModuleManager\\Feature\\ConfigProviderInterface</title>
+<g id="edge12" class="edge"><title>\\WebinoDebug\\Module&#45;&gt;\\Zend\\ModuleManager\\Feature\\ConfigProviderInterface</title>
 <path fill="none" stroke="black" stroke-dasharray="1,5" d="M679.466,-66.0558C649.746,-60.0384 601.779,-50.8147 560,-45 528.329,-40.5921 494.542,-36.6727 461.793,-33.2803"/>
 <polygon fill="none" stroke="black" points="461.971,-29.7803 451.666,-32.2444 461.258,-36.7439 461.971,-29.7803"/>
 </g>
