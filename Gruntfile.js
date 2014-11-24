@@ -16,5 +16,5 @@ if (undefined === process.env.NODE_PATH) {
 module.exports = function(grunt) {
     grunt.initConfig((function () {
         return require(root + 'webino-devkit');
-    })().config(grunt, ['module', 'zend']));
+    })().config(grunt, ['module', 'github', 'zend']));
 };

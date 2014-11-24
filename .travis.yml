@@ -1,19 +1,22 @@
 language: php
-
 php:
-  - 5.4
-  - 5.5
-
+- 5.4
+- 5.5
 install:
-  - curl -sL https://deb.nodesource.com/setup | sudo bash -
-  - sudo apt-get install -y nodejs
-  - sudo npm install webino-devkit -g --unsafe-perm
-  - sudo chmod o+w /home/travis -R
-  - webino init
-  - composer require satooshi/php-coveralls:0.*
-
+- curl -sL https://deb.nodesource.com/setup | sudo bash -
+- sudo apt-get install -y nodejs
+- sudo npm install webino-devkit -g --unsafe-perm
+- sudo chmod o+w /home/travis -R
+- webino init
+- composer require satooshi/php-coveralls:0.*
 script:
-  - webino test
-
+- webino test
+- webino analyze
 after_script:
-  - vendor/bin/coveralls -v
+- webino api
+after_success:
+- vendor/bin/coveralls -v
+- webino publish-gh-pages
+env:
+  global:
+    secure: S3N4n+pGEnnwMEOndPa8XRMELfNhj61QS1xdaDg89ZIWzXxixW0HHKkbRuNRIGh8kfjxfUT5zTh3zRyFY9ys9wsfwDA5F4y/r/+NkdkKCEflBpprc9KOo4mtfv/XIp/qHQcRKCL18S3GpDpyEFwNoTqTFgmuUOL6DxJ6yUFFEzo=
