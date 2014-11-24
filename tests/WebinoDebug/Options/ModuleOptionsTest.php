@@ -42,10 +42,7 @@ class ModuleOptionsTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(3, $this->object->getMaxDepth());
         $this->assertSame(150, $this->object->getMaxLen());
 
-        $this->assertArraySubset(
-            ['error/index' => realpath(__DIR__ . '/../../../src/WebinoDebug/Options') . '/../view/error/index.phtml'],
-            $this->object->getTemplateMap()
-        );
+        $this->assertFileExists($this->object->getTemplateMap()['error/index']);
     }
 
     /**
