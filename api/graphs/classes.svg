@@ -53,62 +53,62 @@
 <path fill="none" stroke="gray" d="M654,-284C654,-278 660,-272 666,-272"/>
 <text text-anchor="middle" x="708" y="-332.1" font-family="Times Roman,serif" font-size="11.00" fill="gray">Workaround</text>
 </g>
-<g id="graph6" class="cluster"><title>cluster_\WebinoDebug\Options</title>
-<polyline fill="none" stroke="gray" points="660,-182 756,-182 "/>
-<path fill="none" stroke="gray" d="M756,-182C762,-182 768,-188 768,-194"/>
-<polyline fill="none" stroke="gray" points="768,-194 768,-244 "/>
-<path fill="none" stroke="gray" d="M768,-244C768,-250 762,-256 756,-256"/>
-<polyline fill="none" stroke="gray" points="756,-256 660,-256 "/>
-<path fill="none" stroke="gray" d="M660,-256C654,-256 648,-250 648,-244"/>
-<polyline fill="none" stroke="gray" points="648,-244 648,-194 "/>
-<path fill="none" stroke="gray" d="M648,-194C648,-188 654,-182 660,-182"/>
-<text text-anchor="middle" x="708" y="-242.1" font-family="Times Roman,serif" font-size="11.00" fill="gray">Options</text>
+<g id="graph6" class="cluster"><title>cluster_\WebinoDebug\Factory</title>
+<polyline fill="none" stroke="gray" points="636,-182 780,-182 "/>
+<path fill="none" stroke="gray" d="M780,-182C786,-182 792,-188 792,-194"/>
+<polyline fill="none" stroke="gray" points="792,-194 792,-244 "/>
+<path fill="none" stroke="gray" d="M792,-244C792,-250 786,-256 780,-256"/>
+<polyline fill="none" stroke="gray" points="780,-256 636,-256 "/>
+<path fill="none" stroke="gray" d="M636,-256C630,-256 624,-250 624,-244"/>
+<polyline fill="none" stroke="gray" points="624,-244 624,-194 "/>
+<path fill="none" stroke="gray" d="M624,-194C624,-188 630,-182 636,-182"/>
+<text text-anchor="middle" x="708" y="-242.1" font-family="Times Roman,serif" font-size="11.00" fill="gray">Factory</text>
 </g>
-<g id="graph7" class="cluster"><title>cluster_\WebinoDebug\Factory</title>
-<polyline fill="none" stroke="gray" points="636,-100 780,-100 "/>
-<path fill="none" stroke="gray" d="M780,-100C786,-100 792,-106 792,-112"/>
-<polyline fill="none" stroke="gray" points="792,-112 792,-162 "/>
-<path fill="none" stroke="gray" d="M792,-162C792,-168 786,-174 780,-174"/>
-<polyline fill="none" stroke="gray" points="780,-174 636,-174 "/>
-<path fill="none" stroke="gray" d="M636,-174C630,-174 624,-168 624,-162"/>
-<polyline fill="none" stroke="gray" points="624,-162 624,-112 "/>
-<path fill="none" stroke="gray" d="M624,-112C624,-106 630,-100 636,-100"/>
-<text text-anchor="middle" x="708" y="-160.1" font-family="Times Roman,serif" font-size="11.00" fill="gray">Factory</text>
+<g id="graph7" class="cluster"><title>cluster_\WebinoDebug\Options</title>
+<polyline fill="none" stroke="gray" points="660,-100 756,-100 "/>
+<path fill="none" stroke="gray" d="M756,-100C762,-100 768,-106 768,-112"/>
+<polyline fill="none" stroke="gray" points="768,-112 768,-162 "/>
+<path fill="none" stroke="gray" d="M768,-162C768,-168 762,-174 756,-174"/>
+<polyline fill="none" stroke="gray" points="756,-174 660,-174 "/>
+<path fill="none" stroke="gray" d="M660,-174C654,-174 648,-168 648,-162"/>
+<polyline fill="none" stroke="gray" points="648,-162 648,-112 "/>
+<path fill="none" stroke="gray" d="M648,-112C648,-106 654,-100 660,-100"/>
+<text text-anchor="middle" x="708" y="-160.1" font-family="Times Roman,serif" font-size="11.00" fill="gray">Options</text>
 </g>
 <!-- \\WebinoDebug\\Tracy\\Workaround\\DisabledBar -->
 <g id="node5" class="node"><title>\\WebinoDebug\\Tracy\\Workaround\\DisabledBar</title>
 <polygon fill="none" stroke="black" points="753,-316 663,-316 663,-280 753,-280 753,-316"/>
 <text text-anchor="middle" x="708" y="-295.1" font-family="Courier,monospace" font-size="11.00">DisabledBar</text>
 </g>
-<!-- \\WebinoDebug\\Options\\ModuleOptions -->
-<g id="node7" class="node"><title>\\WebinoDebug\\Options\\ModuleOptions</title>
-<polygon fill="none" stroke="black" points="760,-226 656,-226 656,-190 760,-190 760,-226"/>
-<text text-anchor="middle" x="708" y="-205.1" font-family="Courier,monospace" font-size="11.00">ModuleOptions</text>
-</g>
-<!-- \\Zend\\Stdlib\\AbstractOptions -->
-<g id="node12" class="node"><title>\\Zend\\Stdlib\\AbstractOptions</title>
-<ellipse fill="none" stroke="black" cx="280" cy="-208" rx="152.028" ry="18.3848"/>
-<text text-anchor="middle" x="280" y="-204.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\Zend\Stdlib\AbstractOptions</text>
-</g>
-<!-- \\WebinoDebug\\Options\\ModuleOptions&#45;&gt;\\Zend\\Stdlib\\AbstractOptions -->
-<g id="edge8" class="edge"><title>\\WebinoDebug\\Options\\ModuleOptions&#45;&gt;\\Zend\\Stdlib\\AbstractOptions</title>
-<path fill="none" stroke="black" d="M655.947,-208C602.965,-208 518.09,-208 442.381,-208"/>
-<polygon fill="none" stroke="black" points="442.243,-204.5 432.243,-208 442.243,-211.5 442.243,-204.5"/>
-</g>
 <!-- \\WebinoDebug\\Factory\\ModuleOptionsFactory -->
-<g id="node9" class="node"><title>\\WebinoDebug\\Factory\\ModuleOptionsFactory</title>
-<polygon fill="none" stroke="black" points="784,-144 632,-144 632,-108 784,-108 784,-144"/>
-<text text-anchor="middle" x="708" y="-123.1" font-family="Courier,monospace" font-size="11.00">ModuleOptionsFactory</text>
+<g id="node7" class="node"><title>\\WebinoDebug\\Factory\\ModuleOptionsFactory</title>
+<polygon fill="none" stroke="black" points="784,-226 632,-226 632,-190 784,-190 784,-226"/>
+<text text-anchor="middle" x="708" y="-205.1" font-family="Courier,monospace" font-size="11.00">ModuleOptionsFactory</text>
 </g>
 <!-- \\Zend\\ServiceManager\\FactoryInterface -->
-<g id="node18" class="node"><title>\\Zend\\ServiceManager\\FactoryInterface</title>
-<ellipse fill="none" stroke="black" cx="280" cy="-126" rx="202.94" ry="18.3848"/>
-<text text-anchor="middle" x="280" y="-122.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\Zend\ServiceManager\FactoryInterface</text>
+<g id="node16" class="node"><title>\\Zend\\ServiceManager\\FactoryInterface</title>
+<ellipse fill="none" stroke="black" cx="280" cy="-208" rx="202.94" ry="18.3848"/>
+<text text-anchor="middle" x="280" y="-204.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\Zend\ServiceManager\FactoryInterface</text>
 </g>
 <!-- \\WebinoDebug\\Factory\\ModuleOptionsFactory&#45;&gt;\\Zend\\ServiceManager\\FactoryInterface -->
-<g id="edge14" class="edge"><title>\\WebinoDebug\\Factory\\ModuleOptionsFactory&#45;&gt;\\Zend\\ServiceManager\\FactoryInterface</title>
-<path fill="none" stroke="black" stroke-dasharray="1,5" d="M631.975,-126C592.872,-126 543.054,-126 493.287,-126"/>
-<polygon fill="none" stroke="black" points="493.006,-122.5 483.006,-126 493.006,-129.5 493.006,-122.5"/>
+<g id="edge12" class="edge"><title>\\WebinoDebug\\Factory\\ModuleOptionsFactory&#45;&gt;\\Zend\\ServiceManager\\FactoryInterface</title>
+<path fill="none" stroke="black" stroke-dasharray="1,5" d="M631.975,-208C592.872,-208 543.054,-208 493.287,-208"/>
+<polygon fill="none" stroke="black" points="493.006,-204.5 483.006,-208 493.006,-211.5 493.006,-204.5"/>
+</g>
+<!-- \\WebinoDebug\\Options\\ModuleOptions -->
+<g id="node9" class="node"><title>\\WebinoDebug\\Options\\ModuleOptions</title>
+<polygon fill="none" stroke="black" points="760,-144 656,-144 656,-108 760,-108 760,-144"/>
+<text text-anchor="middle" x="708" y="-123.1" font-family="Courier,monospace" font-size="11.00">ModuleOptions</text>
+</g>
+<!-- \\Zend\\Stdlib\\AbstractOptions -->
+<g id="node18" class="node"><title>\\Zend\\Stdlib\\AbstractOptions</title>
+<ellipse fill="none" stroke="black" cx="280" cy="-126" rx="152.028" ry="18.3848"/>
+<text text-anchor="middle" x="280" y="-122.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\Zend\Stdlib\AbstractOptions</text>
+</g>
+<!-- \\WebinoDebug\\Options\\ModuleOptions&#45;&gt;\\Zend\\Stdlib\\AbstractOptions -->
+<g id="edge14" class="edge"><title>\\WebinoDebug\\Options\\ModuleOptions&#45;&gt;\\Zend\\Stdlib\\AbstractOptions</title>
+<path fill="none" stroke="black" d="M655.947,-126C602.965,-126 518.09,-126 442.381,-126"/>
+<polygon fill="none" stroke="black" points="442.243,-122.5 432.243,-126 442.243,-129.5 442.243,-122.5"/>
 </g>
 <!-- \\WebinoDebug\\Module -->
 <g id="node10" class="node"><title>\\WebinoDebug\\Module</title>
@@ -116,22 +116,22 @@
 <text text-anchor="middle" x="708" y="-69.1" font-family="Courier,monospace" font-size="11.00">Module</text>
 </g>
 <!-- \\Zend\\ModuleManager\\Feature\\InitProviderInterface -->
-<g id="node14" class="node"><title>\\Zend\\ModuleManager\\Feature\\InitProviderInterface</title>
+<g id="node12" class="node"><title>\\Zend\\ModuleManager\\Feature\\InitProviderInterface</title>
 <ellipse fill="none" stroke="black" cx="280" cy="-72" rx="265.165" ry="18.3848"/>
 <text text-anchor="middle" x="280" y="-68.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\Zend\ModuleManager\Feature\InitProviderInterface</text>
 </g>
 <!-- \\WebinoDebug\\Module&#45;&gt;\\Zend\\ModuleManager\\Feature\\InitProviderInterface -->
-<g id="edge10" class="edge"><title>\\WebinoDebug\\Module&#45;&gt;\\Zend\\ModuleManager\\Feature\\InitProviderInterface</title>
+<g id="edge8" class="edge"><title>\\WebinoDebug\\Module&#45;&gt;\\Zend\\ModuleManager\\Feature\\InitProviderInterface</title>
 <path fill="none" stroke="black" stroke-dasharray="1,5" d="M679.253,-72C651.315,-72 605.803,-72 555.319,-72"/>
 <polygon fill="none" stroke="black" points="555.159,-68.5001 545.159,-72 555.159,-75.5001 555.159,-68.5001"/>
 </g>
 <!-- \\Zend\\ModuleManager\\Feature\\ConfigProviderInterface -->
-<g id="node16" class="node"><title>\\Zend\\ModuleManager\\Feature\\ConfigProviderInterface</title>
+<g id="node14" class="node"><title>\\Zend\\ModuleManager\\Feature\\ConfigProviderInterface</title>
 <ellipse fill="none" stroke="black" cx="280" cy="-18" rx="278.808" ry="18.3848"/>
 <text text-anchor="middle" x="280" y="-14.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\Zend\ModuleManager\Feature\ConfigProviderInterface</text>
 </g>
 <!-- \\WebinoDebug\\Module&#45;&gt;\\Zend\\ModuleManager\\Feature\\ConfigProviderInterface -->
-<g id="edge12" class="edge"><title>\\WebinoDebug\\Module&#45;&gt;\\Zend\\ModuleManager\\Feature\\ConfigProviderInterface</title>
+<g id="edge10" class="edge"><title>\\WebinoDebug\\Module&#45;&gt;\\Zend\\ModuleManager\\Feature\\ConfigProviderInterface</title>
 <path fill="none" stroke="black" stroke-dasharray="1,5" d="M679.466,-66.0558C649.746,-60.0384 601.779,-50.8147 560,-45 528.329,-40.5921 494.542,-36.6727 461.793,-33.2803"/>
 <polygon fill="none" stroke="black" points="461.971,-29.7803 451.666,-32.2444 461.258,-36.7439 461.971,-29.7803"/>
 </g>
