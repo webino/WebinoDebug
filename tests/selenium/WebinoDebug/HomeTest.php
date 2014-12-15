@@ -21,8 +21,17 @@ class HomeTest extends AbstractTestCase
      */
     public function testHome()
     {
-        $this->session->open($this->uri);
-        $this->assertNotError();
+        $this->openOk();
+    }
+
+    /**
+     * Public error snippet for assertions
+     *
+     * @return string
+     */
+    public function getPublicError()
+    {
+        return 'was unable to complete your request. Please try again later.';
     }
 
     /**
@@ -67,7 +76,7 @@ class HomeTest extends AbstractTestCase
     private function assertPublicError($src)
     {
         $this->assertContains('Server Error', $src);
-        $this->assertContains('id="tracy-error-body"', $src);
+        $this->assertContains($this->getPublicError(), $src);
     }
 
     /**
@@ -78,7 +87,7 @@ class HomeTest extends AbstractTestCase
     private function assertNotPublicError($src)
     {
         $this->assertNotContains('Server Error', $src);
-        $this->assertNotContains('id="tracy-error-body"', $src);
+        $this->assertNotContains($this->getPublicError(), $src);
     }
 
     /**
