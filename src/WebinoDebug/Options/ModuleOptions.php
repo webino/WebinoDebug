@@ -54,7 +54,7 @@ class ModuleOptions extends AbstractOptions
     /**
      * @var int
      */
-    protected $maxLen = 150;
+    protected $maxLen = 300;
 
     /**
      * @var array|null

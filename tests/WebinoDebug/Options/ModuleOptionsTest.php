@@ -40,7 +40,7 @@ class ModuleOptionsTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(realpath('data/log'), $this->object->getLog());
         $this->assertSame('', $this->object->getEmail());
         $this->assertSame(3, $this->object->getMaxDepth());
-        $this->assertSame(150, $this->object->getMaxLen());
+        $this->assertSame(300, $this->object->getMaxLen());
 
         $this->assertFileExists($this->object->getTemplateMap()['error/index']);
     }
