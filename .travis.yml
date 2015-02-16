@@ -16,7 +16,7 @@ script:
 - webino test
 - webino analyze
 - webino exec:server > /dev/null &
-- webino uat:htmlunit
+- URI=http://localhost:8000/ webino uat:htmlunit
 after_success:
 - vendor/bin/coveralls -v
 - webino api
