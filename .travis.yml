@@ -4,6 +4,7 @@ php:
 - 5.5
 - 5.6
 before_install:
+- pecl install mailparse
 - curl -sL https://deb.nodesource.com/setup | sudo bash -
 - sudo apt-get install -y nodejs graphviz
 - sudo npm install webino-devkit -g --unsafe-perm
