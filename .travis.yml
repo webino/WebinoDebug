@@ -8,19 +8,13 @@ addons:
 before_install:
 - curl http://get.webino.org/support/travis/before-install | sh
 install:
-- webino init
-- composer require satooshi/php-coveralls:0.*
+- curl http://get.webino.org/support/travis/install | sh
 before_script:
-- export URI=http://localhost:8000/
-- webino exec:server --force > /dev/null &
+- curl http://get.webino.org/support/travis/before-script | sh
 script:
-- webino test
-- webino analyze
-- webino uat:htmlunit
+- curl http://get.webino.org/support/travis/script | sh
 after_success:
-- vendor/bin/coveralls -v
-- webino api
-- webino publish-gh-pages
+- curl http://get.webino.org/support/travis/after-success | sh
 env:
   global:
     - GH_REF=github.com/webino/WebinoDebug
