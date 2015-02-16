@@ -6,7 +6,7 @@ php:
 addons:
   firefox: "31"
 before_install:
-- curl -s http://get.webino.org/support/travis/before-install | sh
+- curl -s http://get.webino.org/support/travis/before-install | sudo sh
 install:
 - curl -s http://get.webino.org/support/travis/install | sh
 before_script:
