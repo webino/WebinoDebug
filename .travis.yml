@@ -6,16 +6,17 @@ php:
 addons:
   firefox: "31"
 before_install:
-- curl http://get.webino.org/support/travis/before-install | sh
+- curl -s http://get.webino.org/support/travis/before-install | sh
 install:
-- curl http://get.webino.org/support/travis/install | sh
+- curl -s http://get.webino.org/support/travis/install | sh
 before_script:
-- curl http://get.webino.org/support/travis/before-script | sh
+- curl -s http://get.webino.org/support/travis/before-script | sh
 script:
-- curl http://get.webino.org/support/travis/script | sh
+- curl -s http://get.webino.org/support/travis/script | sh
 after_success:
-- curl http://get.webino.org/support/travis/after-success | sh
+- curl -s http://get.webino.org/support/travis/after-success | sh
 env:
   global:
+    - DISPLAY=:4444
     - GH_REF=github.com/webino/WebinoDebug
     - secure: S3N4n+pGEnnwMEOndPa8XRMELfNhj61QS1xdaDg89ZIWzXxixW0HHKkbRuNRIGh8kfjxfUT5zTh3zRyFY9ys9wsfwDA5F4y/r/+NkdkKCEflBpprc9KOo4mtfv/XIp/qHQcRKCL18S3GpDpyEFwNoTqTFgmuUOL6DxJ6yUFFEzo=
