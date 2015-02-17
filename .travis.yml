@@ -4,7 +4,7 @@ php:
 - 5.5
 - 5.6
 before_install:
-- curl -s http://get.webino.org/support/travis/before-install | BROWSER="$BROWSER" sudo sh
+- curl -s http://get.webino.org/support/travis/before-install | sudo -E sh
 install:
 - curl -s http://get.webino.org/support/travis/install | sh
 before_script:
