@@ -24,7 +24,7 @@ More than just user friendly error and exception handling.
 
 ## Requirements
 
-- PHP 5.4
+- PHP 5.5
 - ZendFramework 2
 
 ## Setup
