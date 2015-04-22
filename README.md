@@ -5,7 +5,10 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/webino/WebinoDebug/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/webino/WebinoDebug/?branch=develop "Develop Quality Score")
 [![Dependency Status](https://www.versioneye.com/user/projects/54731cd881010688ca0009ae/badge.svg)](https://www.versioneye.com/user/projects/54731cd881010688ca0009ae "Develop Dependency Status")
 <br />
-[![Latest Stable Version](https://poser.pugx.org/webino/webino-debug/v/stable.svg)](https://packagist.org/packages/webino/webino-debug) [![Total Downloads](https://poser.pugx.org/webino/webino-debug/downloads.svg)](https://packagist.org/packages/webino/webino-debug) [![Latest Unstable Version](https://poser.pugx.org/webino/webino-debug/v/unstable.svg)](https://packagist.org/packages/webino/webino-debug) [![License](https://poser.pugx.org/webino/webino-debug/license.svg)](https://packagist.org/packages/webino/webino-debug)
+[![Latest Stable Version](https://poser.pugx.org/webino/webino-debug/v/stable.svg)](https://packagist.org/packages/webino/webino-debug)
+[![Total Downloads](https://poser.pugx.org/webino/webino-debug/downloads)](https://packagist.org/packages/webino/webino-debug)
+[![Latest Unstable Version](https://poser.pugx.org/webino/webino-debug/v/unstable.svg)](https://packagist.org/packages/webino/webino-debug)
+[![License](https://poser.pugx.org/webino/webino-debug/license.svg)](https://packagist.org/packages/webino/webino-debug)
 
 More than just user friendly error and exception handling.
 
