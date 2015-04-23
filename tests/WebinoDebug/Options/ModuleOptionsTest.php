@@ -3,7 +3,7 @@
  * Webino (http://webino.sk/)
  *
  * @link        https://github.com/webino/WebinoDebug/ for the canonical source repository
- * @copyright   Copyright (c) 2014 Webino, s. r. o. (http://webino.sk/)
+ * @copyright   Copyright (c) 2014-2015 Webino, s. r. o. (http://webino.sk/)
  * @license     BSD-3-Clause
  */
 
@@ -14,64 +14,21 @@ namespace WebinoDebug\Options;
  */
 class ModuleOptionsTest extends \PHPUnit_Framework_TestCase
 {
-    /**
-     * @var ModuleOptions
-     */
-    protected $object;
-
-    /**
-     * Sets up the fixture, for example, opens a network connection.
-     * This method is called before a test is executed.
-     */
-    protected function setUp()
-    {
-        $this->object = new ModuleOptions;
-    }
-
-    /**
-     *
-     */
     public function testAssertDefaultOptions()
     {
-        $this->assertTrue($this->object->isEnabled());
-        $this->assertNull($this->object->getMode());
-        $this->assertFalse($this->object->hasBar());
-        $this->assertTrue($this->object->isStrict());
-        $this->assertSame(realpath('data/log'), $this->object->getLog());
-        $this->assertSame('', $this->object->getEmail());
-        $this->assertSame(3, $this->object->getMaxDepth());
-        $this->assertSame(300, $this->object->getMaxLen());
-
-        $this->assertFileExists($this->object->getTemplateMap()['error/index']);
+        $options = new ModuleOptions;
+        $this->assertInstanceOf(DebuggerOptions::class, $options);
+        $this->assertFileExists($options->getTemplateMap()['error/index']);
     }
 
-    /**
-     *
-     */
     public function testSettersAndGetters()
     {
         $cfg = [
-            'enabled'     => false,
-            'mode'        => true,
-            'bar'         => true,
-            'strict'      => false,
-            'log'         => 'data',
-            'email'       => 'test@example.com',
-            'maxDepth'    => 5,
-            'maxLen'      => 170,
             'templateMap' => ['test' => 'example'],
         ];
 
         $options = new ModuleOptions($cfg);
-
-        $this->assertFalse($options->isEnabled());
-        $this->assertTrue($options->getMode());
-        $this->assertTrue($options->hasBar());
-        $this->assertFalse($options->isStrict());
-        $this->assertSame(realpath($cfg['log']), $options->getLog());
-        $this->assertSame($cfg['email'], $options->getEmail());
-        $this->assertSame($cfg['maxDepth'], $options->getMaxDepth());
-        $this->assertSame($cfg['maxLen'], $options->getMaxLen());
+        $this->assertInstanceOf(DebuggerOptions::class, $options);
         $this->assertSame($cfg['templateMap'], $options->getTemplateMap());
     }
 }
