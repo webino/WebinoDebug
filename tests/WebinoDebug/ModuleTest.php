@@ -130,7 +130,7 @@ class ModuleTest extends \PHPUnit_Framework_TestCase
                     ->method('get')
                     ->withConsecutive(
                         [DebuggerFactory::SERVICE],
-                        [ConfigPanelFactory::SERVICE]
+                        [ConfigPanelFactory::SERVICE],
                         ['ViewTemplateMapResolver']
                     )
                     ->will($this->onConsecutiveCalls(
