@@ -14,6 +14,7 @@ More than just user friendly error and exception handling.
 
 - Powered by [Tracy](https://github.com/nette/tracy)
 - Demo [webino-debug.webino.org](http://webino-debug.webino.org)
+  - [Screen of Death](http://webino-debug.webino.org/application/index/exception)
 
 ## Features
 
