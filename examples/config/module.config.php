@@ -17,6 +17,7 @@ return [
         'enabled'      => true,
         'mode'         => null,     // true = production|false = development|null = autodetect|IP address(es) csv/array
         'bar'          => false,    // bool = enabled|Toggle nette diagnostics bar
+        'bar_panels'   => [],       // \WebinoDebug\Debugger\Bar\PanelInterface[]|Debugger bar panels
         'strict'       => true,     // bool = cause immediate death|int = matched against error severity
         'log'          => '',       // bool = enabled|Path to directory eg. data/logs
         'email'        => '',       // in production mode notifies the recipient

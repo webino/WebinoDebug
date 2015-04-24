@@ -9,6 +9,7 @@
 
 namespace WebinoDebug\Options;
 
+use WebinoDebug\Factory\ConfigPanelFactory;
 use Zend\Stdlib\AbstractOptions;
 
 /**
@@ -30,6 +31,11 @@ class DebuggerOptions extends AbstractOptions
      * @var bool
      */
     protected $bar = false;
+
+    /**
+     * @var bool
+     */
+    protected $barPanels = [ConfigPanelFactory::SERVICE];
 
     /**
      * @var bool
@@ -98,6 +104,16 @@ class DebuggerOptions extends AbstractOptions
     public function hasBar()
     {
         return $this->bar;
+    }
+
+    /**
+     * Debugger bar panels
+     *
+     * @return array
+     */
+    public function getBarPanels()
+    {
+        return $this->barPanels;
     }
 
     /**
@@ -176,6 +192,15 @@ class DebuggerOptions extends AbstractOptions
     public function setBar($bar)
     {
         $this->bar = (bool) $bar;
+        return $this;
+    }
+    /**
+     * @param array $barPanels
+     * @return self
+     */
+    public function setBarPanels(array $barPanels)
+    {
+        $this->barPanels = $barPanels;
         return $this;
     }
 

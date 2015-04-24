@@ -9,32 +9,31 @@
 
 namespace WebinoDebug\Factory;
 
+use WebinoDebug\Debugger\Bar\ConfigPanel;
 use WebinoDebug\Options\ModuleOptions;
+use WebinoDebug\Service\DebuggerInterface;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**
- * Factory for module options
+ * Factory for a debugger config panel
  */
-class ModuleOptionsFactory implements FactoryInterface
+class ConfigPanelFactory implements FactoryInterface
 {
     /**
-     * Module options service name
+     * Config panel service name
      */
-    const SERVICE = 'DebuggerOptions';
-
-    /**
-     * Configuration service section key
-     */
-    const CONFIG_KEY = 'webino_debug';
+    const SERVICE = 'DebuggerConfigPanel';
 
     /**
      * @param ServiceLocatorInterface $services
-     * @return ModuleOptions
+     * @return DebuggerInterface
      */
     public function createService(ServiceLocatorInterface $services)
     {
-        $config = $services->get('Config');
-        return new ModuleOptions(empty($config[$this::CONFIG_KEY]) ? [] : $config[$this::CONFIG_KEY]);
+        /* @var $modules ModuleOptions */
+        $debugger = $services->get(DebuggerFactory::SERVICE);
+        $config   = array_merge(['core' => $services->get('ApplicationConfig')], $services->get('Config'));
+        return new ConfigPanel($config, $debugger);
     }
 }

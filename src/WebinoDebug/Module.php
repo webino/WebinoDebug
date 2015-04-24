@@ -3,13 +3,13 @@
  * Webino (http://webino.sk/)
  *
  * @link        https://github.com/webino/WebinoDebug/ for the canonical source repository
- * @copyright   Copyright (c) 2014 Webino, s. r. o. (http://webino.sk/)
+ * @copyright   Copyright (c) 2014-2015 Webino, s. r. o. (http://webino.sk/)
  * @license     BSD-3-Clause
  */
 
 namespace WebinoDebug;
 
-use Tracy\Debugger;
+use WebinoDebug\Options\ModuleOptions;
 use Zend\ModuleManager\Feature;
 use Zend\ModuleManager\ModuleEvent;
 use Zend\ModuleManager\ModuleManagerInterface;
@@ -30,32 +30,26 @@ class Module implements
             ModuleEvent::EVENT_LOAD_MODULES_POST,
             function (ModuleEvent $event) {
 
-                /* @var $services Zend\ServiceManager\ServiceManager */
+                /* @var \Zend\ServiceManager\ServiceManager $services */
                 $services = $event->getParam('ServiceManager');
-                /* @var $modules WebinoDebug\Options\ModuleOptions */
-                $options  = $services->get('WebinoDebug\Options\ModuleOptions');
+                /** @var \WebinoDebug\Service\Debugger $debugger */
+                $debugger = $services->get('Debugger');
+                $options  = $debugger->getOptions();
 
-                if (!$options->isEnabled()) {
+                if ($options->isDisabled()) {
                     return;
                 }
 
-                // TODO issue https://github.com/nette/tracy/issues/73
-                if (!$options->hasBar() && !class_exists('Tracy\Bar', false)) {
-                    class_alias('WebinoDebug\Tracy\Workaround\DisabledBar', 'Tracy\Bar');
+                // set debugger bar panels
+                foreach ($options->getBarPanels() as $barPanel) {
+                    $debugger->setBarPanel(is_string($barPanel) ? $services->get($barPanel) : $barPanel);
                 }
 
-                Debugger::enable(
-                    $options->getMode(),
-                    $options->getLog(),
-                    $options->getEmail()
-                );
-
-                Debugger::$strictMode = $options->isStrict();
-                Debugger::$maxDepth = $options->getMaxDepth();
-                Debugger::$maxLen = $options->getMaxLen();
-
-                $templateMap = $options->getTemplateMap();
-                empty($templateMap) or $services->get('ViewTemplateMapResolver')->merge($templateMap);
+                // set debugger template map
+                if ($options instanceof ModuleOptions) {
+                    $templateMap = $options->getTemplateMap();
+                    empty($templateMap) or $services->get('ViewTemplateMapResolver')->merge($templateMap);
+                }
             }
         );
     }

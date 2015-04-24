@@ -12,7 +12,8 @@
 
 More than just user friendly error and exception handling.
 
-  Powered by [Tracy](https://github.com/nette/tracy)
+- Powered by [Tracy](https://github.com/nette/tracy)
+- Demo [webino-debug.webino.org](http://webino-debug.webino.org)
 
 ## Features
 

@@ -7,15 +7,14 @@
  * @license     BSD-3-Clause
  */
 
-namespace WebinoDebug;
+namespace WebinoDebug\Debugger\Bar;
+
+use Tracy\IBarPanel;
 
 /**
- * Tests config
+ * Interface PanelInterface
  */
-return [
-    'webino_debug' => [
-        // Development mode
-        'mode' => false,
-        'bar'  => true,
-    ],
-];
+interface PanelInterface extends IBarPanel
+{
+
+}

@@ -15,7 +15,9 @@ namespace WebinoDebug;
 return [
     'service_manager' => [
         'factories' => [
-            Options\ModuleOptions::class => Factory\ModuleOptionsFactory::class,
+            Factory\DebuggerFactory::SERVICE      => Factory\DebuggerFactory::class,
+            Factory\ConfigPanelFactory::SERVICE   => Factory\ConfigPanelFactory::class,
+            Factory\ModuleOptionsFactory::SERVICE => Factory\ModuleOptionsFactory::class,
         ],
     ],
 ];

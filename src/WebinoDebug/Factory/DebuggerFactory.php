@@ -10,31 +10,30 @@
 namespace WebinoDebug\Factory;
 
 use WebinoDebug\Options\ModuleOptions;
+use WebinoDebug\Service\Debugger;
+use WebinoDebug\Service\DebuggerInterface;
+use WebinoDebug\Service\NullDebugger;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**
- * Factory for module options
+ * Factory for a debugger
  */
-class ModuleOptionsFactory implements FactoryInterface
+class DebuggerFactory implements FactoryInterface
 {
     /**
-     * Module options service name
+     * Debugger service name
      */
-    const SERVICE = 'DebuggerOptions';
-
-    /**
-     * Configuration service section key
-     */
-    const CONFIG_KEY = 'webino_debug';
+    const SERVICE = 'Debugger';
 
     /**
      * @param ServiceLocatorInterface $services
-     * @return ModuleOptions
+     * @return DebuggerInterface
      */
     public function createService(ServiceLocatorInterface $services)
     {
-        $config = $services->get('Config');
-        return new ModuleOptions(empty($config[$this::CONFIG_KEY]) ? [] : $config[$this::CONFIG_KEY]);
+        /* @var $modules ModuleOptions */
+        $options = $services->get(ModuleOptionsFactory::SERVICE);
+        return $options->isEnabled() ? new Debugger($options) : new NullDebugger;
     }
 }
