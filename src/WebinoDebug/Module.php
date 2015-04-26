@@ -41,8 +41,10 @@ class Module implements
                 }
 
                 // set debugger bar panels
-                foreach ($options->getBarPanels() as $barPanel) {
-                    $debugger->setBarPanel(is_string($barPanel) ? $services->get($barPanel) : $barPanel);
+                if ($options->hasBar()) {
+                    foreach ($options->getBarPanels() as $barPanel) {
+                        $debugger->setBarPanel(is_string($barPanel) ? $services->get($barPanel) : $barPanel);
+                    }
                 }
 
                 // set debugger template map

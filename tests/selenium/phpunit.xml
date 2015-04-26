@@ -1,4 +1,4 @@
-<phpunit bootstrap="../bootstrap.php" colors="true">
+<phpunit bootstrap="bootstrap.php">
     <testsuites>
         <testsuite name="home">
             <directory>WebinoDebug</directory>
@@ -6,7 +6,7 @@
     </testsuites>
     <listeners>
         <listener class="Yandex\Allure\Adapter\AllureAdapter"
-                  file="vendor/allure-framework/allure-phpunit/src/Yandex/Allure/Adapter/AllureAdapter.php">
+                  file="/var/lib/webino/php/vendor/allure-framework/allure-phpunit/src/Yandex/Allure/Adapter/AllureAdapter.php">
             <arguments>
                 <string>../../._log/allure</string>
                 <boolean>false</boolean>

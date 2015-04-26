@@ -19,8 +19,10 @@ class NullDebugger implements DebuggerInterface
     /**
      * {@inheritdoc}
      */
-    public function setBarPanel(/** @noinspection PhpUnusedParameterInspection */
-        PanelInterface $panel) {
+    public function setBarPanel(
+        /** @noinspection PhpUnusedParameterInspection */
+        PanelInterface $panel
+    ) {
         return $this;
     }
 

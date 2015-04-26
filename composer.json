@@ -22,12 +22,14 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.5",
-        "zendframework/zendframework": "2.*",
+        "zendframework/zend-eventmanager": "2.*",
+        "zendframework/zend-modulemanager": "2.*",
+        "zendframework/zend-servicemanager": "2.*",
+        "zendframework/zend-stdlib": "2.*",
         "tracy/tracy": "2.*"
     },
     "require-dev": {
-        "webino/webino-dev": "dev-develop",
-        "allure-framework/allure-phpunit": "1.*"
+        "webino/webino-dev": "dev-develop"
     },
     "autoload": {"psr-0": {"WebinoDebug": "src/"}}
 }
