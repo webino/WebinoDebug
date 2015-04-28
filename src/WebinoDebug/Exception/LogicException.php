@@ -7,15 +7,11 @@
  * @license     BSD-3-Clause
  */
 
-namespace WebinoDebug;
+namespace WebinoDebug\Exception;
 
 /**
- * Tests config
+ * Class LogicException
  */
-return [
-    'webino_debug' => [
-        // Development mode
-        'mode' => false,
-        'bar'  => true,
-    ],
-];
+class LogicException extends \InvalidArgumentException implements ExceptionInterface
+{
+}

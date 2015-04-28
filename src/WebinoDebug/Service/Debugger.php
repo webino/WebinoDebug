@@ -64,12 +64,22 @@ class Debugger implements DebuggerInterface
     }
 
     /**
+     * @param $id
+     * @return PanelInterface|null
+     */
+    public function getBarPanel($id)
+    {
+        return Tracy::getBar()->getPanel($id);
+    }
+
+    /**
      * @param object|PanelInterface|null $panel
+     * @param string $id
      * @return self
      */
-    public function setBarPanel(PanelInterface $panel = null)
+    public function setBarPanel(PanelInterface $panel = null, $id = null)
     {
-        $panel and Tracy::getBar()->addPanel($panel);
+        $panel and Tracy::getBar()->addPanel($panel, $id);
         return $this;
     }
 

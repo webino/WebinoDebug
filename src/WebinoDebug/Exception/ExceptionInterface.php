@@ -7,14 +7,11 @@
  * @license     BSD-3-Clause
  */
 
-use Tester\Assert;
-use WebinoDebug\Module;
+namespace WebinoDebug\Exception;
 
-require __DIR__ . '/../bootstrap.php';
-
-
-$module = new Module;
-$config = $module->getConfig();
-
-
-Assert::true(is_array($config));
+/**
+ * Interface ExceptionInterface
+ */
+interface ExceptionInterface
+{
+}

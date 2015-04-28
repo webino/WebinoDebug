@@ -9,6 +9,9 @@
 
 namespace WebinoDebug;
 
+use WebinoDebug\Debugger\Bar\PanelInitInterface;
+use WebinoDebug\Factory\DebuggerFactory;
+use WebinoDebug\Factory\ModuleOptionsFactory;
 use WebinoDebug\Options\ModuleOptions;
 use Zend\ModuleManager\Feature;
 use Zend\ModuleManager\ModuleEvent;
@@ -17,50 +20,49 @@ use Zend\ModuleManager\ModuleManagerInterface;
 /**
  * WebinoDebug module
  */
-class Module implements
-    Feature\InitProviderInterface,
-    Feature\ConfigProviderInterface
+class Module implements Feature\InitProviderInterface
 {
     /**
      * @param ModuleManagerInterface $modules
      */
     public function init(ModuleManagerInterface $modules)
     {
+        // create debugger
+        /** @var \Zend\ModuleManager\ModuleManager $modules */
+        /** @var \Zend\ServiceManager\ServiceManager $services */
+        $services = $modules->getEvent()->getParam('ServiceManager');
+        $services->setFactory(ModuleOptionsFactory::SERVICE, ModuleOptionsFactory::class);
+        $services->setFactory(DebuggerFactory::SERVICE, DebuggerFactory::class);
+        $debugger = $services->get(DebuggerFactory::SERVICE);
+
+        /** @var ModuleOptions $options */
+        $options = $debugger->getOptions();
+        if ($options->isDisabled()) {
+            return;
+        }
+
+        // create bar panels
+        $barPanels = [];
+        if ($options->hasBar()) {
+            foreach ($options->getBarPanels() as $id => $barPanel) {
+                $debugger->setBarPanel($barPanels[] = new $barPanel($modules), $id);
+            }
+        }
+
+        // finish debugger init
         $modules->getEventManager()->attach(
             ModuleEvent::EVENT_LOAD_MODULES_POST,
-            function (ModuleEvent $event) {
+            function () use ($services, $options, $barPanels) {
 
-                /* @var \Zend\ServiceManager\ServiceManager $services */
-                $services = $event->getParam('ServiceManager');
-                /** @var \WebinoDebug\Service\Debugger $debugger */
-                $debugger = $services->get('Debugger');
-                $options  = $debugger->getOptions();
-
-                if ($options->isDisabled()) {
-                    return;
+                // init bar panels
+                foreach ($barPanels as $barPanel) {
+                    ($barPanel instanceof PanelInitInterface) and $barPanel->init($services);
                 }
 
-                // set debugger bar panels
-                if ($options->hasBar()) {
-                    foreach ($options->getBarPanels() as $barPanel) {
-                        $debugger->setBarPanel(is_string($barPanel) ? $services->get($barPanel) : $barPanel);
-                    }
-                }
-
-                // set debugger template map
-                if ($options instanceof ModuleOptions) {
-                    $templateMap = $options->getTemplateMap();
-                    empty($templateMap) or $services->get('ViewTemplateMapResolver')->merge($templateMap);
-                }
+                // debugger templates
+                $templateMap = $options->getTemplateMap();
+                empty($templateMap) or $services->get('ViewTemplateMapResolver')->merge($templateMap);
             }
         );
-    }
-
-    /**
-     * @return array
-     */
-    public function getConfig()
-    {
-        return require __DIR__ . '/../../config/module.config.php';
     }
 }

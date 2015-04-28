@@ -1,0 +1,47 @@
+<style>
+    .tracy-event-box { padding: .4em .7em !important; }
+    .tracy-event-box:nth-child(2n) { background: #F7F0CB !important; }
+    .tracy-event-name { display: block; font-size: larger !important; }
+</style>
+<div class="tracy-inner" style="max-width: 100%%; white-space: nowrap;">
+    <h1><?= $this->title ?></h1>
+    <div style="width: 102%; border: 1px dotted silver; background: #FDF5CE;">
+        <?php foreach ($this->getEventProfiler()->getData() as $event => $types): ?>
+            <div class="tracy-event-box">
+                <span class="tracy-event-name">
+                    <strong><?= $event ?></strong>
+                    <?= $types['time'] ? sprintf(' / %s ms', number_format($types['time'] * 1000, 1, '.', ' ')) : '' ?>
+                </span>
+                <?php foreach ($types as $type => $listeners): ?>
+                    <?php switch ($type):
+                        case 'caller':
+                            $caller = is_array($listeners)
+                                ? sprintf('%s:%s', $listeners['path'], $listeners['line'])
+                                : 'unknown trigger';
+                            ?>
+                            <em>Triggered in <?= $caller ?></em><br />
+                            <?php break;
+                        case 'event':
+                            $count = count($listeners);
+                            if (!$count) { continue; } ?>
+                            <p>EventManager listeners (<?= $count ?>)<br />
+                            <?php foreach ($listeners as $listener): ?>
+                                <?php printf('&nbsp;&bull; [%s] %s<br />', $listener['priority'], $listener['callback']); ?>
+                            <?php endforeach; ?>
+                            </p>
+                            <?php break;
+                        case 'sharedEvent':
+                            $count = count($listeners);
+                            if (!$count) { continue; } ?>
+                            <p>SharedEventManager listeners (<?= $count ?>)<br />
+                            <?php foreach ($listeners as $listener): ?>
+                                <?php printf('&nbsp;&bull; [%s] %s<br />', $listener['priority'], $listener['callback']); ?>
+                            <?php endforeach; ?>
+                            </p>
+                            <?php break; ?>
+                    <?php endswitch; ?>
+                <?php endforeach; ?>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</div>

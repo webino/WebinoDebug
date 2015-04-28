@@ -11,12 +11,12 @@ use Tester\Assert;
 use Tracy\Bar;
 use Tracy\Debugger as Tracy;
 use WebinoDebug\Debugger\Bar\ConfigPanel;
-use WebinoDebug\Factory\ConfigPanelFactory;
 use WebinoDebug\Factory\DebuggerFactory;
 use WebinoDebug\Module;
 use WebinoDebug\Options\ModuleOptions;
 use WebinoDebug\Service\Debugger;
 use Zend\EventManager\EventManager;
+use Zend\EventManager\SharedEventManager;
 use Zend\ModuleManager\ModuleEvent;
 use Zend\ModuleManager\ModuleManager;
 use Zend\ServiceManager\ServiceManager;
@@ -38,44 +38,61 @@ $options = new ModuleOptions([
     'templateMap' => ['test' => 'example'],
 ]);
 
-$events  = $test->getMock(EventManager::class, [], [], '', false);
-$modules = $test->getMock(ModuleManager::class, [], [], '', false);
+$event        = new ModuleEvent;
+$events       = $test->getMock(EventManager::class, [], [], '', false);
+$sharedEvents = $test->getMock(SharedEventManager::class, [], [], '', false);
+$modules      = $test->getMock(ModuleManager::class, [], [], '', false);
+$services     = $test->getMock(ServiceManager::class);
 
-$modules->expects($test->once())
+$event->setParam('ServiceManager', $services);
+
+$modules->expects($test->atLeastOnce())
+    ->method('getEvent')
+    ->will($test->returnValue($event));
+
+$modules->expects($test->atLeastOnce())
     ->method('getEventManager')
     ->will($test->returnValue($events));
 
 $events->expects($test->once())
+    ->method('getSharedManager')
+    ->will($test->returnValue($sharedEvents));
+
+$debugger = new Debugger($options);
+$configPanel = $test->getMock(ConfigPanel::class, [], [], '', false);
+
+$templateMapResolver = $test->getMock(TemplateMapResolver::class);
+$services->expects($test->exactly(7))
+    ->method('get')
+    ->withConsecutive(
+        [DebuggerFactory::SERVICE],
+        [DebuggerFactory::SERVICE],
+        [DebuggerFactory::SERVICE],
+        ['ApplicationConfig'],
+        ['Config'],
+        [DebuggerFactory::SERVICE],
+        ['ViewTemplateMapResolver']
+    )
+    ->will($test->onConsecutiveCalls(
+        $test->returnValue($debugger),
+        $test->returnValue($debugger),
+        $test->returnValue($debugger),
+        [],
+        [],
+        $test->returnValue($debugger),
+        $test->returnValue($templateMapResolver)
+    ));
+
+$templateMapResolver->expects($test->once())
+    ->method('merge')
+    ->with($options->getTemplateMap());
+
+$events->expects($test->once())
     ->method('attach')
-    ->will($test->returnCallback(function ($eventName, $callback) use ($test, $options) {
+    ->will($test->returnCallback(function ($eventName, $callback) use ($event, $test) {
 
         $test->assertSame(ModuleEvent::EVENT_LOAD_MODULES_POST, $eventName);
         $test->assertInstanceOf('closure', $callback);
-
-        $event    = new ModuleEvent;
-        $services = $test->getMock(ServiceManager::class);
-        $event->setParam('ServiceManager', $services);
-
-        $debugger = new Debugger($options);
-        $configPanel = $test->getMock(ConfigPanel::class, [], [], '', false);
-
-        $templateMapResolver = $test->getMock(TemplateMapResolver::class);
-        $services->expects($test->exactly(3))
-            ->method('get')
-            ->withConsecutive(
-                [DebuggerFactory::SERVICE],
-                [ConfigPanelFactory::SERVICE],
-                ['ViewTemplateMapResolver']
-            )
-            ->will($test->onConsecutiveCalls(
-                $test->returnValue($debugger),
-                $test->returnValue($configPanel),
-                $test->returnValue($templateMapResolver)
-            ));
-
-        $templateMapResolver->expects($test->once())
-            ->method('merge')
-            ->with($options->getTemplateMap());
 
         $callback($event);
     }));

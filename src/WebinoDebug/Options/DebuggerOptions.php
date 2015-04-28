@@ -9,7 +9,9 @@
 
 namespace WebinoDebug\Options;
 
-use WebinoDebug\Factory\ConfigPanelFactory;
+use WebinoDebug\Debugger\Bar\ConfigPanel;
+use WebinoDebug\Debugger\Bar\EventPanel;
+use WebinoDebug\Debugger\Bar\InfoPanel;
 use Zend\Stdlib\AbstractOptions;
 
 /**
@@ -35,7 +37,11 @@ class DebuggerOptions extends AbstractOptions
     /**
      * @var bool
      */
-    protected $barPanels = [ConfigPanelFactory::SERVICE];
+    protected $barPanels = [
+        'WebinoDebug:info'   => InfoPanel::class,
+        'WebinoDebug:config' => ConfigPanel::class,
+        'WebinoDebug:events' => EventPanel::class,
+    ];
 
     /**
      * @var bool

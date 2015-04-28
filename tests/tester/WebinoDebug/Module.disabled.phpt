@@ -22,43 +22,46 @@ require __DIR__ . '/../bootstrap.php';
 $test = createTestCase();
 
 
-$events  = $test->getMock(EventManager::class, [], [], '', false);
-$modules = $test->getMock(ModuleManager::class, [], [], '', false);
+$event    = new ModuleEvent;
+$events   = $test->getMock(EventManager::class, [], [], '', false);
+$modules  = $test->getMock(ModuleManager::class, [], [], '', false);
+$services = $test->getMock(ServiceManager::class);
+
+$event->setParam('ServiceManager', $services);
+
+$modules->expects($test->once())
+    ->method('getEvent')
+    ->will($test->returnValue($event));
 
 $modules->expects($test->once())
     ->method('getEventManager')
     ->will($test->returnValue($events));
 
+$options = $test->getMock(ModuleOptions::class);
+$options->expects($test->any())
+    ->method('isDisabled')
+    ->will($test->returnValue(true));
+
+foreach (['hasBar', 'getMode', 'getLog', 'getEmail', 'isStrict',
+             'getMaxDepth', 'getMaxLen', 'getTemplateMap'] as $method) {
+
+    $options->expects($test->never())->method($method);
+}
+
+/** @var \WebinoDebug\Options\ModuleOptions $options */
+$debugger = new Debugger($options);
+
+$services->expects($test->any())
+    ->method('get')
+    ->with(DebuggerFactory::SERVICE)
+    ->will($test->returnValue($debugger));
+
 $events->expects($test->once())
     ->method('attach')
-    ->will($test->returnCallback(function ($eventName, $callback) use ($test) {
+    ->will($test->returnCallback(function ($eventName, $callback) use ($event, $test) {
 
         $test->assertSame(ModuleEvent::EVENT_LOAD_MODULES_POST, $eventName);
         $test->assertInstanceOf('closure', $callback);
-
-        $event = new ModuleEvent;
-        $services = $test->getMock(ServiceManager::class);
-        $options = $test->getMock(ModuleOptions::class);
-        $event->setParam('ServiceManager', $services);
-
-        $options->expects($test->any())
-            ->method('isDisabled')
-            ->will($test->returnValue(true));
-
-        foreach (['hasBar', 'getMode', 'getLog', 'getEmail', 'isStrict',
-                     'getMaxDepth', 'getMaxLen', 'getTemplateMap'] as $method) {
-
-            $options->expects($test->never())->method($method);
-        }
-
-        /** @var \WebinoDebug\Options\ModuleOptions $options */
-        $debugger = new Debugger($options);
-
-        $services->expects($test->any())
-            ->method('get')
-            ->with(DebuggerFactory::SERVICE)
-            ->will($test->returnValue($debugger));
-
         $callback($event);
     }));
 

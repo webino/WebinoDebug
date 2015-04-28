@@ -9,11 +9,18 @@
 
 namespace WebinoDebug\Debugger\Bar;
 
-use Tracy\IBarPanel;
+use Zend\ServiceManager\ServiceManager;
 
 /**
  * Interface PanelInterface
  */
-interface PanelInterface extends IBarPanel
+interface PanelInitInterface
 {
+    /**
+     * Initialize debugger panel dependencies
+     *
+     * @param ServiceManager $services
+     * @return void
+     */
+    public function init(ServiceManager $services);
 }

@@ -34,7 +34,7 @@ class ModuleOptionsFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $services)
     {
-        $config = $services->get('Config');
+        $config = $services->get('ApplicationConfig');
         return new ModuleOptions(empty($config[$this::CONFIG_KEY]) ? [] : $config[$this::CONFIG_KEY]);
     }
 }

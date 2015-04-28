@@ -15,15 +15,17 @@ namespace WebinoDebug;
 return [
     'modules' => [
         'WebinoDev',
-        'Application',
         'WebinoDebug',
+        'Application',
+    ],
+    'webino_debug' => [
+        // Development mode
+        'mode' => false,
+        'bar'  => true,
     ],
     'module_listener_options' => [
         'config_glob_paths' => [
             'config/autoload/{,*.}{global,local}.php',
-        ],
-        'config_static_paths' => [
-            __DIR__ . '/module.config.php',
         ],
         'module_paths' => [
             'module',

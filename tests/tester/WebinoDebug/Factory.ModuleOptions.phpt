@@ -21,7 +21,7 @@ $services = $test->getMock(ServiceManager::class);
 
 $services->expects($test->once())
     ->method('get')
-    ->with('Config')
+    ->with('ApplicationConfig')
     ->will($test->returnValue($config));
 
 

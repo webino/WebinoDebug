@@ -23,6 +23,8 @@ More than just user friendly error and exception handling.
 - Can notify by email
 - Discrete production server error page
 - Optional Tracy debugger bar
+  - Config viewer
+  - Event profiler
 
 ## Requirements
 

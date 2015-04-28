@@ -36,42 +36,45 @@ $options = new ModuleOptions([
     'templateMap' => ['test' => 'example'],
 ]);
 
-$events  = $test->getMock(EventManager::class, [], [], '', false);
-$modules = $test->getMock(ModuleManager::class, [], [], '', false);
+$event    = new ModuleEvent;
+$events   = $test->getMock(EventManager::class, [], [], '', false);
+$modules  = $test->getMock(ModuleManager::class, [], [], '', false);
+$services = $test->getMock(ServiceManager::class);
+
+$event->setParam('ServiceManager', $services);
+
+$modules->expects($test->once())
+    ->method('getEvent')
+    ->will($test->returnValue($event));
 
 $modules->expects($test->once())
     ->method('getEventManager')
     ->will($test->returnValue($events));
 
+$debugger = new Debugger($options);
+
+$templateMapResolver = $test->getMock(TemplateMapResolver::class);
+$services->expects($test->exactly(2))
+    ->method('get')
+    ->withConsecutive(
+        [DebuggerFactory::SERVICE],
+        ['ViewTemplateMapResolver']
+    )
+    ->will($test->onConsecutiveCalls(
+        $test->returnValue($debugger),
+        $test->returnValue($templateMapResolver)
+    ));
+
+$templateMapResolver->expects($test->once())
+    ->method('merge')
+    ->with($options->getTemplateMap());
+
 $events->expects($test->once())
     ->method('attach')
-    ->will($test->returnCallback(function ($eventName, $callback) use ($test, $options) {
+    ->will($test->returnCallback(function ($eventName, $callback) use ($event, $test) {
 
         $test->assertSame(ModuleEvent::EVENT_LOAD_MODULES_POST, $eventName);
         $test->assertInstanceOf('closure', $callback);
-
-        $event    = new ModuleEvent;
-        $services = $test->getMock(ServiceManager::class);
-        $event->setParam('ServiceManager', $services);
-
-        $debugger = new Debugger($options);
-
-        $templateMapResolver = $test->getMock(TemplateMapResolver::class);
-        $services->expects($test->exactly(2))
-            ->method('get')
-            ->withConsecutive(
-                [DebuggerFactory::SERVICE],
-                ['ViewTemplateMapResolver']
-            )
-            ->will($test->onConsecutiveCalls(
-                $test->returnValue($debugger),
-                $test->returnValue($templateMapResolver)
-            ));
-
-        $templateMapResolver->expects($test->once())
-            ->method('merge')
-            ->with($options->getTemplateMap());
-
         $callback($event);
     }));
 
