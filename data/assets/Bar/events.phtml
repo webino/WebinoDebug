@@ -3,7 +3,7 @@
     .tracy-event-box:nth-child(2n) { background: #F7F0CB !important; }
     .tracy-event-name { display: block; font-size: larger !important; }
 </style>
-<div class="tracy-inner" style="max-width: 100%%; white-space: nowrap;">
+<div class="tracy-inner" style="max-width: 100%; white-space: nowrap;">
     <h1><?= $this->title ?></h1>
     <div style="width: 102%; border: 1px dotted silver; background: #FDF5CE;">
         <?php foreach ($this->getEventProfiler()->getData() as $event => $types): ?>
