@@ -27,6 +27,11 @@ abstract class AbstractPanel
     protected $title = '';
 
     /**
+     * @var string
+     */
+    protected $dir = __DIR__;
+
+    /**
      * {@inheritdoc}
      */
     public function getTab()
@@ -39,7 +44,7 @@ abstract class AbstractPanel
      */
     public function createIcon($name, $style = '')
     {
-        $data = file_get_contents(__DIR__ . '/../../../../data/assets/Bar/' . $name . '.png');
+        $data = file_get_contents($this->dir . '/../../../../data/assets/Bar/' . $name . '.png');
         $base64 = 'data:image/png;base64,' . base64_encode($data);
         return '<img src="' . $base64 . '" style="' . $style . '"/>';
     }
@@ -52,7 +57,7 @@ abstract class AbstractPanel
     {
         ob_start();
         /** @noinspection PhpIncludeInspection */
-        require __DIR__ . '/../../../../data/assets/Bar/' . $name . '.phtml';
+        require $this->dir . '/../../../../data/assets/Bar/' . $name . '.phtml';
         return ob_get_clean();
     }
 }

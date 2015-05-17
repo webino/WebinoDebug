@@ -26,6 +26,11 @@ class Debugger implements DebuggerInterface
     private $options;
 
     /**
+     * @var array
+     */
+    protected $barPanels = [];
+
+    /**
      * @param array|DebuggerOptions $options
      */
     public function __construct($options = null)
@@ -64,6 +69,14 @@ class Debugger implements DebuggerInterface
     }
 
     /**
+     * @return PanelInterface[]
+     */
+    public function getBarPanels()
+    {
+        return $this->barPanels;
+    }
+
+    /**
      * @param $id
      * @return PanelInterface|null
      */
@@ -79,7 +92,7 @@ class Debugger implements DebuggerInterface
      */
     public function setBarPanel(PanelInterface $panel = null, $id = null)
     {
-        $panel and Tracy::getBar()->addPanel($panel, $id);
+        $panel and Tracy::getBar()->addPanel($this->barPanels[$id] = $panel, $id);
         return $this;
     }
 

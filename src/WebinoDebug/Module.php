@@ -42,21 +42,23 @@ class Module implements Feature\InitProviderInterface
         }
 
         // create bar panels
-        $barPanels = [];
-        if ($options->hasBar()) {
+        $hasBar = $options->hasBar();
+        if ($hasBar) {
             foreach ($options->getBarPanels() as $id => $barPanel) {
-                $debugger->setBarPanel($barPanels[] = new $barPanel($modules), $id);
+                $debugger->setBarPanel(new $barPanel($modules), $id);
             }
         }
 
         // finish debugger init
         $modules->getEventManager()->attach(
             ModuleEvent::EVENT_LOAD_MODULES_POST,
-            function () use ($services, $options, $barPanels) {
+            function () use ($services, $debugger, $options, $hasBar) {
 
                 // init bar panels
-                foreach ($barPanels as $barPanel) {
-                    ($barPanel instanceof PanelInitInterface) and $barPanel->init($services);
+                if ($hasBar) {
+                    foreach ($debugger->getBarPanels() as $barPanel) {
+                        ($barPanel instanceof PanelInitInterface) and $barPanel->init($services);
+                    }
                 }
 
                 // debugger templates
