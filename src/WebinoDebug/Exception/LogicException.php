@@ -12,6 +12,6 @@ namespace WebinoDebug\Exception;
 /**
  * Class LogicException
  */
-class LogicException extends \InvalidArgumentException implements ExceptionInterface
+class LogicException extends \LogicException implements ExceptionInterface
 {
 }
