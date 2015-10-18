@@ -28,8 +28,12 @@
         "zendframework/zend-stdlib": "2.*",
         "tracy/tracy": "2.3.*"
     },
+    "suggest": {
+        "zendframework/zend-version": "Debugger info panel ZF2 version"
+    },
     "require-dev": {
-        "webino/webino-dev": "dev-develop"
+        "webino/webino-dev": "dev-develop",
+        "zendframework/zend-version": "2.*"
     },
     "autoload": {"psr-0": {"WebinoDebug": "src/"}}
 }
