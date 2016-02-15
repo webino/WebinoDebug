@@ -9,10 +9,9 @@
 
 use Tester\Assert;
 use Tracy\Debugger as Tracy;
-use WebinoDebug\Factory\DebuggerFactory;
+use WebinoDebug\Factory\ModuleOptionsFactory;
 use WebinoDebug\Module;
 use WebinoDebug\Options\ModuleOptions;
-use WebinoDebug\Service\Debugger;
 use Zend\EventManager\EventManager;
 use Zend\ModuleManager\ModuleEvent;
 use Zend\ModuleManager\ModuleManager;
@@ -48,13 +47,10 @@ foreach (['hasBar', 'getMode', 'getLog', 'getEmail', 'isStrict',
     $options->expects($test->never())->method($method);
 }
 
-/** @var \WebinoDebug\Options\ModuleOptions $options */
-$debugger = new Debugger($options);
-
-$services->expects($test->any())
+$services->expects($test->once())
     ->method('get')
-    ->with(DebuggerFactory::SERVICE)
-    ->will($test->returnValue($debugger));
+    ->with(ModuleOptionsFactory::SERVICE)
+    ->will($test->returnValue($options));
 
 $events->expects($test->once())
     ->method('attach')

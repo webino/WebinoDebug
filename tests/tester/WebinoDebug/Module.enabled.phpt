@@ -10,9 +10,9 @@
 use Tester\Assert;
 use Tracy\Debugger as Tracy;
 use WebinoDebug\Factory\DebuggerFactory;
+use WebinoDebug\Factory\ModuleOptionsFactory;
 use WebinoDebug\Module;
 use WebinoDebug\Options\ModuleOptions;
-use WebinoDebug\Service\Debugger;
 use WebinoDebug\Tracy\Workaround\DisabledBar;
 use Zend\EventManager\EventManager;
 use Zend\ModuleManager\ModuleEvent;
@@ -51,17 +51,30 @@ $modules->expects($test->once())
     ->method('getEventManager')
     ->will($test->returnValue($events));
 
-$debugger = new Debugger($options);
-
 $templateMapResolver = $test->getMock(TemplateMapResolver::class);
-$services->expects($test->exactly(2))
+
+$debugger = null;
+$returnDebugger = $test->returnCallback(
+    function () use ($services, &$debugger) {
+        if (null === $debugger) {
+            $debugger = (new DebuggerFactory)->createService($services);
+        }
+        return $debugger;
+    }
+);
+
+$services->expects($test->exactly(4))
     ->method('get')
     ->withConsecutive(
+        [ModuleOptionsFactory::SERVICE],
         [DebuggerFactory::SERVICE],
+        [ModuleOptionsFactory::SERVICE],
         ['ViewTemplateMapResolver']
     )
     ->will($test->onConsecutiveCalls(
-        $test->returnValue($debugger),
+        $test->returnValue($options),
+        $returnDebugger,
+        $test->returnValue($options),
         $test->returnValue($templateMapResolver)
     ));
 

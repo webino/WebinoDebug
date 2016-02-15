@@ -12,6 +12,7 @@ use Tracy\Bar;
 use Tracy\Debugger as Tracy;
 use WebinoDebug\Debugger\Bar\ConfigPanel;
 use WebinoDebug\Factory\DebuggerFactory;
+use WebinoDebug\Factory\ModuleOptionsFactory;
 use WebinoDebug\Module;
 use WebinoDebug\Options\ModuleOptions;
 use WebinoDebug\Service\Debugger;
@@ -58,14 +59,25 @@ $events->expects($test->once())
     ->method('getSharedManager')
     ->will($test->returnValue($sharedEvents));
 
-$debugger = new Debugger($options);
 $configPanel = $test->getMock(ConfigPanel::class, [], [], '', false);
 
+$debugger = null;
+$returnDebugger = $test->returnCallback(
+    function () use ($services, &$debugger) {
+        if (null === $debugger) {
+            $debugger = (new DebuggerFactory)->createService($services);
+        }
+        return $debugger;
+    }
+);
+
 $templateMapResolver = $test->getMock(TemplateMapResolver::class);
-$services->expects($test->exactly(7))
+$services->expects($test->exactly(9))
     ->method('get')
     ->withConsecutive(
+        [ModuleOptionsFactory::SERVICE],
         [DebuggerFactory::SERVICE],
+        [ModuleOptionsFactory::SERVICE],
         [DebuggerFactory::SERVICE],
         [DebuggerFactory::SERVICE],
         ['ApplicationConfig'],
@@ -74,12 +86,14 @@ $services->expects($test->exactly(7))
         ['ViewTemplateMapResolver']
     )
     ->will($test->onConsecutiveCalls(
-        $test->returnValue($debugger),
-        $test->returnValue($debugger),
-        $test->returnValue($debugger),
+        $test->returnValue($options),
+        $returnDebugger,
+        $test->returnValue($options),
+        $returnDebugger,
+        $returnDebugger,
         [],
         [],
-        $test->returnValue($debugger),
+        $returnDebugger,
         $test->returnValue($templateMapResolver)
     ));
 
