@@ -3,7 +3,7 @@
  * Webino (http://webino.sk/)
  *
  * @link        https://github.com/webino/WebinoDebug/ for the canonical source repository
- * @copyright   Copyright (c) 2014-2015 Webino, s. r. o. (http://webino.sk/)
+ * @copyright   Copyright (c) 2014-2016 Webino, s. r. o. (http://webino.sk/)
  * @license     BSD-3-Clause
  */
 
@@ -27,19 +27,20 @@ class Module implements Feature\InitProviderInterface
      */
     public function init(ModuleManagerInterface $modules)
     {
-        // create debugger
         /** @var \Zend\ModuleManager\ModuleManager $modules */
         /** @var \Zend\ServiceManager\ServiceManager $services */
         $services = $modules->getEvent()->getParam('ServiceManager');
         $services->setFactory(ModuleOptionsFactory::SERVICE, ModuleOptionsFactory::class);
         $services->setFactory(DebuggerFactory::SERVICE, DebuggerFactory::class);
-        $debugger = $services->get(DebuggerFactory::SERVICE);
 
         /** @var ModuleOptions $options */
-        $options = $debugger->getOptions();
+        $options = $services->get(ModuleOptionsFactory::SERVICE);
         if ($options->isDisabled()) {
             return;
         }
+
+        // init debugger
+        $debugger = $services->get(DebuggerFactory::SERVICE);
 
         // create bar panels
         $hasBar = $options->hasBar();
