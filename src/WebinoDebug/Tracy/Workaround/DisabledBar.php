@@ -41,4 +41,8 @@ class DisabledBar
     public function render()
     {
     }
+
+    public function dispatchAssets()
+    {
+    }
 }
