@@ -42,5 +42,10 @@
         "zendframework/zend-mvc": "2.*",
         "zendframework/zend-di": "2.*"
     },
-    "autoload": {"psr-0": {"WebinoDebug": "src/"}}
+    "autoload": {"psr-0": {"WebinoDebug": "src/"}},
+    "extra": {
+        "webino-devkit": {
+            "ZendSkeletonApplication": "release-2.2.8"
+        }
+    }
 }
