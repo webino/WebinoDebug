@@ -13,11 +13,13 @@ before_script:
   - curl -s https://get.webino.org/support/travis/before-script | sh
 script:
   - curl -s https://get.webino.org/support/travis/script | sh
+after_failure:
+  - curl -s https://get.webino.org/support/travis/after-failure | sh
 after_success:
   - curl -s https://get.webino.org/support/travis/after-success | sh
 env:
   global:
     - URI=http://localhost:8000/
-    - BROWSER=chrome
+    - BROWSER=firefox
     - GH_REF=github.com/webino/WebinoDebug
     - secure: S3N4n+pGEnnwMEOndPa8XRMELfNhj61QS1xdaDg89ZIWzXxixW0HHKkbRuNRIGh8kfjxfUT5zTh3zRyFY9ys9wsfwDA5F4y/r/+NkdkKCEflBpprc9KOo4mtfv/XIp/qHQcRKCL18S3GpDpyEFwNoTqTFgmuUOL6DxJ6yUFFEzo=
