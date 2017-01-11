@@ -47,8 +47,6 @@ Open terminal and go to your application directory
 
 ## Development
 
-[![Dependency Status](https://www.versioneye.com/user/projects/54731cda81010688ca0009b4/badge.svg)](https://www.versioneye.com/user/projects/54731cda81010688ca0009b4)
-
 We will appreciate any contributions on development of this module.
 
 Learn [How to develop Webino modules](https://github.com/webino/Webino/wiki/How-to-develop-Webino-module)
