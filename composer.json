@@ -45,6 +45,7 @@
     "autoload": {"psr-0": {"WebinoDebug": "src/"}},
     "extra": {
         "webino-devkit": {
+            "context": ["module", "github", "zend"],
             "ZendSkeletonApplication": "release-2.2.8"
         }
     }
