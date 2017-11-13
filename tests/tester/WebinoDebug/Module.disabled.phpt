@@ -41,9 +41,9 @@ $options->expects($test->any())
     ->method('isDisabled')
     ->will($test->returnValue(true));
 
-foreach (['hasBar', 'getMode', 'getLog', 'getEmail', 'isStrict',
-             'getMaxDepth', 'getMaxLen', 'getTemplateMap'] as $method) {
-
+foreach (['showBar', 'getMode', 'getLog', 'getEmail', 'isStrict',
+          'getMaxDepth', 'getMaxLength', 'getTemplateMap'] as $method
+) {
     $options->expects($test->never())->method($method);
 }
 

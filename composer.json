@@ -22,7 +22,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": ">=5.6",
+        "php": "~7.1",
         "zendframework/zend-eventmanager": "2.*",
         "zendframework/zend-modulemanager": "2.*",
         "zendframework/zend-servicemanager": "2.*",

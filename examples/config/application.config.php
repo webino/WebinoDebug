@@ -22,7 +22,7 @@ return [
         'log'          => '',       // bool = enabled|Path to directory eg. data/logs
         'email'        => '',       // in production mode notifies the recipient
         'max_depth'    => 3,        // nested levels of array/object
-        'max_len'      => 150,      // max string display length
+        'max_length'   => 150,      // max string display length
         'template_map' => [],       // merge templates if enabled
     ],
 ];

@@ -9,8 +9,6 @@
 
 namespace WebinoDebug\Debugger\Bar;
 
-use WebinoDebug\Exception;
-
 /**
  * Class AbstractPanel
  */

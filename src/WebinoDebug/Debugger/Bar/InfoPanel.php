@@ -9,7 +9,6 @@
 
 namespace WebinoDebug\Debugger\Bar;
 
-use WebinoDebug\Exception;
 use WebinoDebug\Factory\DebuggerFactory;
 use Zend\ServiceManager\ServiceManager;
 use Zend\Version\Version;

@@ -18,9 +18,9 @@ $options = new DebuggerOptions;
 
 Assert::true($options->isEnabled());
 Assert::null($options->getMode());
-Assert::false($options->hasBar());
+Assert::false($options->showBar());
 Assert::true($options->isStrict());
 Assert::same(realpath('data/log'), $options->getLog());
 Assert::same('', $options->getEmail());
 Assert::same(10, $options->getMaxDepth());
-Assert::same(300, $options->getMaxLen());
+Assert::same(300, $options->getMaxLength());

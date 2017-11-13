@@ -28,15 +28,15 @@ $test = createTestCase();
 
 
 $options = new ModuleOptions([
-    'enabled'     => true,
-    'mode'        => false,
-    'bar'         => true,
-    'log'         => 'data',
-    'email'       => 'test@example.com',
-    'strict'      => false,
-    'maxDepth'    => 2,
-    'maxLen'      => 9,
-    'templateMap' => ['test' => 'example'],
+    'enabled'      => true,
+    'mode'         => false,
+    'bar'          => true,
+    'log'          => 'data',
+    'email'        => 'test@example.com',
+    'strict'       => false,
+    'max_depth'    => 2,
+    'max_length'   => 9,
+    'template_map' => ['test' => 'example'],
 ]);
 
 $event        = new ModuleEvent;
@@ -124,4 +124,4 @@ Assert::same($options->getLog(), Tracy::$logDirectory);
 Assert::same($options->getEmail(), Tracy::$email);
 Assert::same($options->isStrict(), Tracy::$strictMode);
 Assert::same($options->getMaxDepth(), Tracy::$maxDepth);
-Assert::same($options->getMaxLen(), Tracy::$maxLen);
+Assert::same($options->getMaxLength(), Tracy::$maxLength);

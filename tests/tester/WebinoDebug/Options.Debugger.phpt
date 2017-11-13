@@ -14,14 +14,14 @@ require __DIR__ . '/../bootstrap.php';
 
 
 $cfg = [
-    'enabled'  => false,
-    'mode'     => true,
-    'bar'      => true,
-    'strict'   => false,
-    'log'      => 'tmp/log',
-    'email'    => 'test@example.com',
-    'maxDepth' => 7,
-    'maxLen'   => 170,
+    'enabled'    => false,
+    'mode'       => true,
+    'bar'        => true,
+    'strict'     => false,
+    'log'        => 'tmp/log',
+    'email'      => 'test@example.com',
+    'max_depth'  => 7,
+    'max_length' => 170,
 ];
 
 
@@ -30,9 +30,9 @@ $options = new DebuggerOptions($cfg);
 
 Assert::false($options->isEnabled());
 Assert::true($options->getMode());
-Assert::true($options->hasBar());
+Assert::true($options->showBar());
 Assert::false($options->isStrict());
 Assert::same(realpath($cfg['log']), $options->getLog());
 Assert::same($cfg['email'], $options->getEmail());
-Assert::same($cfg['maxDepth'], $options->getMaxDepth());
-Assert::same($cfg['maxLen'], $options->getMaxLen());
+Assert::same($cfg['max_depth'], $options->getMaxDepth());
+Assert::same($cfg['max_length'], $options->getMaxLength());

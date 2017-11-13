@@ -97,7 +97,7 @@ class HomeTest extends AbstractTestCase
     {
         $src = $this->getContents($this->uri . 'application/index/fatal-error');
         $this->assertTracyDebug($src);
-        $this->assertContains('Fatal Error', $src);
+        $this->assertContains('Error', $src);
         $this->assertContains('Application\Controller\undefinedFunction', $src);
     }
 
@@ -108,7 +108,6 @@ class HomeTest extends AbstractTestCase
     {
         $src = $this->getContents($this->uri . 'application/index/public-fatal-error');
         $this->assertNotTracyDebug($src);
-        $this->assertNotContains('Fatal Error', $src);
         $this->assertNotContains('Application\Controller\undefinedFunction', $src);
         $this->assertPublicError($src);
     }
@@ -143,7 +142,7 @@ class HomeTest extends AbstractTestCase
     {
         $src = $this->getContents($this->uri . 'application/index/parse-error');
         $this->assertTracyDebug($src);
-        $this->assertContains('Parse Error', $src);
+        $this->assertContains('ParseError', $src);
         $this->assertContains('syntax error, unexpected \'.\'', $src);
     }
 
@@ -154,7 +153,7 @@ class HomeTest extends AbstractTestCase
     {
         $src = $this->getContents($this->uri . 'application/index/public-parse-error');
         $this->assertNotTracyDebug($src);
-        $this->assertNotContains('Parse Error', $src);
+        $this->assertNotContains('ParseError', $src);
         $this->assertNotContains('syntax error', $src);
         $this->assertPublicError($src);
     }

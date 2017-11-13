@@ -35,7 +35,7 @@ class DebuggerOptions extends AbstractOptions
     protected $bar = false;
 
     /**
-     * @var bool
+     * @var array
      */
     protected $barPanels = [
         'WebinoDebug:info'   => InfoPanel::class,
@@ -66,7 +66,7 @@ class DebuggerOptions extends AbstractOptions
     /**
      * @var int
      */
-    protected $maxLen = 300;
+    protected $maxLength = 300;
 
     /**
      * Is debugger enabled?
@@ -76,6 +76,18 @@ class DebuggerOptions extends AbstractOptions
     public function isEnabled()
     {
         return $this->enabled;
+    }
+
+    /**
+     * Enable debugger
+     *
+     * @param bool $enabled
+     * @return $this
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = (bool) $enabled;
+        return $this;
     }
 
     /**
@@ -103,13 +115,35 @@ class DebuggerOptions extends AbstractOptions
     }
 
     /**
+     * Debugger mode, production or development.
+     *
+     * @param bool|null $mode
+     * @return $this
+     */
+    public function setMode($mode)
+    {
+        $this->mode = (null === $mode ? null : (bool) $mode);
+        return $this;
+    }
+
+    /**
      * Is debugger bar enabled?
      *
      * @return bool
      */
-    public function hasBar()
+    public function showBar()
     {
         return $this->bar;
+    }
+
+    /**
+     * @param bool $bar
+     * @return $this
+     */
+    public function setBar($bar)
+    {
+        $this->bar = (bool) $bar;
+        return $this;
     }
 
     /**
@@ -123,11 +157,33 @@ class DebuggerOptions extends AbstractOptions
     }
 
     /**
+     * @param array $barPanels
+     * @return $this
+     */
+    public function setBarPanels(array $barPanels)
+    {
+        $this->barPanels = $barPanels;
+        return $this;
+    }
+
+    /**
      * @return bool
      */
     public function isStrict()
     {
         return $this->strict;
+    }
+
+    /**
+     * Strict errors?
+     *
+     * @param bool $strict
+     * @return $this
+     */
+    public function setStrict($strict)
+    {
+        $this->strict = (bool) $strict;
+        return $this;
     }
 
     /**
@@ -142,6 +198,18 @@ class DebuggerOptions extends AbstractOptions
     }
 
     /**
+     * Path to log directory
+     *
+     * @param string $log
+     * @return $this
+     */
+    public function setLog($log)
+    {
+        $this->log = realpath($log);
+        return $this;
+    }
+
+    /**
      * Administrator address
      *
      * @return string
@@ -149,6 +217,18 @@ class DebuggerOptions extends AbstractOptions
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * Configure debugger administrator email
+     *
+     * @param string $email
+     * @return $this
+     */
+    public function setEmail($email)
+    {
+        $this->email = (string) $email;
+        return $this;
     }
 
     /**
@@ -160,97 +240,10 @@ class DebuggerOptions extends AbstractOptions
     }
 
     /**
-     * @return int
-     */
-    public function getMaxLen()
-    {
-        return $this->maxLen;
-    }
-
-    /**
-     * Enable debugger
-     *
-     * @param bool $enabled
-     * @return self
-     */
-    public function setEnabled($enabled)
-    {
-        $this->enabled = (bool) $enabled;
-        return $this;
-    }
-
-    /**
-     * Debugger mode, production or development.
-     *
-     * @param bool|null $mode
-     * @return self
-     */
-    public function setMode($mode)
-    {
-        $this->mode = (null === $mode ? null : (bool) $mode);
-        return $this;
-    }
-
-    /**
-     * @param bool $bar
-     * @return self
-     */
-    public function setBar($bar)
-    {
-        $this->bar = (bool) $bar;
-        return $this;
-    }
-    /**
-     * @param array $barPanels
-     * @return self
-     */
-    public function setBarPanels(array $barPanels)
-    {
-        $this->barPanels = $barPanels;
-        return $this;
-    }
-
-    /**
-     * Strict errors?
-     *
-     * @param bool $strict
-     * @return self
-     */
-    public function setStrict($strict)
-    {
-        $this->strict = (bool) $strict;
-        return $this;
-    }
-
-    /**
-     * Path to log directory
-     *
-     * @param string $log
-     * @return self
-     */
-    public function setLog($log)
-    {
-        $this->log = realpath($log);
-        return $this;
-    }
-
-    /**
-     * Configure debugger administrator email
-     *
-     * @param string $email
-     * @return self
-     */
-    public function setEmail($email)
-    {
-        $this->email = (string) $email;
-        return $this;
-    }
-
-    /**
      * Variable dump max depth
      *
      * @param int $maxDepth
-     * @return self
+     * @return $this
      */
     public function setMaxDepth($maxDepth)
     {
@@ -259,14 +252,22 @@ class DebuggerOptions extends AbstractOptions
     }
 
     /**
+     * @return int
+     */
+    public function getMaxLength()
+    {
+        return $this->maxLength;
+    }
+
+    /**
      * Maximum length of a variable
      *
-     * @param int $maxLen
-     * @return self
+     * @param int $maxLength
+     * @return $this
      */
-    public function setMaxLen($maxLen)
+    public function setMaxLength($maxLength)
     {
-        $this->maxLen = (int) $maxLen;
+        $this->maxLength = (int) $maxLength;
         return $this;
     }
 }

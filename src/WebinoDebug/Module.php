@@ -46,8 +46,8 @@ class Module implements Feature\InitProviderInterface
         $debugger = $services->get(DebuggerFactory::SERVICE);
 
         // create bar panels
-        $hasBar = $options->hasBar();
-        if ($hasBar) {
+        $showBar = $options->showBar();
+        if ($showBar) {
             foreach ($options->getBarPanels() as $id => $barPanel) {
                 $debugger->setBarPanel(new $barPanel($modules), $id);
             }
@@ -56,10 +56,10 @@ class Module implements Feature\InitProviderInterface
         // finish debugger init
         $modules->getEventManager()->attach(
             ModuleEvent::EVENT_LOAD_MODULES_POST,
-            function () use ($services, $debugger, $options, $hasBar) {
+            function () use ($services, $debugger, $options, $showBar) {
 
                 // init bar panels
-                if ($hasBar) {
+                if ($showBar) {
                     foreach ($debugger->getBarPanels() as $barPanel) {
                         ($barPanel instanceof PanelInitInterface) and $barPanel->init($services);
                     }

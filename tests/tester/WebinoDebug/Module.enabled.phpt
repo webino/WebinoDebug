@@ -13,7 +13,6 @@ use WebinoDebug\Factory\DebuggerFactory;
 use WebinoDebug\Factory\ModuleOptionsFactory;
 use WebinoDebug\Module;
 use WebinoDebug\Options\ModuleOptions;
-use WebinoDebug\Tracy\Workaround\DisabledBar;
 use Zend\EventManager\EventManager;
 use Zend\ModuleManager\ModuleEvent;
 use Zend\ModuleManager\ModuleManager;
@@ -25,15 +24,15 @@ $test = createTestCase();
 
 
 $options = new ModuleOptions([
-    'enabled'     => true,
-    'mode'        => false,
-    'bar'         => false,
-    'log'         => 'data',
-    'email'       => 'test@example.com',
-    'strict'      => false,
-    'maxDepth'    => 2,
-    'maxLen'      => 9,
-    'templateMap' => ['test' => 'example'],
+    'enabled'      => true,
+    'mode'         => false,
+    'bar'          => false,
+    'log'          => 'data',
+    'email'        => 'test@example.com',
+    'strict'       => false,
+    'max_depth'    => 2,
+    'max_length'   => 9,
+    'template_map' => ['test' => 'example'],
 ]);
 
 $event    = new ModuleEvent;
@@ -99,9 +98,9 @@ $module->init($modules);
 
 Assert::true(Tracy::isEnabled());
 Assert::false(Tracy::$productionMode);
-Assert::type(DisabledBar::class, Tracy::getBar());
+Assert::same($options->showBar(), Tracy::$showBar);
 Assert::same($options->getLog(), Tracy::$logDirectory);
 Assert::same($options->getEmail(), Tracy::$email);
 Assert::same($options->isStrict(), Tracy::$strictMode);
 Assert::same($options->getMaxDepth(), Tracy::$maxDepth);
-Assert::same($options->getMaxLen(), Tracy::$maxLen);
+Assert::same($options->getMaxLength(), Tracy::$maxLength);
