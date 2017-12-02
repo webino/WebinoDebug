@@ -28,7 +28,7 @@ More than just user friendly error and exception handling.
 
 ## Requirements
 
-- PHP 5.6
+- PHP 7.1
 - ZendFramework 2
 
 ## Setup
@@ -36,23 +36,19 @@ More than just user friendly error and exception handling.
 Open terminal and go to your application directory
 
 1. Run `php composer.phar require webino/webino-debug:dev-develop`
-- Add `WebinoDebug` to the enabled modules list as one of first modules
+2. Add `WebinoDebug` to the enabled modules list as one of first modules
 
 *NOTE: Considering a zf2-skeleton or very similar application.*
 
 ## Showcase
 
 ![local error](https://raw.githubusercontent.com/webino/WebinoDebug/develop/doc/showcase/dev-error.png "Errors & Exceptions")
+<br>
 ![public error](https://raw.githubusercontent.com/webino/WebinoDebug/develop/doc/showcase/public-error.png "Title")
-
-## Development
-
-We will appreciate any contributions on development of this module.
-
-Learn [How to develop Webino modules](https://github.com/webino/Webino/wiki/How-to-develop-Webino-module)
 
 ## Addendum
 
   Please, if you are interested in this Zend Framework module report any issues and don't hesitate to contribute.
+  We will appreciate any contributions on development of this module.
 
-[Report a bug](https://github.com/webino/WebinoDebug/issues) | [Fork me](https://github.com/webino/WebinoDebug)
+[Issue](https://github.com/webino/WebinoDebug/issues) | [Fork](https://github.com/webino/WebinoDebug) | [Develop](https://github.com/webino/Webino/wiki/How-to-develop-Webino-module)
