@@ -1,8 +1,1 @@
-title: WebinoDebug
-description: More than just user friendly error and exception handling for Zend Framework 2
-google_analytics: 
-show_downloads: true
 theme: jekyll-theme-cayman
-
-gems:
-  - jekyll-mentions
