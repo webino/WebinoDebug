@@ -18,4 +18,4 @@ env:
     - URI=http://localhost:8000/
     - BROWSER=firefox
     - GH_REF=github.com/webino/WebinoDebug
-    - secure: S3N4n+pGEnnwMEOndPa8XRMELfNhj61QS1xdaDg89ZIWzXxixW0HHKkbRuNRIGh8kfjxfUT5zTh3zRyFY9ys9wsfwDA5F4y/r/+NkdkKCEflBpprc9KOo4mtfv/XIp/qHQcRKCL18S3GpDpyEFwNoTqTFgmuUOL6DxJ6yUFFEzo=
+    - secure: RUcJ08AQHYglWKNYGovtkQDv5HDBpwFkCH+P2cAx2NAsmgbEjrWj93LwC8OOb/IzzM1pQQu5UxO0uODQgFCYOMte6w+L16ckP5BRYetWcdQ0JtIzUTviHdev4mmICDCT0OA9Z96dbnqIzqzqu4crPk2iyneOd6jKHZXd+TkhDPk=
