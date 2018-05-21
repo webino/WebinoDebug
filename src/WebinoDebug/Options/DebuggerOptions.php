@@ -34,6 +34,11 @@ class DebuggerOptions extends AbstractOptions
     protected $bar = false;
 
     /**
+     * @var string
+     */
+    protected $barTitle;
+
+    /**
      * @var array
      */
     protected $barInfo = [];
@@ -98,7 +103,7 @@ class DebuggerOptions extends AbstractOptions
      *
      * @return bool
      */
-    public function isEnabled()
+    public function isEnabled() : bool
     {
         return $this->enabled;
     }
@@ -109,7 +114,7 @@ class DebuggerOptions extends AbstractOptions
      * @param bool $enabled
      * @return $this
      */
-    public function setEnabled($enabled)
+    public function setEnabled($enabled = true)
     {
         $this->enabled = (bool) $enabled;
         return $this;
@@ -120,7 +125,7 @@ class DebuggerOptions extends AbstractOptions
      *
      * @return bool
      */
-    public function isDisabled()
+    public function isDisabled() : bool
     {
         return !$this->enabled;
     }
@@ -134,7 +139,7 @@ class DebuggerOptions extends AbstractOptions
      *
      * @return bool|null
      */
-    public function getMode()
+    public function getMode() : ?bool
     {
         return $this->mode;
     }
@@ -156,7 +161,7 @@ class DebuggerOptions extends AbstractOptions
      *
      * @return bool
      */
-    public function showBar()
+    public function showBar() : bool
     {
         return $this->bar;
     }
@@ -178,7 +183,7 @@ class DebuggerOptions extends AbstractOptions
      *
      * @return array
      */
-    public function getBarPanels()
+    public function getBarPanels() : array
     {
         return $this->barPanels;
     }
@@ -198,7 +203,7 @@ class DebuggerOptions extends AbstractOptions
     /**
      * @return array
      */
-    public function getCssFiles()
+    public function getCssFiles() : array
     {
         return $this->cssFiles;
     }
@@ -209,7 +214,7 @@ class DebuggerOptions extends AbstractOptions
      * @param array $cssFiles
      * @return $this
      */
-    public function setCssFiles($cssFiles)
+    public function setCssFiles(array $cssFiles)
     {
         $this->cssFiles = ArrayUtils::merge($this->cssFiles, $cssFiles);
         return $this;
@@ -218,7 +223,7 @@ class DebuggerOptions extends AbstractOptions
     /**
      * @return array
      */
-    public function getJsFiles()
+    public function getJsFiles() : array
     {
         return $this->jsFiles;
     }
@@ -229,7 +234,7 @@ class DebuggerOptions extends AbstractOptions
      * @param array $jsFiles
      * @return $this
      */
-    public function setJsFiles($jsFiles)
+    public function setJsFiles(array $jsFiles)
     {
         $this->jsFiles = ArrayUtils::merge($this->jsFiles, $jsFiles);
         return $this;
@@ -240,7 +245,7 @@ class DebuggerOptions extends AbstractOptions
      *
      * @return array
      */
-    public function getBarInfo()
+    public function getBarInfo() : array
     {
         return $this->barInfo;
     }
@@ -260,7 +265,7 @@ class DebuggerOptions extends AbstractOptions
     /**
      * @return bool
      */
-    public function isStrict()
+    public function isStrict() : bool
     {
         return $this->strict;
     }
@@ -280,7 +285,7 @@ class DebuggerOptions extends AbstractOptions
     /**
      * @return string Empty string to disable, null for default
      */
-    public function getLog()
+    public function getLog() : string
     {
         if (null === $this->log) {
             $this->setLog('data/log');
@@ -305,7 +310,7 @@ class DebuggerOptions extends AbstractOptions
      *
      * @return string
      */
-    public function getEmail()
+    public function getEmail() : string
     {
         return $this->email;
     }
@@ -325,7 +330,7 @@ class DebuggerOptions extends AbstractOptions
     /**
      * @return int
      */
-    public function getMaxDepth()
+    public function getMaxDepth() : int
     {
         return $this->maxDepth;
     }
@@ -345,7 +350,7 @@ class DebuggerOptions extends AbstractOptions
     /**
      * @return int
      */
-    public function getMaxLength()
+    public function getMaxLength() : int
     {
         return $this->maxLength;
     }
@@ -363,11 +368,33 @@ class DebuggerOptions extends AbstractOptions
     }
 
     /**
+     * Return debugger bar title
+     *
+     * @return string
+     */
+    public function getBarTitle() : string
+    {
+        return $this->barTitle;
+    }
+
+    /**
+     * Set debugger bar custom title
+     *
+     * @param string $barTitle
+     * @return $this
+     */
+    public function setBarTitle(string $barTitle)
+    {
+        $this->barTitle = $barTitle;
+        return $this;
+    }
+
+    /**
      * Has debugger bar a disabled logo?
      *
      * @return bool
      */
-    public function hasBarNoLogo()
+    public function hasBarNoLogo() : bool
     {
         return $this->barNoLogo;
     }
@@ -389,7 +416,7 @@ class DebuggerOptions extends AbstractOptions
      *
      * @return bool
      */
-    public function hasBarNoClose()
+    public function hasBarNoClose() : bool
     {
         return $this->barNoClose;
     }

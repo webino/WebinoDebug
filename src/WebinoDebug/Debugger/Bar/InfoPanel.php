@@ -21,6 +21,11 @@ class InfoPanel extends AbstractPanel implements
     PanelInitInterface
 {
     /**
+     * @var string|null
+     */
+    protected $barTitle;
+
+    /**
      * {@inheritdoc}
      */
     public function init(ServiceManager $services)
@@ -29,6 +34,9 @@ class InfoPanel extends AbstractPanel implements
         $options = $services->get(ModuleOptions::class);
         /** @var \WebinoDebug\Service\Debugger $debugger */
         $debugger = $services->get(DebuggerFactory::SERVICE);
+
+        // set bar title
+        $this->barTitle = $options->getBarTitle();
 
         // set bar info
         foreach ($options->getBarInfo() as $name => $value) {
@@ -41,7 +49,7 @@ class InfoPanel extends AbstractPanel implements
      */
     public function getTab()
     {
-        return '';
+        return '<span id="webino-debug-bar-meta" data-bar-title="' . $this->barTitle . '"></span>';
     }
 
     /**
@@ -49,6 +57,6 @@ class InfoPanel extends AbstractPanel implements
      */
     public function getPanel()
     {
-        return '';
+        return ' ';
     }
 }

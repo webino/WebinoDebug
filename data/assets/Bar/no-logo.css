@@ -7,5 +7,6 @@
     content: "";
     width: 20px;
     height: 100%;
-    background: #aaa;
+    border-right: 1px solid lightgray;
+    background: lightgray;
 }

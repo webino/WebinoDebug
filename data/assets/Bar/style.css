@@ -39,6 +39,14 @@
     overflow: visible !important;
 }
 
+#tracy-debug-bar a[rel="tracy-debug-panel-WebinoDebug-info"] {
+    display: none;
+}
+
+#tracy-ajax-bar {
+    border-top: 1px solid lightgray;
+}
+
 a[rel="tracy-debug-panel-Tracy-dumps"] .tracy-label {
     display: none;
 }
