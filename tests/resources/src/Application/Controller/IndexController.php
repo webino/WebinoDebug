@@ -3,13 +3,15 @@
  * Webino (http://webino.sk/)
  *
  * @link        https://github.com/webino/WebinoDebug/ for the canonical source repository
- * @copyright   Copyright (c) 2014-2017 Webino, s. r. o. (http://webino.sk/)
+ * @copyright   Copyright (c) 2014-2018 Webino, s. r. o. (http://webino.sk/)
  * @license     BSD-3-Clause
  */
 
 namespace Application\Controller;
 
 use Tracy\Debugger;
+use WebinoDebug\Service\DebuggerAwareInterface;
+use WebinoDebug\Service\DebuggerAwareTrait;
 use Zend\Mvc\Controller\AbstractActionController;
 
 /**
@@ -17,8 +19,37 @@ use Zend\Mvc\Controller\AbstractActionController;
  *
  * Actions of possible errors.
  */
-class IndexController extends AbstractActionController
+class IndexController extends AbstractActionController implements
+    DebuggerAwareInterface
 {
+    use DebuggerAwareTrait;
+
+    /**
+     * Debugger test examples
+     *
+     * @return \Zend\View\Model\ViewModel
+     */
+    public function indexAction()
+    {
+        $debugger = $this->getDebugger();
+
+        // debugger bar dump test
+        $debugger->dump(['test bar dump'])->bar('Test bar dump');
+
+        // debugger log dump test
+        $debugger->dump(['test log dump'])->log('Test log dump');
+
+        // debugger timer test
+        $timer = $debugger->timer();
+        usleep(rand(1, 10) * 200);
+        $timer->stop('Test timer');
+
+        // user error test
+        trigger_error('Test error message');
+
+        return parent::indexAction();
+    }
+
     /**
      * Tracy death screen test
      */

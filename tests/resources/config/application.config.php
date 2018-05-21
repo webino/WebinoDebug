@@ -22,6 +22,10 @@ return [
         // Development mode
         'mode' => false,
         'bar'  => true,
+
+        'bar_info' => [
+            'Test debug bar info' => 'Example',
+        ],
     ],
     'module_listener_options' => [
         'config_glob_paths' => [

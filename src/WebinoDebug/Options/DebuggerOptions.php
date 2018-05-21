@@ -3,16 +3,15 @@
  * Webino (http://webino.sk/)
  *
  * @link        https://github.com/webino/WebinoDebug/ for the canonical source repository
- * @copyright   Copyright (c) 2014-2017 Webino, s. r. o. (http://webino.sk/)
+ * @copyright   Copyright (c) 2014-2018 Webino, s. r. o. (http://webino.sk/)
  * @license     BSD-3-Clause
  */
 
 namespace WebinoDebug\Options;
 
-use WebinoDebug\Debugger\Bar\ConfigPanel;
-use WebinoDebug\Debugger\Bar\EventPanel;
-use WebinoDebug\Debugger\Bar\InfoPanel;
+use WebinoDebug\Debugger\Bar;
 use Zend\Stdlib\AbstractOptions;
+use Zend\Stdlib\ArrayUtils;
 
 /**
  * Class DebuggerOptions
@@ -37,16 +36,32 @@ class DebuggerOptions extends AbstractOptions
     /**
      * @var array
      */
+    protected $barInfo = [];
+
+    /**
+     * @var array
+     */
     protected $barPanels = [
-        'WebinoDebug:info'   => InfoPanel::class,
-        'WebinoDebug:config' => ConfigPanel::class,
-        'WebinoDebug:events' => EventPanel::class,
+        'WebinoDebug:timer'  => Bar\TimerPanel::class,
+        'WebinoDebug:info'   => Bar\InfoPanel::class,
+        'WebinoDebug:config' => Bar\ConfigPanel::class,
+        'WebinoDebug:events' => Bar\EventPanel::class,
     ];
+
+    /**
+     * @var array
+     */
+    protected $cssFiles = [__DIR__ . '/../../../data/assets/Bar/style.css'];
+
+    /**
+     * @var array
+     */
+    protected $jsFiles = [__DIR__ . '/../../../data/assets/Bar/script.js'];
 
     /**
      * @var bool
      */
-    protected $strict = true;
+    protected $strict = false;
 
     /**
      * @var string|null
@@ -67,6 +82,16 @@ class DebuggerOptions extends AbstractOptions
      * @var int
      */
     protected $maxLength = 300;
+
+    /**
+     * @var bool
+     */
+    protected $barNoLogo = false;
+
+    /**
+     * @var bool
+     */
+    protected $barNoClose = false;
 
     /**
      * Is debugger enabled?
@@ -137,6 +162,8 @@ class DebuggerOptions extends AbstractOptions
     }
 
     /**
+     * Toggle debugger bar
+     *
      * @param bool $bar
      * @return $this
      */
@@ -157,12 +184,76 @@ class DebuggerOptions extends AbstractOptions
     }
 
     /**
+     * Set custom debugger bar panels
+     *
      * @param array $barPanels
      * @return $this
      */
     public function setBarPanels(array $barPanels)
     {
-        $this->barPanels = $barPanels;
+        $this->barPanels = ArrayUtils::merge($this->barPanels, $barPanels);
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getCssFiles()
+    {
+        return $this->cssFiles;
+    }
+
+    /**
+     * Set custom CSS files
+     *
+     * @param array $cssFiles
+     * @return $this
+     */
+    public function setCssFiles($cssFiles)
+    {
+        $this->cssFiles = ArrayUtils::merge($this->cssFiles, $cssFiles);
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getJsFiles()
+    {
+        return $this->jsFiles;
+    }
+
+    /**
+     * Set custom Javascript files
+     *
+     * @param array $jsFiles
+     * @return $this
+     */
+    public function setJsFiles($jsFiles)
+    {
+        $this->jsFiles = ArrayUtils::merge($this->jsFiles, $jsFiles);
+        return $this;
+    }
+
+    /**
+     * Return custom debugger bar info
+     *
+     * @return array
+     */
+    public function getBarInfo()
+    {
+        return $this->barInfo;
+    }
+
+    /**
+     * Set custom debugger bar info
+     *
+     * @param array $barInfo
+     * @return $this
+     */
+    public function setBarInfo(array $barInfo)
+    {
+        $this->barInfo = ArrayUtils::merge($this->barInfo, $barInfo);
         return $this;
     }
 
@@ -268,6 +359,50 @@ class DebuggerOptions extends AbstractOptions
     public function setMaxLength($maxLength)
     {
         $this->maxLength = (int) $maxLength;
+        return $this;
+    }
+
+    /**
+     * Has debugger bar a disabled logo?
+     *
+     * @return bool
+     */
+    public function hasBarNoLogo()
+    {
+        return $this->barNoLogo;
+    }
+
+    /**
+     * Set debugger bar logo disabled
+     *
+     * @param bool $noLogo
+     * @return $this
+     */
+    public function setBarNoLogo($barNoLogo = true)
+    {
+        $this->barNoLogo = (bool) $barNoLogo;
+        return $this;
+    }
+
+    /**
+     * Has debugger bar close button disabled?
+     *
+     * @return bool
+     */
+    public function hasBarNoClose()
+    {
+        return $this->barNoClose;
+    }
+
+    /**
+     * Disable debugger bar close button
+     *
+     * @param bool $barNoClose
+     * @return $this
+     */
+    public function setBarNoClose($barNoClose = true)
+    {
+        $this->barNoClose = (bool) $barNoClose;
         return $this;
     }
 }

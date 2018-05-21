@@ -1,7 +1,10 @@
 <style>
-    #tracy-debug pre.tracy-dump { overflow: visible; }
+    #tracy-debug .tracy-dump-webino-cfg-subtitle { display: block; margin: 10px 0 0 0; padding: 0 8px; }
+    .tracy-config-inner-box .tracy-dump { border-left: none !important; border-right: none !important; }
 </style>
-<div class="tracy-inner" style="max-width: 100%;">
-    <h1><?= $this->title ?></h1>
-    <div><?= $this->content ?></div>
+<h1><?= $this->title ?></h1>
+<div class="tracy-inner tracy-inner-box">
+    <div class="tracy-config-inner-box">
+        <?= $this->content ?>
+    </div>
 </div>

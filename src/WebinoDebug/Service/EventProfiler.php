@@ -3,13 +3,14 @@
  * Webino (http://webino.sk/)
  *
  * @link        https://github.com/webino/WebinoDebug/ for the canonical source repository
- * @copyright   Copyright (c) 2014-2017 Webino, s. r. o. (http://webino.sk/)
+ * @copyright   Copyright (c) 2014-2018 Webino, s. r. o. (http://webino.sk/)
  * @license     BSD-3-Clause
  */
 
 namespace WebinoDebug\Service;
 
 use ReflectionFunction;
+use WebinoDebug\Debugger\DebuggerInterface;
 use Zend\EventManager\EventInterface;
 use Zend\EventManager\EventManager;
 use Zend\EventManager\EventsCapableInterface;
@@ -28,7 +29,7 @@ class EventProfiler
     const BACKTRACE_LIMIT = 6;
 
     /**
-     * @var Debugger
+     * @var DebuggerInterface
      */
     protected $debugger;
 
@@ -58,10 +59,10 @@ class EventProfiler
     private $lastKey;
 
     /**
-     * @param object|Debugger $debugger
+     * @param object|DebuggerInterface $debugger
      * @param object|SharedEventManagerInterface $sharedEvents
      */
-    public function __construct(Debugger $debugger, SharedEventManagerInterface $sharedEvents)
+    public function __construct(DebuggerInterface $debugger, SharedEventManagerInterface $sharedEvents)
     {
         $this->debugger     = $debugger;
         $this->sharedEvents = $sharedEvents;
@@ -82,7 +83,7 @@ class EventProfiler
     public function setEvent(EventInterface $event)
     {
         $key  = $this->createEventKey($event);
-        $time = $this->debugger->timer(__CLASS__);
+        $time = $this->debugger->timer(__CLASS__)->getDelta();
 
         $this->lastKey and $this->data[$this->lastKey]['time']+= $time;
 
@@ -227,6 +228,7 @@ class EventProfiler
     /**
      * @param \Closure $function
      * @return string
+     * @throws \ReflectionException
      */
     protected function resolveCallbackIdFromClosure(\Closure $function)
     {

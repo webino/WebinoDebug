@@ -1,0 +1,11 @@
+#tracy-debug-logo svg {
+    display: none !important;
+}
+
+#tracy-debug-logo::before {
+    display: block;
+    content: "";
+    width: 20px;
+    height: 100%;
+    background: #aaa;
+}

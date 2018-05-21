@@ -3,7 +3,7 @@
  * Webino (http://webino.sk/)
  *
  * @link        https://github.com/webino/WebinoDebug/ for the canonical source repository
- * @copyright   Copyright (c) 2014-2017 Webino, s. r. o. (http://webino.sk/)
+ * @copyright   Copyright (c) 2014-2018 Webino, s. r. o. (http://webino.sk/)
  * @license     BSD-3-Clause
  */
 
@@ -14,16 +14,22 @@ namespace WebinoDebug\Options;
  */
 class ModuleOptions extends DebuggerOptions
 {
-
     /**
      * @var array|null
      */
     protected $templateMap;
 
     /**
+     * @var string|null
+     */
+    protected $phpErrorLog;
+
+    /**
+     * Return view template map
+     *
      * @return array
      */
-    public function getTemplateMap()
+    public function getTemplateMap() : array
     {
         if (null === $this->templateMap) {
             $this->setTemplateMap(['error/index' => __DIR__ . '/../../../view/error/index.phtml']);
@@ -35,11 +41,34 @@ class ModuleOptions extends DebuggerOptions
      * Configure view templates
      *
      * @param array|null $templateMap Empty array to disable, null for default
-     * @return self
+     * @return $this
      */
     public function setTemplateMap(array $templateMap = null)
     {
         $this->templateMap = $templateMap;
+        return $this;
+    }
+
+    /**
+     * Return PHP error log file path
+     *
+     * @return string
+     */
+    public function getPhpErrorLog() : string
+    {
+        $this->phpErrorLog or $this->phpErrorLog = parent::getLog() . '/php.log';
+        return $this->phpErrorLog;
+    }
+
+    /**
+     * Set PHP error log file path
+     *
+     * @param string|null $phpErrorLog
+     * @return $this
+     */
+    public function setPhpErrorLog(string $phpErrorLog = null)
+    {
+        $this->phpErrorLog = $phpErrorLog;
         return $this;
     }
 }

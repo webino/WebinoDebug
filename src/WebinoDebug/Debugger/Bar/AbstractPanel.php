@@ -3,7 +3,7 @@
  * Webino (http://webino.sk/)
  *
  * @link        https://github.com/webino/WebinoDebug/ for the canonical source repository
- * @copyright   Copyright (c) 2014-2017 Webino, s. r. o. (http://webino.sk/)
+ * @copyright   Copyright (c) 2014-2018 Webino, s. r. o. (http://webino.sk/)
  * @license     BSD-3-Clause
  */
 
@@ -34,6 +34,9 @@ abstract class AbstractPanel
      */
     public function getTab()
     {
+        if (!$this->label) {
+            return '';
+        }
         return sprintf('<span title="%s" class="tracy-label">%s</span>', $this->title, $this->label);
     }
 
@@ -44,7 +47,7 @@ abstract class AbstractPanel
     {
         $data = file_get_contents($this->dir . '/../../../../data/assets/Bar/' . $name . '.png');
         $base64 = 'data:image/png;base64,' . base64_encode($data);
-        return '<img src="' . $base64 . '" style="' . $style . '"/>';
+        return '<img src="' . $base64 . '" style="' . $style . '" title="'. $this->title .'"/>';
     }
 
     /**

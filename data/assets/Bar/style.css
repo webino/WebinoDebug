@@ -1,0 +1,44 @@
+#tracy-debug h1 {
+    min-width: 260px;
+    white-space: nowrap;
+}
+
+#tracy-debug table {
+    width: 100%;
+}
+
+#tracy-debug .tracy-panel {
+    opacity: 1 !important;
+}
+
+#tracy-debug .tracy-icons {
+    top: 7px !important;
+    right: 8px !important;
+}
+
+#tracy-debug .tracy-icons a {
+    display: inline-block;
+    width: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+#tracy-debug .tracy-inner {
+    max-width: 100%;
+    overflow: visible;
+    white-space: nowrap;
+}
+
+#tracy-debug .tracy-inner-box {
+    border: 1px solid #E6DFBF !important;
+    background: #FDF5CE !important;
+}
+
+#tracy-debug pre.tracy-dump {
+    overflow: visible !important;
+}
+
+a[rel="tracy-debug-panel-Tracy-dumps"] .tracy-label {
+    display: none;
+}

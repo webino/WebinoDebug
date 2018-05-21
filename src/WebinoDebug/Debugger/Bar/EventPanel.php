@@ -3,7 +3,7 @@
  * Webino (http://webino.sk/)
  *
  * @link        https://github.com/webino/WebinoDebug/ for the canonical source repository
- * @copyright   Copyright (c) 2014-2017 Webino, s. r. o. (http://webino.sk/)
+ * @copyright   Copyright (c) 2014-2018 Webino, s. r. o. (http://webino.sk/)
  * @license     BSD-3-Clause
  */
 
@@ -23,11 +23,6 @@ class EventPanel extends AbstractPanel implements PanelInterface
      * @var EventProfiler
      */
     private $eventProfiler;
-
-    /**
-     * @var string
-     */
-    protected $label = 'Events';
 
     /**
      * @var string

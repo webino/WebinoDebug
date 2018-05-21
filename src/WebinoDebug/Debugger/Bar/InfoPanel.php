@@ -3,15 +3,15 @@
  * Webino (http://webino.sk/)
  *
  * @link        https://github.com/webino/WebinoDebug/ for the canonical source repository
- * @copyright   Copyright (c) 2014-2017 Webino, s. r. o. (http://webino.sk/)
+ * @copyright   Copyright (c) 2014-2018 Webino, s. r. o. (http://webino.sk/)
  * @license     BSD-3-Clause
  */
 
 namespace WebinoDebug\Debugger\Bar;
 
 use WebinoDebug\Factory\DebuggerFactory;
+use WebinoDebug\Options\ModuleOptions;
 use Zend\ServiceManager\ServiceManager;
-use Zend\Version\Version;
 
 /**
  * Class InfoPanel
@@ -25,16 +25,15 @@ class InfoPanel extends AbstractPanel implements
      */
     public function init(ServiceManager $services)
     {
-        $info = [];
-
-        class_exists(Version::class)
-            and $info['Zend Framework'] = Version::VERSION;
-
+        /** @var \WebinoDebug\Options\ModuleOptions $options */
+        $options = $services->get(ModuleOptions::class);
         /** @var \WebinoDebug\Service\Debugger $debugger */
         $debugger = $services->get(DebuggerFactory::SERVICE);
-        /** @var \Tracy\DefaultBarPanel $panel */
-        $panel = $debugger->getBarPanel('Tracy:info');
-        $panel->data = $info;
+
+        // set bar info
+        foreach ($options->getBarInfo() as $name => $value) {
+            $debugger->setBarInfo($name, $value);
+        }
     }
 
     /**
