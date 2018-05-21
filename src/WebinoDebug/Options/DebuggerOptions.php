@@ -383,9 +383,9 @@ class DebuggerOptions extends AbstractOptions
      * @param string $barTitle
      * @return $this
      */
-    public function setBarTitle(string $barTitle)
+    public function setBarTitle($barTitle)
     {
-        $this->barTitle = $barTitle;
+        $this->barTitle = (string) $barTitle;
         return $this;
     }
 
@@ -402,7 +402,7 @@ class DebuggerOptions extends AbstractOptions
     /**
      * Set debugger bar logo disabled
      *
-     * @param bool $noLogo
+     * @param bool $barNoLogo
      * @return $this
      */
     public function setBarNoLogo($barNoLogo = true)
