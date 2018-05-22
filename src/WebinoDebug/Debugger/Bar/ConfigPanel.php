@@ -14,7 +14,6 @@ use WebinoDebug\Factory\DebuggerFactory;
 use WebinoDebug\Debugger\DebuggerInterface;
 use Zend\Config\Config;
 use Zend\ServiceManager\ServiceManager;
-use Zend\Stdlib\ArrayUtils;
 
 /**
  * Class ConfigPanel
@@ -109,18 +108,6 @@ class ConfigPanel extends AbstractPanel implements
      */
     public function getPanel()
     {
-        $debugger = $this->getDebugger();
-
-        $this->content = null;
-        foreach ($this->getConfig() as $index => $cfg) {
-
-            $dump = $debugger->dump(ArrayUtils::iteratorToArray($cfg))
-                        ->setMaxDepth(20)
-                        ->setMaxLength(600);
-
-            $this->content .= '<b class="tracy-dump-webino-cfg-subtitle">' . $index . ':</b>' . $dump;
-        }
-
-        return $this->renderTemplate('config');
+        return $this->renderTemplate('config.panel');
     }
 }

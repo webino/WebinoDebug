@@ -27,6 +27,7 @@
         "zendframework/zend-modulemanager": "2.*",
         "zendframework/zend-servicemanager": "2.*",
         "zendframework/zend-stdlib": "2.*",
+        "webino/zend-escaper": "2.*",
         "tracy/tracy": "~2.4"
     },
     "suggest": {

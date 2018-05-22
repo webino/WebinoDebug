@@ -1,0 +1,26 @@
+<?php
+use Zend\Stdlib\ArrayUtils;
+/** @var \WebinoDebug\Debugger\Bar\ConfigPanel $this */
+?>
+<style>
+    #tracy-debug .tracy-dump-webino-cfg-subtitle { display: block; margin: 10px 0 0 0; padding: 0 8px; }
+    .tracy-config-inner-box .tracy-dump { border-left: none !important; border-right: none !important; }
+</style>
+<h1><?= $this->escapeHtml($this->title) ?></h1>
+<div class="tracy-inner tracy-inner-box">
+    <div class="tracy-config-inner-box">
+        <?php
+        $debugger = $this->getDebugger();
+
+        $this->content = null;
+        foreach ($this->getConfig() as $index => $cfg) {
+
+            $dump = $debugger->dump(ArrayUtils::iteratorToArray($cfg))
+                ->setMaxDepth(20)
+                ->setMaxLength(600);
+            ?>
+            <b class="tracy-dump-webino-cfg-subtitle"><?= $this->escapeHtml($index) ?></b>
+            <?= $dump ?>
+        <?php } ?>
+    </div>
+</div>

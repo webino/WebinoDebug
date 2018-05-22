@@ -1,0 +1,3 @@
+#tracy-debug-bar>ul:first-child>li:last-child {
+    display: none;
+}

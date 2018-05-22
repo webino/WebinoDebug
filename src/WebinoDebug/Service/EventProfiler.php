@@ -121,7 +121,7 @@ class EventProfiler
         $index = $this::BACKTRACE_LIMIT - 1;
 
         if (isset($backtrace[$index])
-            && 'trigger' === $backtrace[$index]['function']
+            && false !== strpos($backtrace[$index]['function'], 'trigger')
         ) {
             return [
                 'path' => $this->filterCwd($backtrace[$index]['file']),
@@ -228,16 +228,21 @@ class EventProfiler
     /**
      * @param \Closure $function
      * @return string
-     * @throws \ReflectionException
      */
     protected function resolveCallbackIdFromClosure(\Closure $function)
     {
-        $ref   = new ReflectionFunction($function);
-        $path  = $this->filterCwd($ref->getFileName());
-        $start = $ref->getStartLine();
-        $end   = $ref->getEndLine();
+        try {
+            $ref   = new ReflectionFunction($function);
+            $path  = $this->filterCwd($ref->getFileName());
+            $start = $ref->getStartLine();
+            $end   = $ref->getEndLine();
 
-        return sprintf('Closure: %s:%d-%d', $path, $start, $end);
+            return sprintf('Closure: %s:%d-%d', $path, $start, $end);
+        } catch (\Throwable $exc) {
+            error_log($exc);
+        }
+
+        return '';
     }
 
     /**

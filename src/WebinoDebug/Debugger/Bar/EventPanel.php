@@ -77,6 +77,6 @@ class EventPanel extends AbstractPanel implements PanelInterface
      */
     public function getPanel()
     {
-        return $this->renderTemplate('events');
+        return $this->renderTemplate('events.panel');
     }
 }

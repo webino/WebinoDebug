@@ -55,6 +55,6 @@ class TimerPanel extends AbstractPanel implements PanelInterface
      */
     public function getPanel()
     {
-        return $this->timers ? $this->renderTemplate('timer') : '';
+        return $this->timers ? $this->renderTemplate('timer.panel') : '';
     }
 }
