@@ -61,10 +61,10 @@ class Debugger implements
         if ($showBar) {
 
             $options->hasBarNoLogo()
-                and Tracy::$customCssFiles[] = __DIR__ . '/../../../data/assets/Bar/no-logo.css';
+                and Tracy::$customCssFiles[] = __DIR__ . '/../../../data/assets/Debugger/no-logo.css';
 
             $options->hasBarNoClose()
-                and Tracy::$customCssFiles[] = __DIR__ . '/../../../data/assets/Bar/no-close.css';
+                and Tracy::$customCssFiles[] = __DIR__ . '/../../../data/assets/Debugger/no-close.css';
         }
 
         Tracy::$showBar    = $showBar;

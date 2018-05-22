@@ -56,12 +56,12 @@ class DebuggerOptions extends AbstractOptions
     /**
      * @var array
      */
-    protected $cssFiles = [__DIR__ . '/../../../data/assets/Bar/style.css'];
+    protected $cssFiles = [__DIR__ . '/../../../data/assets/Debugger/style.css'];
 
     /**
      * @var array
      */
-    protected $jsFiles = [__DIR__ . '/../../../data/assets/Bar/script.js'];
+    protected $jsFiles = [__DIR__ . '/../../../data/assets/Debugger/script.js'];
 
     /**
      * @var bool
