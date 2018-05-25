@@ -7,12 +7,7 @@
  * @license     BSD-3-Clause
  */
 
-namespace WebinoDebug\Debugger\Bar;
-
-use WebinoDebug\Factory\DebuggerFactory;
-use WebinoDebug\Options\ModuleOptions;
-use Zend\ServiceManager\ServiceManager;
-use Zend\Stdlib\ArrayUtils;
+namespace WebinoDebug\Debugger;
 
 /**
  * Class TimerPanel

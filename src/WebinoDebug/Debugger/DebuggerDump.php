@@ -126,7 +126,7 @@ class DebuggerDump
         if ($this->return) {
             return $this->dumpReturn();
 
-        } elseif (!Dumper::$productionMode) {
+        } elseif (!Tracy::$productionMode) {
             Dumper::dump($this->var, $this->getOptions() + [
                 Dumper::LOCATION => Tracy::$showLocation,
             ]);

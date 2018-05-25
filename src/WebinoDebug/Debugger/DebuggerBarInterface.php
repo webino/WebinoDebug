@@ -9,8 +9,6 @@
 
 namespace WebinoDebug\Debugger;
 
-use WebinoDebug\Debugger\Bar\PanelInterface;
-
 /**
  * Interface DebuggerBarInterface
  */
@@ -29,7 +27,7 @@ interface DebuggerBarInterface
      * Set debugger bar info
      *
      * @param string $label Info label
-     * @param string|numeric $value Info value
+     * @param string|int $value Info value
      * @return $this
      */
     public function setBarInfo(string $label, $value);

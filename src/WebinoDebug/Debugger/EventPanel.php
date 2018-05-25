@@ -7,7 +7,7 @@
  * @license     BSD-3-Clause
  */
 
-namespace WebinoDebug\Debugger\Bar;
+namespace WebinoDebug\Debugger;
 
 use WebinoDebug\Exception;
 use WebinoDebug\Factory\EventProfilerFactory;

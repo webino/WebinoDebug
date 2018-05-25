@@ -25,7 +25,7 @@ interface DebuggerInterface
     /**
      * Start/stop stopwatch
      *
-     * @param string|name $name Timer name
+     * @param string|null $name Timer name
      * @return \WebinoDebug\Debugger\DebuggerTimer Debugger timer
      */
     public function timer($name = null);

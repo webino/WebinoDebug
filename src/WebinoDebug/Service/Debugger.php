@@ -10,7 +10,7 @@
 namespace WebinoDebug\Service;
 
 use Tracy\Debugger as Tracy;
-use WebinoDebug\Debugger\Bar\PanelInterface;
+use WebinoDebug\Debugger\PanelInterface;
 use WebinoDebug\Debugger\DebuggerBarInterface;
 use WebinoDebug\Debugger\DebuggerDump;
 use WebinoDebug\Debugger\DebuggerInterface;
@@ -156,7 +156,7 @@ class Debugger implements
     private function createDebuggerTimer()
     {
         if (!$this->timerPrototype) {
-            /** @var \WebinoDebug\Debugger\Bar\TimerPanel $timerPanel */
+            /** @var \WebinoDebug\Debugger\TimerPanel $timerPanel */
             $timerPanel = $this->getBarPanel('WebinoDebug:timer');
             $this->timerPrototype = new DebuggerTimer($timerPanel);
         }
@@ -178,6 +178,6 @@ class Debugger implements
      */
     public function barDump($subject, $title = null, array $options = null)
     {
-        return $this->dump($subject)->toBar($title);
+        return $this->dump($subject)->bar($title);
     }
 }

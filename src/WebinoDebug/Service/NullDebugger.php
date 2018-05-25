@@ -9,7 +9,7 @@
 
 namespace WebinoDebug\Service;
 
-use WebinoDebug\Debugger\Bar\PanelInterface;
+use WebinoDebug\Debugger\PanelInterface;
 use WebinoDebug\Debugger\DebuggerBarInterface;
 use WebinoDebug\Debugger\DebuggerInterface;
 

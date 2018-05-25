@@ -7,7 +7,7 @@
  * @license     BSD-3-Clause
  */
 
-namespace WebinoDebug\Debugger\Bar;
+namespace WebinoDebug\Debugger;
 
 use Zend\Escaper\EscaperAwareTrait;
 
@@ -49,7 +49,7 @@ abstract class AbstractPanel
      */
     public function createIcon($name, $style = '')
     {
-        $data = file_get_contents($this->dir . '/../../../../data/assets/Debugger/' . $name . '.png');
+        $data = file_get_contents($this->dir . '/../../../data/assets/Debugger/' . $name . '.png');
         $base64 = 'data:image/png;base64,' . base64_encode($data);
         return '<img src="' . $base64 . '" style="' . $style . '" title="'. $this->title .'"/>';
     }
@@ -62,7 +62,7 @@ abstract class AbstractPanel
     {
         ob_start();
         /** @noinspection PhpIncludeInspection */
-        require $this->dir . '/../../../../data/assets/Debugger/' . $name . '.phtml';
+        require $this->dir . '/../../../data/assets/Debugger/' . $name . '.phtml';
         return ob_get_clean();
     }
 }

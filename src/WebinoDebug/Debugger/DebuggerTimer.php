@@ -10,7 +10,6 @@
 namespace WebinoDebug\Debugger;
 
 use Tracy\Debugger as Tracy;
-use WebinoDebug\Debugger\Bar\TimerPanel;
 
 /**
  * Class DebuggerTimer

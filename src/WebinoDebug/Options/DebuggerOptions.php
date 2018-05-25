@@ -9,7 +9,7 @@
 
 namespace WebinoDebug\Options;
 
-use WebinoDebug\Debugger\Bar;
+use WebinoDebug\Debugger;
 use Zend\Stdlib\AbstractOptions;
 use Zend\Stdlib\ArrayUtils;
 
@@ -47,10 +47,10 @@ class DebuggerOptions extends AbstractOptions
      * @var array
      */
     protected $barPanels = [
-        'WebinoDebug:timer'  => Bar\TimerPanel::class,
-        'WebinoDebug:info'   => Bar\InfoPanel::class,
-        'WebinoDebug:config' => Bar\ConfigPanel::class,
-        'WebinoDebug:events' => Bar\EventPanel::class,
+        'WebinoDebug:timer'  => Debugger\TimerPanel::class,
+        'WebinoDebug:info'   => Debugger\InfoPanel::class,
+        'WebinoDebug:config' => Debugger\ConfigPanel::class,
+        'WebinoDebug:events' => Debugger\EventPanel::class,
     ];
 
     /**

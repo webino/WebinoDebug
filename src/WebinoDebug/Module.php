@@ -9,7 +9,6 @@
 
 namespace WebinoDebug;
 
-use WebinoDebug\Debugger\Bar;
 use WebinoDebug\Factory\DebuggerFactory;
 use WebinoDebug\Factory\ModuleOptionsFactory;
 use WebinoDebug\Options\ModuleOptions;
@@ -109,7 +108,7 @@ class Module implements Feature\InitProviderInterface
 
                     // init bar panels
                     foreach ($debugger->getBarPanels() as $barPanel) {
-                        ($barPanel instanceof Bar\PanelInitInterface) and $barPanel->init($services);
+                        ($barPanel instanceof Debugger\PanelInitInterface) and $barPanel->init($services);
                     }
                 }
 
