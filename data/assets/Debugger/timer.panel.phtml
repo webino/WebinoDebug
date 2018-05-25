@@ -1,14 +1,16 @@
-<?php /** @var \WebinoDebug\Debugger\Bar\TimerPanel $this */ ?>
+<?php /** @var \WebinoDebug\Debugger\TimerPanel $this */ ?>
 <h1><?= $this->escapeHtml($this->title) ?></h1>
 <div class="tracy-inner tracy-inner-box">
-    <div class="tracy-config-inner-box">
-        <table>
-        <?php foreach ($this->timers as $label => $time) { ?>
-            <tr>
-                <td><?= $this->escapeHtml($label) ?></td>
-                <td><?= $this->escapeHtml(number_format($time * 1000, 1, '.', ' ')) ?> ms</td>
-            </tr>
-        <?php } ?>
-        </table>
+    <div class="tracy-inner-container">
+        <div class="tracy-config-inner-box">
+            <table>
+            <?php foreach ($this->timers as $label => $time) { ?>
+                <tr>
+                    <td><?= $this->escapeHtml($label) ?></td>
+                    <td><?= $this->escapeHtml(number_format($time * 1000, 1, '.', ' ')) ?> ms</td>
+                </tr>
+            <?php } ?>
+            </table>
+        </div>
     </div>
 </div>

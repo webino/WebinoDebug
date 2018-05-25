@@ -1,4 +1,4 @@
-<?php /** @var \WebinoDebug\Debugger\Bar\EventPanel $this */ ?>
+<?php /** @var \WebinoDebug\Debugger\EventPanel $this */ ?>
 <style>
     .tracy-event-box { padding: .4em .7em !important; border-bottom: 1px solid #E6DFBF !important; }
     .tracy-event-box:nth-child(2n) { background: #F7F0CB !important; }
@@ -7,43 +7,45 @@
 </style>
 <h1><?= $this->escapeHtml($this->title) ?></h1>
 <div class="tracy-inner tracy-inner-box">
-    <div class="tracy-event-inner-box">
-        <?php foreach ($this->getEventProfiler()->getData() as $event => $types): ?>
-            <div class="tracy-event-box">
-                <span class="tracy-event-name">
-                    <strong><?= $this->escapeHtml($event) ?></strong>
-                    <?= $this->escapeHtml($types['time'] ? sprintf(' / %s ms', number_format($types['time'] * 1000, 1, '.', ' ')) : '') ?>
-                </span>
-                <?php foreach ($types as $type => $listeners): ?>
-                    <?php switch ($type):
-                        case 'caller':
-                            $caller = is_array($listeners)
-                                ? sprintf('%s:%s', $listeners['path'], $listeners['line'])
-                                : 'unknown trigger';
-                            ?>
-                            <em>Triggered in <?= $this->escapeHtml($caller) ?></em><br />
-                            <?php break;
-                        case 'event':
-                            $count = count($listeners);
-                            if (!$count) { continue; } ?>
-                            <p>EventManager listeners (<?= $this->escapeHtml($count) ?>)<br />
-                            <?php foreach ($listeners as $listener): ?>
-                                <?= sprintf('&nbsp;&bull; [%s] %s', $this->escapeHtml($listener['priority']), $this->escapeHtml($listener['callback'])) ?><br />
-                            <?php endforeach; ?>
-                            </p>
-                            <?php break;
-                        case 'sharedEvent':
-                            $count = count($listeners);
-                            if (!$count) { continue; } ?>
-                            <p>SharedEventManager listeners (<?= $this->escapeHtml($count) ?>)<br />
-                            <?php foreach ($listeners as $listener): ?>
-                                <?= sprintf('&nbsp;&bull; [%s] %s', $this->escapeHtml($listener['priority']), $this->escapeHtml($listener['callback'])) ?><br />
-                            <?php endforeach; ?>
-                            </p>
-                            <?php break; ?>
-                    <?php endswitch; ?>
-                <?php endforeach; ?>
-            </div>
-        <?php endforeach; ?>
+    <div class="tracy-inner-container">
+        <div class="tracy-event-inner-box">
+            <?php foreach ($this->getEventProfiler()->getData() as $event => $types): ?>
+                <div class="tracy-event-box">
+                    <span class="tracy-event-name">
+                        <strong><?= $this->escapeHtml($event) ?></strong>
+                        <?= $this->escapeHtml($types['time'] ? sprintf(' / %s ms', number_format($types['time'] * 1000, 1, '.', ' ')) : '') ?>
+                    </span>
+                    <?php foreach ($types as $type => $listeners): ?>
+                        <?php switch ($type):
+                            case 'caller':
+                                $caller = is_array($listeners)
+                                    ? Helpers::editorLink($this->escapeHtml($listeners['file']), $this->escapeHtml($listeners['line']))
+                                    : 'unknown trigger';
+                                ?>
+                                <em>Triggered in <?= $caller ?></em><br />
+                                <?php break;
+                            case 'event':
+                                $count = count($listeners);
+                                if (!$count) { continue; } ?>
+                                <p>EventManager listeners (<?= $this->escapeHtml($count) ?>)<br />
+                                <?php foreach ($listeners as $listener): ?>
+                                    <?= sprintf('&nbsp;&bull; [%s] %s', $this->escapeHtml($listener['priority']), $this->escapeHtml($listener['callback'])) ?><br />
+                                <?php endforeach; ?>
+                                </p>
+                                <?php break;
+                            case 'sharedEvent':
+                                $count = count($listeners);
+                                if (!$count) { continue; } ?>
+                                <p>SharedEventManager listeners (<?= $this->escapeHtml($count) ?>)<br />
+                                <?php foreach ($listeners as $listener): ?>
+                                    <?= sprintf('&nbsp;&bull; [%s] %s', $this->escapeHtml($listener['priority']), $this->escapeHtml($listener['callback'])) ?><br />
+                                <?php endforeach; ?>
+                                </p>
+                                <?php break; ?>
+                        <?php endswitch; ?>
+                    <?php endforeach; ?>
+                </div>
+            <?php endforeach; ?>
+        </div>
     </div>
 </div>

@@ -124,13 +124,13 @@ class EventProfiler
             && false !== strpos($backtrace[$index]['function'], 'trigger')
         ) {
             return [
-                'path' => $this->filterCwd($backtrace[$index]['file']),
+                'file' => $backtrace[$index]['file'],
                 'line' => $backtrace[$index]['line'],
             ];
         }
 
         return [
-            'path' => null,
+            'file' => null,
             'line' => null
         ];
     }
@@ -233,11 +233,11 @@ class EventProfiler
     {
         try {
             $ref   = new ReflectionFunction($function);
-            $path  = $this->filterCwd($ref->getFileName());
+            $file  = $ref->getFileName();
             $start = $ref->getStartLine();
             $end   = $ref->getEndLine();
 
-            return sprintf('Closure: %s:%d-%d', $path, $start, $end);
+            return sprintf('Closure: %s:%d-%d', $file, $start, $end);
         } catch (\Throwable $exc) {
             error_log($exc);
         }
@@ -253,39 +253,5 @@ class EventProfiler
     protected function createMethodName($object, $method)
     {
         return sprintf('%s::%s()', get_class($object), $method);
-    }
-
-    /**
-     * @param $path
-     * @return string
-     */
-    protected function filterCwd($path)
-    {
-        $cwd = $this->resolveCwd($path);
-        if (substr($path, 0, strlen($cwd)) === $cwd) {
-            return substr($path, strlen($cwd));
-        }
-        return $path;
-    }
-
-    /**
-     * @param $path
-     * @return string
-     */
-    protected function resolveCwd($path)
-    {
-        if (null === $this->cwd) {
-            $cwd = getcwd();
-            while (false === strstr($path, $cwd)) {
-                $cwd = dirname($cwd);
-                if (DIRECTORY_SEPARATOR === $cwd) {
-                    $cwd = $this->cwd;
-                    break;
-                }
-            }
-            $this->cwd = $cwd . '/';
-        }
-
-        return $this->cwd;
     }
 }
