@@ -9,7 +9,7 @@
 
 namespace WebinoDebug;
 
-use WebinoDebug\Debugger\Bar\PanelInitInterface;
+use WebinoDebug\Debugger\Bar;
 use WebinoDebug\Factory\DebuggerFactory;
 use WebinoDebug\Factory\ModuleOptionsFactory;
 use WebinoDebug\Options\ModuleOptions;
@@ -54,6 +54,7 @@ class Module implements Feature\InitProviderInterface
         $debugger = $services->get(DebuggerFactory::SERVICE);
 
         // add a service initializer
+        // TODO something better
         $modules->getEventManager()->attach(
             ModuleEvent::EVENT_LOAD_MODULES_POST,
             function () use ($services, $debugger) {
@@ -79,9 +80,12 @@ class Module implements Feature\InitProviderInterface
         }
 
         // create bar panels
-        $showBar = $options->showBar();
+        $showBar   = $options->showBar();
+        $barPanels = $options->getBarPanels();
+
         if ($showBar) {
-            foreach ($options->getBarPanels() as $id => $barPanel) {
+            // set core bar panels
+            foreach ($barPanels as $id => $barPanel) {
                 $debugger->setBarPanel(new $barPanel($modules), $id);
             }
         }
@@ -89,17 +93,23 @@ class Module implements Feature\InitProviderInterface
         // finish debugger init
         $modules->getEventManager()->attach(
             ModuleEvent::EVENT_LOAD_MODULES_POST,
-            function () use ($services, $debugger, $options, $showBar) {
+            function () use ($services, $debugger, $options, $showBar, $barPanels) {
 
                 // update module options
                 /** @var ModuleOptions $newOptions */
                 $newOptions = $services->create(ModuleOptions::class);
                 $options->setFromArray($newOptions->toArray());
 
-                // init bar panels
                 if ($showBar) {
+                    // set additional bar panels
+                    $newBarPanels = array_diff($options->getBarPanels(), $barPanels);
+                    foreach ($newBarPanels as $id => $barPanel) {
+                        $debugger->setBarPanel($services->get($barPanel), $id);
+                    }
+
+                    // init bar panels
                     foreach ($debugger->getBarPanels() as $barPanel) {
-                        ($barPanel instanceof PanelInitInterface) and $barPanel->init($services);
+                        ($barPanel instanceof Bar\PanelInitInterface) and $barPanel->init($services);
                     }
                 }
 

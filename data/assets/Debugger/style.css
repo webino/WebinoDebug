@@ -30,6 +30,11 @@
     white-space: nowrap;
 }
 
+#tracy-debug .tracy-mode-peek .tracy-inner,
+#tracy-debug .tracy-mode-float .tracy-inner {
+    max-width: 900px !important;
+}
+
 #tracy-debug .tracy-inner-box {
     border: 1px solid #E6DFBF !important;
     background: #FDF5CE !important;
@@ -39,7 +44,8 @@
     overflow: visible !important;
 }
 
-#tracy-debug-bar a[rel="tracy-debug-panel-WebinoDebug-info"] {
+#tracy-debug-bar a[rel="tracy-debug-panel-WebinoDebug-info"],
+#tracy-debug-bar a[rel="tracy-debug-panel-WebinoDebug-info-ajax"] {
     display: none;
 }
 
