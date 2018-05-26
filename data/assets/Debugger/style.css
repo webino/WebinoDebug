@@ -25,7 +25,7 @@
     bottom: auto !important;
     width: inherit;
     min-width: inherit;
-    height: 40px;
+    height: 46px;
     text-align: right;
     padding: 10px 32px 0 0;
     background: white;
@@ -48,6 +48,11 @@
 
 #tracy-debug .tracy-mode-peek {
     overflow: auto !important;
+}
+
+#tracy-debug .tracy-mode-peek h1 {
+    width: 100%;
+    background: white;
 }
 
 #tracy-debug .tracy-mode-peek .tracy-inner,

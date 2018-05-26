@@ -9,7 +9,7 @@ use Tracy\Helpers;
     .tracy-event-inner-box { border: 1px solid #E6DFBF !important; background: #FDF5CE !important; }
 </style>
 <h1><?= $this->escapeHtml($this->title) ?></h1>
-<div class="tracy-inner tracy-inner-box">
+<div class="tracy-inner">
     <div class="tracy-inner-container">
         <div class="tracy-event-inner-box">
             <?php foreach ($this->getEventProfiler()->getData() as $event => $types): ?>
