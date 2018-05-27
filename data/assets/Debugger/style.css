@@ -2,7 +2,9 @@
     position: fixed;
     z-index: 999;
     min-width: 260px;
-    padding: 10px 8px;
+    line-height: 46px;
+    margin: 0;
+    padding: 0 8px;
     white-space: nowrap;
 }
 
