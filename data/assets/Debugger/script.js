@@ -1,3 +1,35 @@
+window.WebinoDebug = (function () {
+    var self = {
+        ajax: function(method, url, data, success) {
+            var oldTracyAutoRefresh = window.TracyAutoRefresh;
+            window.TracyAutoRefresh = false;
+            var ajax = new XMLHttpRequest;
+            ajax.open(method, url);
+            ajax.setRequestHeader('X-Tracy-Ajax', false);
+            ajax.onreadystatechange = function (event) {
+                switch (event.target.readyState) {
+                    case 4:
+                        success && success(event.target.responseText);
+                        break;
+                }
+            }
+            ajax.send(data);
+            window.TracyAutoRefresh = oldTracyAutoRefresh;
+            return self;
+        },
+        get: function(url, success) {
+            self.ajax('GET', url, success);
+            return self;
+        },
+        post: function(url, data, success) {
+            self.ajax('GET', url, data, success);
+            return self;
+        }
+    };
+
+    return self;
+})();
+
 (function () {
     var init = function () {
         // init wait

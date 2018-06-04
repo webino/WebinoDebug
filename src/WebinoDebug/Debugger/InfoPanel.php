@@ -26,6 +26,11 @@ class InfoPanel extends AbstractPanel implements
     protected $barTitle;
 
     /**
+     * @var string
+     */
+    protected $root;
+
+    /**
      * {@inheritdoc}
      */
     public function init(ServiceManager $services)
@@ -42,6 +47,9 @@ class InfoPanel extends AbstractPanel implements
         foreach ($options->getBarInfo() as $name => $value) {
             $debugger->setBarInfo($name, $value);
         }
+
+        // remember system root
+        $this->root = realpath('.');
     }
 
     /**
@@ -49,6 +57,7 @@ class InfoPanel extends AbstractPanel implements
      */
     public function getTab()
     {
+        chdir($this->root);
         return '<span id="webino-debug-bar-meta" data-bar-title="' . $this->barTitle . '"></span>';
     }
 

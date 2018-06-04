@@ -47,8 +47,8 @@ class DebuggerOptions extends AbstractOptions
      * @var array
      */
     protected $barPanels = [
-        'WebinoDebug:timer'  => Debugger\TimerPanel::class,
         'WebinoDebug:info'   => Debugger\InfoPanel::class,
+        'WebinoDebug:timer'  => Debugger\TimerPanel::class,
         'WebinoDebug:config' => Debugger\ConfigPanel::class,
         'WebinoDebug:events' => Debugger\EventPanel::class,
     ];

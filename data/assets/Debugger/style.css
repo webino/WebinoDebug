@@ -71,6 +71,10 @@
     overflow: visible !important;
 }
 
+#tracy-debug-bar li > span {
+    padding: 0;
+}
+
 #tracy-debug-bar a[rel="tracy-debug-panel-WebinoDebug-info"],
 #tracy-debug-bar a[rel="tracy-debug-panel-WebinoDebug-info-ajax"] {
     display: none;

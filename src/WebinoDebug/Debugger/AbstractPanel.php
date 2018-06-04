@@ -49,9 +49,11 @@ abstract class AbstractPanel
      */
     public function createIcon($name, $style = '')
     {
-        $data = file_get_contents($this->dir . '/../../../data/assets/Debugger/' . $name . '.png');
+        $data   = file_get_contents($this->dir . '/../../../data/assets/Debugger/' . $name . '.png');
         $base64 = 'data:image/png;base64,' . base64_encode($data);
-        return '<img src="' . $base64 . '" style="' . $style . '" title="'. $this->title .'"/>';
+        $style  = $style ? 'style="' . $style . '"' : '';
+        $title  = $this->title ? 'title="' . $this->title . '"' : '';
+        return sprintf('<img src="%s" %s %s/>', $base64, $style, $title);
     }
 
     /**
