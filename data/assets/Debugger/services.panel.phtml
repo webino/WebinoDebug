@@ -1,0 +1,66 @@
+<?php /** @var \WebinoDebug\Debugger\ServicesPanel $this */ ?>
+<style>
+    .tracy-services-box table th,
+    .tracy-services-box table td { width: 50% !important; }
+    .tracy-services-box table table tr:first-child th,
+    .tracy-services-box table table tr:first-child td { border-top: none !important; }
+    .tracy-services-box table table tr:last-child th,
+    .tracy-services-box table table tr:last-child td { border-bottom: none !important; }
+    .tracy-services-box table table th,
+    .tracy-services-box table table td { border-left: none !important; border-right: none !important; }
+    .tracy-services-list-box { padding: 0 !important; }
+    .tracy-services-list-box td { font-family: monospace !important; }
+</style>
+<h1><?= $this->escapeHtml($this->title) ?></h1>
+<div class="tracy-inner tracy-inner-box tracy-services-box">
+    <div class="tracy-inner-container">
+        <?php
+        $services = $this->getServices();
+        $canonicalNames = array_flip($services->getCanonicalNames());
+        $registeredServices = array_reverse($services->getRegisteredServices());
+        ?>
+        <table>
+        <?php foreach ($registeredServices as $type => $servicesNames ) {
+            $id = 'tracy-services-' . $this->escapeHtml($type); ?>
+            <tr>
+                <td>
+                    <a href="#<?= $id ?>" class="tracy-toggle tracy-collapsed">
+                        <?= $this->escapeHtml($type . ' (' . count($servicesNames) . ')') ?>
+                    </a>
+                </td>
+                <td class="tracy-services-list-box">
+                    <table id="<?= $id ?>" class="tracy-collapsed">
+                        <tr>
+                            <th>Service name</th>
+                    <?php switch ($type) {
+                        case 'instances': ?>
+                            <th>Service class</th>
+                            </tr>
+                            <?php foreach ($servicesNames as $serviceName) {
+                                $service = $services->get($serviceName);
+                                $serviceClass = is_object($service) ? get_class($service) : gettype($service);
+                                ?>
+                                <tr>
+                                    <td><?= $this->escapeHtml($canonicalNames[$serviceName]) ?></td>
+                                    <td>
+                                        <?= $this->escapeHtml($serviceClass) ?>
+                                    </td>
+                                </tr>
+                            <?php }
+                            break;
+
+                        default: ?>
+                            </tr>
+                            <?php foreach ($servicesNames as $serviceName) { ?>
+                                <tr>
+                                    <td><?= $this->escapeHtml($canonicalNames[$serviceName]) ?></td>
+                                </tr>
+                            <?php }
+                    } ?>
+                    </table>
+                </td>
+            </tr>
+        <?php } ?>
+        </table>
+    </div>
+</div>

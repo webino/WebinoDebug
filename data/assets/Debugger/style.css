@@ -4,8 +4,10 @@
     min-width: 260px;
     line-height: 46px;
     margin: 0;
-    padding: 0 8px;
+    padding: 0 8px 0 0;
     white-space: nowrap;
+    font-weight: bold;
+    text-transform: capitalize;
 }
 
 #tracy-debug table {

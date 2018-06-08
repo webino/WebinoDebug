@@ -11,6 +11,8 @@ namespace WebinoDebug\Debugger;
 
 use WebinoDebug\Exception;
 use WebinoDebug\Factory\DebuggerFactory;
+use WebinoDebug\Service\DebuggerAwareInterface;
+use WebinoDebug\Service\DebuggerAwareTrait;
 use Zend\Config\Config;
 use Zend\ServiceManager\ServiceManager;
 
@@ -19,17 +21,15 @@ use Zend\ServiceManager\ServiceManager;
  */
 class ConfigPanel extends AbstractPanel implements
     PanelInterface,
-    PanelInitInterface
+    PanelInitInterface,
+    DebuggerAwareInterface
 {
+    use DebuggerAwareTrait;
+
     /**
      * @var array|Config
      */
     private $config;
-
-    /**
-     * @var DebuggerInterface
-     */
-    private $debugger;
 
     /**
      * @var string
@@ -37,16 +37,11 @@ class ConfigPanel extends AbstractPanel implements
     protected $title = 'Application config';
 
     /**
-     * @var string
-     */
-    protected $content = '';
-
-    /**
      * @param ServiceManager $services
      */
     public function init(ServiceManager $services)
     {
-        $this->setConfig(array_merge(['core' => $services->get('ApplicationConfig')], $services->get('Config')));
+        $this->config = array_merge(['core' => $services->get('ApplicationConfig')], $services->get('Config'));
         $this->setDebugger($services->get(DebuggerFactory::SERVICE));
     }
 
@@ -63,43 +58,11 @@ class ConfigPanel extends AbstractPanel implements
     }
 
     /**
-     * @param array $config
-     * @return $this
-     */
-    public function setConfig(array $config)
-    {
-        $this->config = $config;
-        return $this;
-    }
-
-    /**
-     * @return DebuggerInterface
-     * @throws Exception\LogicException
-     */
-    protected function getDebugger()
-    {
-        if (null === $this->debugger) {
-            throw new Exception\LogicException('Expected `debugger`');
-        }
-        return $this->debugger;
-    }
-
-    /**
-     * @param object|DebuggerInterface $debugger
-     * @return $this
-     */
-    public function setDebugger(DebuggerInterface $debugger)
-    {
-        $this->debugger = $debugger;
-        return $this;
-    }
-
-    /**
      * {@inheritdoc}
      */
     public function getTab()
     {
-        return $this->createIcon('config', 'top: -3px;') . parent::getTab();
+        return $this->createIcon('config', 'top: -3px;');
     }
 
     /**
