@@ -13,6 +13,7 @@ use WebinoDebug\Factory\DebuggerFactory;
 use WebinoDebug\Factory\ModuleOptionsFactory;
 use WebinoDebug\Options\ModuleOptions;
 use WebinoDebug\Service\NullDebugger;
+use Zend\Http\PhpEnvironment\Request;
 use Zend\ModuleManager\Feature;
 use Zend\ModuleManager\ModuleEvent;
 use Zend\ModuleManager\ModuleManagerInterface;
@@ -45,10 +46,8 @@ class Module implements Feature\InitProviderInterface
             return;
         }
 
-        // start session for AJAX exception debug support
-        session_status() === PHP_SESSION_ACTIVE or session_start();
-
         // init debugger
+        $this->sessionStart();
         /** @var Service\Debugger $debugger */
         $debugger = $services->get(DebuggerFactory::SERVICE);
 
@@ -117,5 +116,20 @@ class Module implements Feature\InitProviderInterface
                 empty($templateMap) or $services->get('ViewTemplateMapResolver')->merge($templateMap);
             }
         );
+    }
+
+    /**
+     * Start session for Ajax debug support
+     *
+     * Simplified session start with cookie path support at least.
+     *
+     * @return void
+     */
+    private function sessionStart()
+    {
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_set_cookie_params(0, (new Request)->getBasePath());
+            session_start();
+        }
     }
 }
