@@ -34,7 +34,7 @@ trait DebuggerAwareTrait
     /**
      * Set debugger
      *
-     * @param DebuggerInterface $debugger
+     * @param DebuggerInterface|object $debugger
      * @return void
      */
     public function setDebugger(DebuggerInterface $debugger)
