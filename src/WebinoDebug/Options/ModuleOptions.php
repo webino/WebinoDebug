@@ -29,7 +29,7 @@ class ModuleOptions extends DebuggerOptions
      *
      * @return array
      */
-    public function getTemplateMap() : array
+    public function getTemplateMap()
     {
         if (null === $this->templateMap) {
             $this->setTemplateMap(['error/index' => __DIR__ . '/../../../view/error/index.phtml']);
@@ -54,7 +54,7 @@ class ModuleOptions extends DebuggerOptions
      *
      * @return string
      */
-    public function getPhpErrorLog() : string
+    public function getPhpErrorLog()
     {
         $this->phpErrorLog or $this->phpErrorLog = parent::getLog() . '/php.log';
         return $this->phpErrorLog;

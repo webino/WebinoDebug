@@ -3,14 +3,13 @@
  * Webino (http://webino.sk/)
  *
  * @link        https://github.com/webino/WebinoDebug/ for the canonical source repository
- * @copyright   Copyright (c) 2014-2017 Webino, s. r. o. (http://webino.sk/)
+ * @copyright   Copyright (c) 2014-2018 Webino, s. r. o. (http://webino.sk/)
  * @license     BSD-3-Clause
  */
 
 use Tester\Assert;
 use Tracy\Debugger as Tracy;
 use WebinoDebug\Factory\DebuggerFactory;
-use WebinoDebug\Factory\ModuleOptionsFactory;
 use WebinoDebug\Module;
 use WebinoDebug\Options\ModuleOptions;
 use Zend\EventManager\EventManager;
@@ -42,11 +41,11 @@ $services = $test->getMock(ServiceManager::class);
 
 $event->setParam('ServiceManager', $services);
 
-$modules->expects($test->once())
+$modules->expects($test->any())
     ->method('getEvent')
     ->will($test->returnValue($event));
 
-$modules->expects($test->once())
+$modules->expects($test->any())
     ->method('getEventManager')
     ->will($test->returnValue($events));
 
@@ -65,9 +64,9 @@ $returnDebugger = $test->returnCallback(
 $services->expects($test->exactly(4))
     ->method('get')
     ->withConsecutive(
-        [ModuleOptionsFactory::SERVICE],
+        [ModuleOptions::class],
         [DebuggerFactory::SERVICE],
-        [ModuleOptionsFactory::SERVICE],
+        [ModuleOptions::class],
         ['ViewTemplateMapResolver']
     )
     ->will($test->onConsecutiveCalls(
@@ -77,11 +76,16 @@ $services->expects($test->exactly(4))
         $test->returnValue($templateMapResolver)
     ));
 
-$templateMapResolver->expects($test->once())
+$services->expects($test->once())
+    ->method('create')
+    ->with(ModuleOptions::class)
+    ->will($test->returnValue($options));
+
+$templateMapResolver->expects($test->any())
     ->method('merge')
     ->with($options->getTemplateMap());
 
-$events->expects($test->once())
+$events->expects($test->any())
     ->method('attach')
     ->will($test->returnCallback(function ($eventName, $callback) use ($event, $test) {
 

@@ -121,14 +121,21 @@ class Module implements Feature\InitProviderInterface
     /**
      * Start session for Ajax debug support
      *
-     * Simplified session start with cookie path support at least.
+     * Simplified session start with basic cookie params.
      *
      * @return void
      */
     private function sessionStart()
     {
         if (session_status() !== PHP_SESSION_ACTIVE) {
-            session_set_cookie_params(0, (new Request)->getBasePath());
+            $request = new Request;
+            session_set_cookie_params(
+                0,
+                $request->getBasePath(),
+                null,
+                $request->getUri()->getScheme() === 'https',
+                true
+            );
             session_start();
         }
     }

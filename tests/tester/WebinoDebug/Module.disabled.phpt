@@ -3,13 +3,12 @@
  * Webino (http://webino.sk/)
  *
  * @link        https://github.com/webino/WebinoDebug/ for the canonical source repository
- * @copyright   Copyright (c) 2014-2017 Webino, s. r. o. (http://webino.sk/)
+ * @copyright   Copyright (c) 2014-2018 Webino, s. r. o. (http://webino.sk/)
  * @license     BSD-3-Clause
  */
 
 use Tester\Assert;
 use Tracy\Debugger as Tracy;
-use WebinoDebug\Factory\ModuleOptionsFactory;
 use WebinoDebug\Module;
 use WebinoDebug\Options\ModuleOptions;
 use Zend\EventManager\EventManager;
@@ -36,20 +35,12 @@ $modules->expects($test->once())
     ->method('getEventManager')
     ->will($test->returnValue($events));
 
-$options = $test->getMock(ModuleOptions::class);
-$options->expects($test->any())
-    ->method('isDisabled')
-    ->will($test->returnValue(true));
-
-foreach (['showBar', 'getMode', 'getLog', 'getEmail', 'isStrict',
-          'getMaxDepth', 'getMaxLength', 'getTemplateMap'] as $method
-) {
-    $options->expects($test->never())->method($method);
-}
+$options = new ModuleOptions;
+$options->setEnabled(false);
 
 $services->expects($test->once())
     ->method('get')
-    ->with(ModuleOptionsFactory::SERVICE)
+    ->with(ModuleOptions::class)
     ->will($test->returnValue($options));
 
 $events->expects($test->once())

@@ -3,7 +3,7 @@
  * Webino (http://webino.sk/)
  *
  * @link        https://github.com/webino/WebinoDebug/ for the canonical source repository
- * @copyright   Copyright (c) 2014-2017 Webino, s. r. o. (http://webino.sk/)
+ * @copyright   Copyright (c) 2014-2018 Webino, s. r. o. (http://webino.sk/)
  * @license     BSD-3-Clause
  */
 
@@ -12,10 +12,8 @@ use Tracy\Bar;
 use Tracy\Debugger as Tracy;
 use WebinoDebug\Debugger\Bar\ConfigPanel;
 use WebinoDebug\Factory\DebuggerFactory;
-use WebinoDebug\Factory\ModuleOptionsFactory;
 use WebinoDebug\Module;
 use WebinoDebug\Options\ModuleOptions;
-use WebinoDebug\Service\Debugger;
 use Zend\EventManager\EventManager;
 use Zend\EventManager\SharedEventManager;
 use Zend\ModuleManager\ModuleEvent;
@@ -72,13 +70,14 @@ $returnDebugger = $test->returnCallback(
 );
 
 $templateMapResolver = $test->getMock(TemplateMapResolver::class);
-$services->expects($test->exactly(9))
+$services->expects($test->exactly(10))
     ->method('get')
     ->withConsecutive(
-        [ModuleOptionsFactory::SERVICE],
+        [ModuleOptions::class],
         [DebuggerFactory::SERVICE],
-        [ModuleOptionsFactory::SERVICE],
+        [ModuleOptions::class],
         [DebuggerFactory::SERVICE],
+        [ModuleOptions::class],
         [DebuggerFactory::SERVICE],
         ['ApplicationConfig'],
         ['Config'],
@@ -90,6 +89,7 @@ $services->expects($test->exactly(9))
         $returnDebugger,
         $test->returnValue($options),
         $returnDebugger,
+        $test->returnValue($options),
         $returnDebugger,
         [],
         [],
@@ -97,11 +97,16 @@ $services->expects($test->exactly(9))
         $test->returnValue($templateMapResolver)
     ));
 
+$services->expects($test->once())
+    ->method('create')
+    ->with(ModuleOptions::class)
+    ->will($test->returnValue($options));
+
 $templateMapResolver->expects($test->once())
     ->method('merge')
     ->with($options->getTemplateMap());
 
-$events->expects($test->once())
+$events->expects($test->any())
     ->method('attach')
     ->will($test->returnCallback(function ($eventName, $callback) use ($event, $test) {
 
