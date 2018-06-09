@@ -32,10 +32,10 @@ class DebuggerTimer
     protected $delta;
 
     /**
-     * @param TimerPanel $panel Debugger timer imer panel
+     * @param TimerPanel|null $panel Debugger timer imer panel
      * @param string|null $name Timer name
      */
-    public function __construct(TimerPanel $panel, string $name = null)
+    public function __construct(TimerPanel $panel = null, string $name = null)
     {
         $this->panel = $panel;
         $this->name  = $name ?: md5(uniqid(rand()));
@@ -85,7 +85,7 @@ class DebuggerTimer
     public function stop(string $title = null) : float
     {
         $this->delta = Tracy::timer($this->name);
-        $title and $this->panel->setTimer($title, $this->delta);
+        $this->panel && $title and $this->panel->setTimer($title, $this->delta);
         return $this->delta;
     }
 
