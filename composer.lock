@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "45624d265e4bf07117930cc65cb9e687",
+    "content-hash": "35527b8c8e86034c376c75cf0ea2c8a3",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -88,16 +88,16 @@
         },
         {
             "name": "tracy/tracy",
-            "version": "v2.4.14",
+            "version": "v2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/tracy.git",
-                "reference": "229249212e041bc3cd5d88f65965d9391dad3852"
+                "reference": "534d4e4f0f31da494026a3761fad020c20b8debf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/tracy/zipball/229249212e041bc3cd5d88f65965d9391dad3852",
-                "reference": "229249212e041bc3cd5d88f65965d9391dad3852",
+                "url": "https://api.github.com/repos/nette/tracy/zipball/534d4e4f0f31da494026a3761fad020c20b8debf",
+                "reference": "534d4e4f0f31da494026a3761fad020c20b8debf",
                 "shasum": ""
             },
             "require": {
@@ -115,7 +115,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.4-dev"
+                    "dev-master": "2.5-dev"
                 }
             },
             "autoload": {
@@ -149,27 +149,27 @@
                 "nette",
                 "profiler"
             ],
-            "time": "2018-05-04T11:54:21+00:00"
+            "time": "2018-05-25T09:33:08+00:00"
         },
         {
             "name": "webino/zend-escaper",
-            "version": "2.6.1",
+            "version": "2.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webino/ZendEscaper.git",
-                "reference": "02b6d784d07c608d745fc39ab2772fb3978fb9ee"
+                "reference": "97e26e08e60a55030475b56b17f6de31c8014722"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webino/ZendEscaper/zipball/02b6d784d07c608d745fc39ab2772fb3978fb9ee",
-                "reference": "02b6d784d07c608d745fc39ab2772fb3978fb9ee",
+                "url": "https://api.github.com/repos/webino/ZendEscaper/zipball/97e26e08e60a55030475b56b17f6de31c8014722",
+                "reference": "97e26e08e60a55030475b56b17f6de31c8014722",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1"
             },
             "replace": {
-                "zendframework/zend-escaper": "*"
+                "zendframework/zend-escaper": "self.version"
             },
             "require-dev": {
                 "phpunit/phpunit": "^5.7.27 || ^6.5.8 || ^7.1.2",
@@ -197,7 +197,7 @@
                 "escaper",
                 "zf"
             ],
-            "time": "2018-05-22T14:17:11+00:00"
+            "time": "2018-05-25T09:50:36+00:00"
         },
         {
             "name": "zendframework/zend-config",
@@ -538,54 +538,6 @@
     ],
     "packages-dev": [
         {
-            "name": "bjyoungblood/bjy-profiler",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bjyoungblood/BjyProfiler.git",
-                "reference": "1d05f9b740fd1d8d840686fea257c8c26d3f757b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bjyoungblood/BjyProfiler/zipball/1d05f9b740fd1d8d840686fea257c8c26d3f757b",
-                "reference": "1d05f9b740fd1d8d840686fea257c8c26d3f757b",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3",
-                "zendframework/zend-db": ">=2.1.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "BjyProfiler": "src/"
-                },
-                "classmap": [
-                    "./Module.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Ben Youngblood",
-                    "email": "bx.youngblood@gmail.com",
-                    "homepage": "http://bjyoungblood.com/"
-                }
-            ],
-            "description": "Database profiler for Zend\\Db (also plugin for ZendDeveloperTools)",
-            "homepage": "https://github.com/bjyoungblood/BjyProfiler",
-            "keywords": [
-                "db",
-                "profiler",
-                "zdt",
-                "zf2"
-            ],
-            "time": "2014-09-04T01:22:02+00:00"
-        },
-        {
             "name": "kriswallsmith/assetic",
             "version": "v1.2.1",
             "source": {
@@ -819,7 +771,7 @@
         },
         {
             "name": "symfony/process",
-            "version": "v2.8.40",
+            "version": "v2.8.41",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
@@ -872,18 +824,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/webino/WebinoDev.git",
-                "reference": "fd62f2df6c25f2d1952b005e4737fbae9f2ae506"
+                "reference": "8ccfb36bbfc7b7deff8e2ecb68c74082fb9bbeca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webino/WebinoDev/zipball/fd62f2df6c25f2d1952b005e4737fbae9f2ae506",
-                "reference": "fd62f2df6c25f2d1952b005e4737fbae9f2ae506",
+                "url": "https://api.github.com/repos/webino/WebinoDev/zipball/8ccfb36bbfc7b7deff8e2ecb68c74082fb9bbeca",
+                "reference": "8ccfb36bbfc7b7deff8e2ecb68c74082fb9bbeca",
                 "shasum": ""
             },
             "require": {
-                "bjyoungblood/bjy-profiler": "dev-master",
                 "php": ">=7.1",
-                "rwoverdijk/assetmanager": "1.6.*"
+                "rwoverdijk/assetmanager": "1.6.*",
+                "webino/zend-db-profiler": "1.*"
             },
             "require-dev": {
                 "kriswallsmith/assetic": "1.*",
@@ -947,7 +899,7 @@
                     "role": "Developer"
                 },
                 {
-                    "name": "Peter Bačinský",
+                    "name": "Peter Bacinsky",
                     "email": "peter@bacinsky.sk",
                     "homepage": "http://bacinsky.sk",
                     "role": "Developer"
@@ -961,7 +913,58 @@
                 "webino",
                 "zf2"
             ],
-            "time": "2017-12-02T21:11:57+00:00"
+            "time": "2018-06-09T16:33:41+00:00"
+        },
+        {
+            "name": "webino/zend-db-profiler",
+            "version": "v1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webino/ZendDbProfiler.git",
+                "reference": "19076c8a3065faaacf41c2e3ac8bf94bd514d2ae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webino/ZendDbProfiler/zipball/19076c8a3065faaacf41c2e3ac8bf94bd514d2ae",
+                "reference": "19076c8a3065faaacf41c2e3ac8bf94bd514d2ae",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "zendframework/zend-db": "2.*"
+            },
+            "replace": {
+                "bjyoungblood/bjy-profiler": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "BjyProfiler": "src/"
+                },
+                "classmap": [
+                    "./Module.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ben Youngblood",
+                    "email": "bx.youngblood@gmail.com",
+                    "homepage": "http://bjyoungblood.com/"
+                }
+            ],
+            "description": "Database profiler for Zend\\Db (also plugin for ZendDeveloperTools)",
+            "homepage": "https://github.com/bjyoungblood/BjyProfiler",
+            "keywords": [
+                "db",
+                "profiler",
+                "zdt",
+                "zf2"
+            ],
+            "time": "2018-05-24T17:06:59+00:00"
         },
         {
             "name": "zendframework/zend-code",
@@ -1176,16 +1179,16 @@
         },
         {
             "name": "zendframework/zend-diactoros",
-            "version": "1.7.1",
+            "version": "1.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-diactoros.git",
-                "reference": "bf26aff803a11c5cc8eb7c4878a702c403ec67f1"
+                "reference": "741e7a571836f038de731105f4742ca8a164e43a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/bf26aff803a11c5cc8eb7c4878a702c403ec67f1",
-                "reference": "bf26aff803a11c5cc8eb7c4878a702c403ec67f1",
+                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/741e7a571836f038de731105f4742ca8a164e43a",
+                "reference": "741e7a571836f038de731105f4742ca8a164e43a",
                 "shasum": ""
             },
             "require": {
@@ -1205,7 +1208,8 @@
             "extra": {
                 "branch-alias": {
                     "dev-master": "1.7.x-dev",
-                    "dev-develop": "1.8.x-dev"
+                    "dev-develop": "1.8.x-dev",
+                    "dev-release-2.0": "2.0.x-dev"
                 }
             },
             "autoload": {
@@ -1224,7 +1228,7 @@
                 "psr",
                 "psr-7"
             ],
-            "time": "2018-02-26T15:44:50+00:00"
+            "time": "2018-05-29T16:53:08+00:00"
         },
         {
             "name": "zendframework/zend-filter",
