@@ -77,9 +77,14 @@
     padding: 0;
 }
 
+#tracy-debug-bar li > a,
+#tracy-debug-bar li > span {
+    display: list-item !important;
+}
+
 #tracy-debug-bar a[rel="tracy-debug-panel-WebinoDebug-info"],
 #tracy-debug-bar a[rel="tracy-debug-panel-WebinoDebug-info-ajax"] {
-    display: none;
+    display: none !important;
 }
 
 #tracy-ajax-bar {
