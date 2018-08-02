@@ -100,11 +100,16 @@ class DebuggerOptions extends AbstractOptions
     protected $barNoClose = false;
 
     /**
+     * @var bool
+     */
+    protected $fireLogger = false;
+
+    /**
      * Is debugger enabled?
      *
      * @return bool
      */
-    public function isEnabled() : bool
+    public function isEnabled(): bool
     {
         return $this->enabled;
     }
@@ -126,7 +131,7 @@ class DebuggerOptions extends AbstractOptions
      *
      * @return bool
      */
-    public function isDisabled() : bool
+    public function isDisabled(): bool
     {
         return !$this->enabled;
     }
@@ -140,7 +145,7 @@ class DebuggerOptions extends AbstractOptions
      *
      * @return bool|null
      */
-    public function getMode() : ?bool
+    public function getMode(): ?bool
     {
         return $this->mode;
     }
@@ -162,7 +167,7 @@ class DebuggerOptions extends AbstractOptions
      *
      * @return bool
      */
-    public function showBar() : bool
+    public function hasBar(): bool
     {
         return $this->bar;
     }
@@ -184,7 +189,7 @@ class DebuggerOptions extends AbstractOptions
      *
      * @return array
      */
-    public function getBarPanels() : array
+    public function getBarPanels(): array
     {
         return $this->barPanels;
     }
@@ -204,7 +209,7 @@ class DebuggerOptions extends AbstractOptions
     /**
      * @return array
      */
-    public function getCssFiles() : array
+    public function getCssFiles(): array
     {
         return $this->cssFiles;
     }
@@ -224,7 +229,7 @@ class DebuggerOptions extends AbstractOptions
     /**
      * @return array
      */
-    public function getJsFiles() : array
+    public function getJsFiles(): array
     {
         return $this->jsFiles;
     }
@@ -246,7 +251,7 @@ class DebuggerOptions extends AbstractOptions
      *
      * @return array
      */
-    public function getBarInfo() : array
+    public function getBarInfo(): array
     {
         return $this->barInfo;
     }
@@ -266,7 +271,7 @@ class DebuggerOptions extends AbstractOptions
     /**
      * @return bool
      */
-    public function isStrict() : bool
+    public function isStrict(): bool
     {
         return $this->strict;
     }
@@ -286,7 +291,7 @@ class DebuggerOptions extends AbstractOptions
     /**
      * @return string Empty string to disable, null for default
      */
-    public function getLog() : string
+    public function getLog(): string
     {
         if (null === $this->log) {
             $this->setLog('data/log');
@@ -311,7 +316,7 @@ class DebuggerOptions extends AbstractOptions
      *
      * @return string
      */
-    public function getEmail() : string
+    public function getEmail(): string
     {
         return $this->email;
     }
@@ -331,7 +336,7 @@ class DebuggerOptions extends AbstractOptions
     /**
      * @return int
      */
-    public function getMaxDepth() : int
+    public function getMaxDepth(): int
     {
         return $this->maxDepth;
     }
@@ -351,7 +356,7 @@ class DebuggerOptions extends AbstractOptions
     /**
      * @return int
      */
-    public function getMaxLength() : int
+    public function getMaxLength(): int
     {
         return $this->maxLength;
     }
@@ -373,7 +378,7 @@ class DebuggerOptions extends AbstractOptions
      *
      * @return string
      */
-    public function getBarTitle() : string
+    public function getBarTitle(): string
     {
         return $this->barTitle;
     }
@@ -395,7 +400,7 @@ class DebuggerOptions extends AbstractOptions
      *
      * @return bool
      */
-    public function hasBarNoLogo() : bool
+    public function hasBarNoLogo(): bool
     {
         return $this->barNoLogo;
     }
@@ -417,7 +422,7 @@ class DebuggerOptions extends AbstractOptions
      *
      * @return bool
      */
-    public function hasBarNoClose() : bool
+    public function hasBarNoClose(): bool
     {
         return $this->barNoClose;
     }
@@ -431,6 +436,28 @@ class DebuggerOptions extends AbstractOptions
     public function setBarNoClose($barNoClose = true)
     {
         $this->barNoClose = (bool) $barNoClose;
+        return $this;
+    }
+
+    /**
+     * Is fire logger enabled?
+     *
+     * @return bool
+     */
+    public function hasFireLogger(): bool
+    {
+        return $this->fireLogger;
+    }
+
+    /**
+     * Use fire logger
+     *
+     * @param bool $fireLogger
+     * @return $this
+     */
+    public function setFireLogger($fireLogger = true)
+    {
+        $this->fireLogger = (bool) $fireLogger;
         return $this;
     }
 }

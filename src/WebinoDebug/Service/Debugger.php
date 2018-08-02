@@ -45,19 +45,18 @@ class Debugger implements
      */
     public function __construct($options = null)
     {
-        $_options = ($options instanceof DebuggerOptions)
-            ? $options
-            : new DebuggerOptions((array) $options);
+        $this->options = ($options instanceof DebuggerOptions)
+                       ? $options
+                       : new DebuggerOptions((array) $options);
 
-        $this->options = $_options;
-        if ($_options->isDisabled() || Tracy::isEnabled()) {
+        if ($this->options->isDisabled() || Tracy::isEnabled()) {
             return;
         }
 
-        Tracy::$customCssFiles = $options->getCssFiles();
-        Tracy::$customJsFiles  = $options->getJsFiles();
+        Tracy::$customCssFiles = $this->options->getCssFiles();
+        Tracy::$customJsFiles  = $this->options->getJsFiles();
 
-        $showBar = $_options->showBar();
+        $showBar = $this->options->hasBar();
         if ($showBar) {
 
             $options->hasBarNoLogo()
@@ -67,15 +66,16 @@ class Debugger implements
                 and Tracy::$customCssFiles[] = __DIR__ . '/../../../data/assets/Debugger/no-close.css';
         }
 
-        Tracy::$showBar    = $showBar;
-        Tracy::$strictMode = $_options->isStrict();
-        Tracy::$maxDepth   = $_options->getMaxDepth();
-        Tracy::$maxLength  = $_options->getMaxLength();
+        Tracy::$showBar = $showBar;
+        Tracy::$strictMode = $this->options->isStrict();
+        Tracy::$maxDepth = $this->options->getMaxDepth();
+        Tracy::$maxLength = $this->options->getMaxLength();
+        Tracy::$showFireLogger = $this->options->hasFireLogger();
 
         Tracy::enable(
-            $_options->getMode(),
-            $_options->getLog(),
-            $_options->getEmail()
+            $this->options->getMode(),
+            $this->options->getLog(),
+            $this->options->getEmail()
         );
     }
 

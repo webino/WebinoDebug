@@ -78,7 +78,7 @@ class Module implements Feature\InitProviderInterface
         }
 
         // create bar panels
-        $showBar   = $options->showBar();
+        $showBar   = $options->hasBar();
         $barPanels = $options->getBarPanels();
 
         if ($showBar) {
