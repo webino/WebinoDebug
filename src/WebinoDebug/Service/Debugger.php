@@ -67,7 +67,7 @@ class Debugger implements
         }
 
         Tracy::$showBar = $showBar;
-        Tracy::$strictMode = $this->options->isStrict();
+        Tracy::$strictMode = $this->options->getStrict();
         Tracy::$maxDepth = $this->options->getMaxDepth();
         Tracy::$maxLength = $this->options->getMaxLength();
         Tracy::$showFireLogger = $this->options->hasFireLogger();

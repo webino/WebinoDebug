@@ -65,9 +65,9 @@ class DebuggerOptions extends AbstractOptions
     protected $jsFiles = [__DIR__ . '/../../../data/assets/Debugger/script.js'];
 
     /**
-     * @var bool
+     * @var int
      */
-    protected $strict = true;
+    protected $strict = E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED & ~E_USER_NOTICE;
 
     /**
      * @var string|null
@@ -269,22 +269,24 @@ class DebuggerOptions extends AbstractOptions
     }
 
     /**
-     * @return bool
+     * Error reporting level
+     *
+     * @return int
      */
-    public function isStrict(): bool
+    public function getStrict(): int
     {
         return $this->strict;
     }
 
     /**
-     * Strict errors?
+     * Set error reporting level
      *
-     * @param bool $strict
+     * @param int $strict
      * @return $this
      */
     public function setStrict($strict)
     {
-        $this->strict = (bool) $strict;
+        $this->strict = (int) $strict;
         return $this;
     }
 

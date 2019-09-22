@@ -32,7 +32,7 @@ $options = new DebuggerOptions($cfg);
 Assert::false($options->isEnabled());
 Assert::true($options->getMode());
 Assert::true($options->hasBar());
-Assert::false($options->isStrict());
+Assert::same(0, $options->getStrict());
 Assert::same(realpath($cfg['log']), $options->getLog());
 Assert::same($cfg['email'], $options->getEmail());
 Assert::same($cfg['max_depth'], $options->getMaxDepth());

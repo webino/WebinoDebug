@@ -72,6 +72,8 @@ class IndexController extends AbstractActionController implements
      */
     public function warningAction()
     {
+        trigger_error('qweqw', E_USER_DEPRECATED);
+
         foreach (null as $item) {
 
         }

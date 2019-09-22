@@ -105,7 +105,7 @@ Assert::false(Tracy::$productionMode);
 Assert::same($options->hasBar(), Tracy::$showBar);
 Assert::same($options->getLog(), Tracy::$logDirectory);
 Assert::same($options->getEmail(), Tracy::$email);
-Assert::same($options->isStrict(), Tracy::$strictMode);
+Assert::same($options->getStrict(), Tracy::$strictMode);
 Assert::same($options->getMaxDepth(), Tracy::$maxDepth);
 Assert::same($options->getMaxLength(), Tracy::$maxLength);
 Assert::same($options->hasFireLogger(), Tracy::$showFireLogger);
