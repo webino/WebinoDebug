@@ -67,7 +67,7 @@ class DebuggerOptions extends AbstractOptions
     /**
      * @var bool
      */
-    protected $strict = false;
+    protected $strict = true;
 
     /**
      * @var string|null

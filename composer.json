@@ -28,7 +28,7 @@
         "zendframework/zend-servicemanager": "2.*",
         "zendframework/zend-stdlib": "2.*",
         "webino/zend-escaper": "2.6.*",
-        "tracy/tracy": "2.*"
+        "webino/tracy": "2.*"
     },
     "suggest": {
         "zendframework/zend-version": "Debugger info panel ZF2 version"

@@ -166,7 +166,7 @@ class HomeTest extends AbstractTestCase
         $src = $this->getContents($this->uri . 'application/index/notice');
         $this->assertTracyDebug($src);
         $this->assertContains('Notice', $src);
-        $this->assertContains('Use of undefined constant UNDEFINED_CONSTANT - assumed \'UNDEFINED_CONSTANT\'', $src);
+        $this->assertContains('Use of undefined constant UNDEFINED_CONSTANT - assumed &#039;UNDEFINED_CONSTANT&#039;', $src);
     }
 
     /**
