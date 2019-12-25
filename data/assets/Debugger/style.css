@@ -3,7 +3,7 @@
     z-index: 999;
     min-width: 260px;
     line-height: 46px;
-    margin: 0;
+    margin: -45px 0 0 0;
     padding: 0 8px 0 0;
     white-space: nowrap;
     font-weight: bold;
@@ -18,6 +18,8 @@
     min-width: 340px !important;
     padding-top: 0 !important;
     opacity: 1 !important;
+    border: 10px solid white;
+    border-top-width: 50px;
 }
 
 #tracy-debug .tracy-icons {
@@ -31,8 +33,8 @@
     min-width: inherit;
     height: 46px;
     text-align: right;
-    padding: 10px 32px 0 0;
-    background: white;
+    margin: -43px 0 0 -27px;
+    padding: 0;
 }
 
 #tracy-debug .tracy-icons a {
@@ -45,18 +47,13 @@
 
 #tracy-debug .tracy-inner {
     max-width: 100%;
-    margin-top: 50px;
+    margin-top: 0;
     overflow: visible;
     white-space: nowrap;
 }
 
 #tracy-debug .tracy-mode-peek {
     overflow: auto !important;
-}
-
-#tracy-debug .tracy-mode-peek h1 {
-    width: 100%;
-    background: white;
 }
 
 #tracy-debug .tracy-mode-peek .tracy-inner,
